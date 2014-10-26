@@ -1,0 +1,4 @@
+- hosts: local
+  tasks:
+    - name: Configure user
+      user: name="{{ username }}" state=present shell=/bin/zsh groups=dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,scanner,bluetooth,netdev,staff
