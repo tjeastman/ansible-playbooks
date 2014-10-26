@@ -1,1 +1,5 @@
+[new]
 debian-host ansible_ssh_host=debian-host ansible_ssh_user=debian ansible_ssh_pass=debian ansible_sudo_pass=debian
+
+[local]
+localhost
