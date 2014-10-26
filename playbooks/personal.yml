@@ -12,6 +12,8 @@
     file: src=~/projects/dotfiles/zsh dest=~/.zsh state=link
   - name: Link to zshrc
     file: src=~/projects/dotfiles/zshrc dest=~/.zshrc state=link
+  - name: Link to gitconfig
+    file: src=~/projects/dotfiles/gitconfig dest=~/.gitconfig state=link
   - name: Install rope
     pip: name=rope state=latest extra_args=--user
   - name: Install ropemode
