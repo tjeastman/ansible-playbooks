@@ -20,3 +20,5 @@
     pip: name=ropemode state=latest extra_args=--user
   - name: Install ropemacs
     pip: name=ropemacs state=latest extra_args=--user
+  - name: Build Pymacs
+    command: make chdir=~/.emacs.d/contrib/Pymacs creates=~/.emacs.d/contrib/Pymacs/pymacs.el
