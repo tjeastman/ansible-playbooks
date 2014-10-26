@@ -15,3 +15,7 @@
   pip: name=ropemode state=latest extra_args=--user
 - name: Install ropemacs
   pip: name=ropemacs state=latest extra_args=--user
+- name: Link to gitconfig
+  file: src=~/projects/dotfiles/gitconfig dest=~/.gitconfig state=link
+- name: Install gitconfig.user
+  template: src=gitconfig.user dest=~/.gitconfig.user
