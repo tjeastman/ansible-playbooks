@@ -1,0 +1,5 @@
+- hosts: new
+  tasks:
+  - name: Change hostname
+    hostname:
+      name={{ hostname }}
