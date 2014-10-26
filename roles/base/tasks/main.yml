@@ -59,3 +59,5 @@
   apt: name=gnuplot update_cache=no state=latest
 - name: Install gnuplot-doc
   apt: name=gnuplot-doc update_cache=no state=latest
+- name: Install curl
+  apt: name=curl update_cache=no state=latest
