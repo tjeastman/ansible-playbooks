@@ -3,3 +3,5 @@
   apt: update_cache=yes
 - name: Install Java
   apt: name=openjdk-7-jdk update_cache=no state=latest
+- name: Download Hadoop
+  get_url: url={{ hadoop_url }} dest=/tmp
