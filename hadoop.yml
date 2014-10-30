@@ -1,4 +1,6 @@
 ---
 - hosts: hadoop
   roles:
-    - hadoop
+    - { role: base, sudo: yes }
+    - { role: hadoop, sudo: yes }
+    - { role: personal }
