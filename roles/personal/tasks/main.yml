@@ -15,6 +15,10 @@
   file: src=~/projects/dotfiles/gitconfig dest=~/.gitconfig state=link
 - name: Install gitconfig.user
   template: src=gitconfig.user dest=~/.gitconfig.user
+- name: Link to screenrc
+  file: src=~/projects/dotfiles/screenrc dest=~/.screenrc state=link
+- name: Link to octaverc
+  file: src=~/projects/dotfiles/octaverc dest=~/.octaverc state=link
 - name: Install rope
   pip: name=rope state=latest extra_args=--user
 - name: Install ropemode
