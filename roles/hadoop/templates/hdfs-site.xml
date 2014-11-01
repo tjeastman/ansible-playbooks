@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>{{ hdfs_replication }}</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file://{{ hdfs_data_directory }}</value>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>{{ hadoop_name_directory }}</value>
+    </property>
+    <property>
+        <name>dfs.hosts</name>
+        <value>/datanodes.txt</value>
+    </property>
+    <property>
+        <name>dfs.blocksize</name>
+        <value>{{ hdfs_blocksize }}</value>
+    </property>
+</configuration>

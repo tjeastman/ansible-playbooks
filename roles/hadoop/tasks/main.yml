@@ -3,5 +3,28 @@
   apt: update_cache=yes
 - name: Install Java
   apt: name=openjdk-7-jdk update_cache=no state=latest
-- name: Download Hadoop
-  get_url: url={{ hadoop_url }} dest=/tmp
+- name: Copy Hadoop
+  unarchive: copy=yes src=download/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_install_prefix }}
+- name: Setup Hadoop directory
+  file: dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }} state=directory owner=root group=staff recurse=yes
+- name: Make Hadoop directory writable
+  file: dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }} state=directory mode=775
+- name: Link to Hadoop directory
+  file: src={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }} dest={{ hadoop_install_prefix }}/hadoop state=link
+- name: Create HDFS data directory
+  file: dest={{ hdfs_data_directory }} state=directory owner=debian group=staff mode=755
+- name: Create Resource Manager directory
+  file: dest=/mr state=directory owner=debian group=staff mode=755
+- name: Configure Hadoop
+  template: src={{ item }} dest={{ hadoop_install_prefix }}/hadoop/etc/hadoop
+  with_items:
+    - core-site.xml
+    - hdfs-site.xml
+    - mapred-site.xml
+    - yarn-site.xml
+    - hadoop-env.sh
+    - yarn-env.sh
+- name: Create HDFS directory
+  file: dest={{ hadoop_name_directory }} state=directory owner=root group=staff mode=775
+- name: Copy data node list
+  template: src=datanodes.txt dest=/
