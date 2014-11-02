@@ -3,11 +3,11 @@
 <configuration>
   <property>
     <name>hbase.tmp.dir</name>
-    <value>{{ hbase_temporary_dir }}</value>
+    <value>{{ hbase_temporary_directory }}</value>
   </property>
   <property>
     <name>hbase.rootdir</name>
-    <value>{{ hbase_root_dir }}</value>
+    <value>{{ hbase_root_directory }}</value>
   </property>
   <property>
     <name>hbase.cluster.distributed</name>
@@ -15,7 +15,7 @@
   </property>
   <property>
     <name>hbase.zookeeper.property.dataDir</name>
-    <value>{{ hbase_zookeeper_dir }}</value>
+    <value>{{ hbase_zookeeper_directory }}</value>
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>

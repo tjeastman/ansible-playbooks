@@ -7,11 +7,11 @@
   </property>
   <property>
     <name>yarn.resourcemanager.nodes.include-path</name>
-    <value>/{{ hadoop_datanode_file }}</value>
+    <value>{{ hadoop_config_directory }}/{{ hadoop_datanode_file }}</value>
   </property>
   <property>
     <name>yarn.nodemanager.local-dirs</name>
-    <value>/mr</value>
+    <value>{{ hadoop_resource_manager_directory }}</value>
   </property>
   <property>
     <name>yarn.nodemanager.aux-services</name>

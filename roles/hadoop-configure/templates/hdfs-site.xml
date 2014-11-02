@@ -15,7 +15,7 @@
     </property>
     <property>
         <name>dfs.hosts</name>
-        <value>/datanodes.txt</value>
+        <value>{{ hadoop_config_directory }}/{{ hadoop_datanode_file }}</value>
     </property>
     <property>
         <name>dfs.blocksize</name>

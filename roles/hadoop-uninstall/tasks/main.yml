@@ -8,6 +8,8 @@
 - name: Remove HDFS master node name directory
   file: dest={{ hadoop_name_directory }} state=absent
 - name: Remove Hadoop data node file
-  file: dest=/{{ hadoop_datanode_file }} state=absent
+  file: dest={{ hadoop_config_directory }}/{{ hadoop_datanode_file }} state=absent
 - name: Remove Hadoop directory
   file: dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }} state=absent
+- name: Remove Hadoop base data directory
+  file: dest={{ hadoop_data_directory }} state=absent

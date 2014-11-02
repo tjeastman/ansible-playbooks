@@ -1,6 +1,6 @@
 ---
 - name: Configure Hadoop cluster nodes
-  template: src={{ item }} dest={{ hadoop_install_prefix }}/hadoop/etc/hadoop
+  template: src={{ item }} dest={{ hadoop_config_directory }}
   with_items:
     - core-site.xml
     - hdfs-site.xml
@@ -9,4 +9,4 @@
     - hadoop-env.sh
     - yarn-env.sh
 - name: Copy Hadoop data node file
-  copy: src={{ hadoop_datanode_file }} dest=/
+  copy: src={{ hadoop_datanode_file }} dest={{ hadoop_config_directory }}
