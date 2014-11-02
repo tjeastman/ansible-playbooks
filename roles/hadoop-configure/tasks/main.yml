@@ -9,4 +9,4 @@
     - hadoop-env.sh
     - yarn-env.sh
 - name: Copy Hadoop data node file
-  template: src={{ hadoop_datanode_file }} dest=/
+  copy: src={{ hadoop_datanode_file }} dest=/
