@@ -1,9 +1,0 @@
----
-hadoop_install_prefix: /usr/local
-hadoop_name_node: hname
-hadoop_name_directory: /hname
-hadoop_datanode_file: datanodes.txt
-hdfs_data_directory: /hdfs
-hdfs_replication: 3
-hdfs_blocksize: 67108864
-java_home: /usr/lib/jvm/java-7-openjdk-amd64

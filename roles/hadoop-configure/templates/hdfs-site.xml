@@ -3,11 +3,11 @@
 <configuration>
     <property>
         <name>dfs.replication</name>
-        <value>{{ hdfs_replication }}</value>
+        <value>{{ hadoop_dfs_replication }}</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-        <value>file://{{ hdfs_data_directory }}</value>
+        <value>file://{{ hadoop_dfs_data_directory }}</value>
     </property>
     <property>
         <name>dfs.namenode.name.dir</name>
@@ -19,6 +19,6 @@
     </property>
     <property>
         <name>dfs.blocksize</name>
-        <value>{{ hdfs_blocksize }}</value>
+        <value>{{ hadoop_dfs_blocksize }}</value>
     </property>
 </configuration>
