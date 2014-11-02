@@ -1,63 +1,36 @@
 ---
 - name: Update apt cache
   apt: update_cache=yes
-- name: Install git
-  apt: name=git update_cache=no state=latest
-- name: Install git-man
-  apt: name=git-man update_cache=no state=latest
-- name: Install emacs
-  apt: name=emacs update_cache=no state=latest
-- name: Install zsh
-  apt: name=zsh update_cache=no state=latest
-- name: Install pip
-  apt: name=python-pip update_cache=no state=latest
-- name: Install autojump
-  apt: name=autojump update_cache=no state=latest
-- name: Install ack-grep
-  apt: name=ack-grep update_cache=no state=latest
-- name: Install unzip
-  apt: name=unzip update_cache=no state=latest
-- name: Install htop
-  apt: name=htop update_cache=no state=latest
-- name: Install wipe
-  apt: name=wipe update_cache=no state=latest
-- name: Install minicom
-  apt: name=minicom update_cache=no state=latest
-- name: Install screen
-  apt: name=screen update_cache=no state=latest
-- name: Install texlive-latex-base
-  apt: name=texlive-latex-base update_cache=no state=latest
-- name: Install texlive-latex-base-doc
-  apt: name=texlive-latex-base-doc update_cache=no state=latest
-- name: Install texlive-latex-recommended
-  apt: name=texlive-latex-recommended update_cache=no state=latest
-- name: Install texlive-latex-recommended-doc
-  apt: name=texlive-latex-recommended-doc update_cache=no state=latest
-- name: Install python-numpy
-  apt: name=python-numpy update_cache=no state=latest
-- name: Install python-numpy-doc
-  apt: name=python-numpy-doc update_cache=no state=latest
-- name: Install python-scipy
-  apt: name=python-scipy update_cache=no state=latest
-- name: Install python-scipy-doc
-  apt: name=python-scipy-doc update_cache=no state=latest
-- name: Install python-pandas
-  apt: name=python-pandas update_cache=no state=latest
-- name: Install python-tables
-  apt: name=python-tables update_cache=no state=latest
-- name: Install python-sklearn
-  apt: name=python-sklearn update_cache=no state=latest
-- name: Install python-sklearn-doc
-  apt: name=python-sklearn-doc update_cache=no state=latest
-- name: Install python-numexpr
-  apt: name=python-numexpr update_cache=no state=latest
-- name: Install python-matplotlib
-  apt: name=python-matplotlib update_cache=no state=latest
-- name: Install python-matplotlib-doc
-  apt: name=python-matplotlib-doc update_cache=no state=latest
-- name: Install gnuplot
-  apt: name=gnuplot update_cache=no state=latest
-- name: Install gnuplot-doc
-  apt: name=gnuplot-doc update_cache=no state=latest
-- name: Install curl
-  apt: name=curl update_cache=no state=latest
+- name: Install packages
+  apt: name={{ item }} update_cache=no state=latest
+  with_items:
+    - git
+    - git-man
+    - emacs
+    - zsh
+    - screen
+    - curl
+    - autojump
+    - ack-grep
+    - unzip
+    - python-pip
+    - htop
+    - wipe
+    - minicom
+    - texlive-latex-base
+    - texlive-latex-base-doc
+    - texlive-latex-recommended
+    - texlive-latex-recommended-doc
+    - python-numpy
+    - python-numpy-doc
+    - python-scipy
+    - python-scipy-doc
+    - python-pandas
+    - python-tables
+    - python-sklearn
+    - python-sklearn-doc
+    - python-numexpr
+    - python-matplotlib
+    - python-matplotlib-doc
+    - gnuplot
+    - gnuplot-doc
