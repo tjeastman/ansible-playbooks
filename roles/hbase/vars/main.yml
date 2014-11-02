@@ -1,0 +1,7 @@
+---
+hbase_version: 0.96.2
+java_home: /usr/lib/jvm/java-7-openjdk-amd64
+hbase_temporary_dir: /hbase_tmp
+hbase_root_dir: hdfs://hname:9000/hbase
+hbase_zookeeper_dir: /hbase_zookeeper
+hbase_install_prefix: /usr/local
