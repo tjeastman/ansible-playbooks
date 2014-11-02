@@ -1,0 +1,4 @@
+---
+- hosts: hadoop-cluster
+  roles:
+    - { role: hadoop-uninstall, sudo: yes }
