@@ -1,0 +1,8 @@
+---
+hadoop_version: 2.5.1
+hadoop_user: debian
+hadoop_group: staff
+hadoop_install_prefix: /usr/local
+hadoop_name_directory: /hname
+hadoop_dfs_data_directory: /hdfs
+hadoop_resource_manager_directory: /mr
