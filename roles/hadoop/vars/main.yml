@@ -3,7 +3,7 @@ hadoop_install_prefix: /usr/local
 hadoop_version: 2.5.1
 hadoop_name_node: hname
 hdfs_data_directory: /hdfs
-hdfs_replication: 1
+hdfs_replication: 3
 hdfs_blocksize: 67108864
 java_home: /usr/lib/jvm/java-7-openjdk-amd64
 hadoop_name_directory: /hname
