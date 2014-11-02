@@ -1,5 +1,5 @@
 ---
-- hosts: hadoop
+- hosts: hadoop-cluster
   roles:
     - { role: base, sudo: yes }
     - { role: hadoop-install, sudo: yes }
