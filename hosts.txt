@@ -4,7 +4,7 @@ debian-host ansible_ssh_host=debian-host ansible_ssh_user=debian ansible_ssh_pas
 [local]
 localhost
 
-[hadoop]
+[hadoop-cluster]
 hname ansible_sudo_pass=debian
 hresource ansible_sudo_pass=debian
 hdata1 ansible_sudo_pass=debian
