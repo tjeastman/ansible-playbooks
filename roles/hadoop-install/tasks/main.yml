@@ -1,8 +1,4 @@
 ---
-- name: Update Apt cache
-  apt: update_cache=yes
-- name: Install Java
-  apt: name=openjdk-7-jdk update_cache=no state=latest
 - name: Unpack Hadoop tarball
   unarchive: copy=yes src=download/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_install_prefix }}
 - name: Set owner and group of unpacked Hadoop files

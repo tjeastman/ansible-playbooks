@@ -10,4 +10,3 @@ hadoop_dfs_data_directory: /hdfs
 hadoop_dfs_replication: 2
 hadoop_dfs_blocksize: 16777216
 hadoop_resource_manager_directory: /mr
-java_home: /usr/lib/jvm/java-7-openjdk-amd64
