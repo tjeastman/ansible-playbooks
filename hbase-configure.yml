@@ -1,0 +1,4 @@
+---
+- hosts: hadoop
+  roles:
+    - { role: hbase-configure, sudo: yes }

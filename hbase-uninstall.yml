@@ -1,0 +1,4 @@
+---
+- hosts: hadoop
+  roles:
+    - { role: hbase-uninstall, sudo: yes }

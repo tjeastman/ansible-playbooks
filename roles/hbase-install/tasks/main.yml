@@ -1,8 +1,4 @@
 ---
-- name: Update apt cache
-  apt: update_cache=yes
-- name: Install Java
-  apt: name=openjdk-7-jdk update_cache=no state=latest
 - name: Copy HBase
   unarchive: copy=yes src=download/hbase-{{ hbase_version }}-hadoop2-bin.tar.gz dest={{ hbase_install_prefix }}
 - name: Setup HBase directory
@@ -11,12 +7,6 @@
   file: dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 state=directory mode=775
 - name: Link to HBase directory
   file: src={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 dest={{ hbase_install_prefix }}/hbase state=link
-- name: Configure HBase
-  template: src={{ item }} dest={{ hbase_install_prefix }}/hbase/conf
-  with_items:
-    - hbase-env.sh
-    - hbase-site.xml
-    - regionservers
 - name: Create HBase temporary directory
   file: dest={{ hbase_temporary_dir }} state=directory owner=debian group=staff mode=755
 - name: Create zookeeper directory

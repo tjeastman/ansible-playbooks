@@ -1,0 +1,7 @@
+---
+- name: Configure HBase
+  template: src={{ item }} dest={{ hbase_install_prefix }}/hbase/conf
+  with_items:
+    - hbase-env.sh
+    - hbase-site.xml
+    - regionservers
