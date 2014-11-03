@@ -11,7 +11,7 @@
     </property>
     <property>
         <name>dfs.namenode.name.dir</name>
-        <value>{{ hadoop_name_directory }}</value>
+        <value>file://{{ hadoop_name_directory }}</value>
     </property>
     <property>
         <name>dfs.hosts</name>
