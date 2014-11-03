@@ -1,21 +1,20 @@
 ---
-# - name: Unpack Hadoop tarball
-#   unarchive: copy=yes src=download/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_install_prefix }}
-# - name: Set owner and group of unpacked Hadoop files
-#   file: dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }} state=directory owner=root group={{ hadoop_group }} recurse=yes
-# - name: Make Hadoop directory group writable
-#   file: dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }} state=directory mode=775
-# - name: Link to Hadoop directory
-#   file: src={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }} dest={{ hadoop_install_prefix }}/hadoop state=link
-# - name: Create HDFS data directory
-#   file: dest={{ hadoop_dfs_data_directory }} state=directory owner={{ hadoop_user }} group={{ hadoop_group }} mode=755
-# - name: Create Resource Manager directory
-#   file: dest={{ hadoop_resource_manager_directory }} state=directory owner={{ hadoop_user }} group={{ hadoop_group }} mode=755
-# - name: Create HDFS master node name directory
-#   file: dest={{ hadoop_name_directory }} state=directory owner=root group={{ hadoop_group }} mode=775
 - name: Unpack Spark tarball
-  unarchive: copy=yes src=download/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }}.tgz dest={{ spark_install_prefix }}
+  unarchive:
+    copy=yes
+    src=download/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }}.tgz
+    dest={{ spark_install_prefix }}
+
 - name: Set owner and group of unpacked Spark files
-  file: dest={{ spark_install_prefix }}/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }} state=directory owner=root group={{ spark_group }} recurse=yes
+  file:
+    dest={{ spark_install_prefix }}/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }}
+    state=directory
+    owner=root
+    group={{ spark_group }}
+    recurse=yes
+
 - name: Link to Spark directory
-  file: src={{ spark_install_prefix }}/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }} dest={{ spark_install_prefix }}/spark state=link
+  file:
+    src={{ spark_install_prefix }}/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }}
+    dest={{ spark_install_prefix }}/spark
+    state=link
