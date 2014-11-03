@@ -2,4 +2,6 @@
 hadoop_version: 2.4
 spark_version: 1.1.0
 spark_install_prefix: /usr/local
+spark_config_directory: /usr/local/spark/conf
+spark_slave_node_file: slaves
 spark_group: staff
