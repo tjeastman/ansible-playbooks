@@ -11,4 +11,4 @@ hadoop_name_directory: /hadoop/name
 hadoop_resource_manager_directory: /hadoop/resource
 hadoop_dfs_data_directory: /hadoop/dfs
 hadoop_dfs_replication: 2
-hadoop_dfs_blocksize: 16777216
+hadoop_dfs_blocksize: 33554432
