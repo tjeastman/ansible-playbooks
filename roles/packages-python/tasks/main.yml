@@ -1,0 +1,18 @@
+---
+- name: Update apt cache
+  apt: update_cache=yes
+- name: Install Python packages
+  apt: name={{ item }} update_cache=no state=latest
+  with_items:
+    - python-pip
+    - python-numpy
+    - python-numpy-doc
+    - python-scipy
+    - python-scipy-doc
+    - python-pandas
+    - python-tables
+    - python-sklearn
+    - python-sklearn-doc
+    - python-numexpr
+    - python-matplotlib
+    - python-matplotlib-doc
