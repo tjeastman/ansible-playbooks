@@ -1,4 +1,5 @@
 ---
+java_home: /usr/lib/jvm/java-7-openjdk-amd64
 hadoop_version: 2.5.1
 hadoop_user: debian
 hadoop_group: staff
