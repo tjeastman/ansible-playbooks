@@ -16,3 +16,4 @@
     - python-numexpr
     - python-matplotlib
     - python-matplotlib-doc
+    - python-virtualenv
