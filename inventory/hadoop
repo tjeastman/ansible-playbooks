@@ -1,0 +1,6 @@
+[hadoop-cluster]
+hname ansible_sudo_pass=debian
+hresource ansible_sudo_pass=debian
+hdata1 ansible_sudo_pass=debian
+hdata2 ansible_sudo_pass=debian
+hdata3 ansible_sudo_pass=debian
