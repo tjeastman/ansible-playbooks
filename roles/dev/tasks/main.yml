@@ -7,8 +7,6 @@
   apt: name=gcc-avr update_cache=no state=latest
 - name: Install avr-libc
   apt: name=avr-libc update_cache=no state=latest
-- name: Install liboctave-dev
-  apt: name=liboctave-dev update_cache=no state=latest
 - name: Install openjdk-7-jdk
   apt: name=openjdk-7-jdk update_cache=no state=latest
 - name: Install nasm
