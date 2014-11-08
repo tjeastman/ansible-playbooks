@@ -3,6 +3,7 @@
   roles:
     - packages-base
     - desktop
-    - packages
+    - packages-python
+    - packages-tex
     - package-chrome
     - dev
