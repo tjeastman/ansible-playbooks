@@ -1,7 +1,7 @@
 ---
 - hosts: local
   roles:
-    - base
+    - packages-base
     - desktop
     - packages
     - chrome
