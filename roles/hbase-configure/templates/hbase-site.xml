@@ -19,6 +19,6 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>hdata1,hdata2,hdata3</value>
+    <value>hname</value>
   </property>
 </configuration>
