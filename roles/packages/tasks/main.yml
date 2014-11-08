@@ -1,7 +1,0 @@
----
-- name: Update apt cache
-  apt: update_cache=yes
-- name: Install octave
-  apt: name=octave update_cache=no state=latest
-- name: Install octave-statistics
-  apt: name=octave-statistics update_cache=no state=latest
