@@ -1,0 +1,10 @@
+---
+- name: Update apt cache
+  apt: update_cache=yes
+- name: Install packages
+  apt: name={{ item }} update_cache=no state=latest
+  with_items:
+    - texlive-latex-base
+    - texlive-latex-base-doc
+    - texlive-latex-recommended
+    - texlive-latex-recommended-doc

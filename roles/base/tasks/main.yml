@@ -16,9 +16,5 @@
     - htop
     - wipe
     - minicom
-    - texlive-latex-base
-    - texlive-latex-base-doc
-    - texlive-latex-recommended
-    - texlive-latex-recommended-doc
     - gnuplot
     - gnuplot-doc
