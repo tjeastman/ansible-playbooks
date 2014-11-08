@@ -1,27 +1,18 @@
 ---
 - name: Update apt cache
   apt: update_cache=yes
-- name: Install fonts-inconsolata
-  apt: name=fonts-inconsolata update_cache=no state=latest
-- name: Install gimp
-  apt: name=gimp update_cache=no state=latest
-- name: Install audacity
-  apt: name=audacity update_cache=no state=latest
-- name: Install inkscape
-  apt: name=inkscape update_cache=no state=latest
-- name: Install virtualbox
-  apt: name=virtualbox update_cache=no state=latest
-- name: Install vagrant
-  apt: name=vagrant update_cache=no state=latest
-- name: Install freecad
-  apt: name=freecad update_cache=no state=latest
-- name: Install ipython-qtconsole
-  apt: name=ipython-qtconsole update_cache=no state=latest
-- name: Install kicad
-  apt: name=kicad update_cache=no state=latest
-- name: Install openscad
-  apt: name=openscad update_cache=no state=latest
-- name: Install vlc
-  apt: name=vlc update_cache=no state=latest
-- name: Install gnucash
-  apt: name=gnucash update_cache=no state=latest
+- name: Install packages
+  apt: name={{ item }} update_cache=no state=latest
+  with_items:
+    - fonts-inconsolata
+    - gimp
+    - audacity
+    - inkscape
+    - virtualbox
+    - vagrant
+    - freecad
+    - ipython-qtconsole
+    - kicad
+    - openscad
+    - vlc
+    - gnucash
