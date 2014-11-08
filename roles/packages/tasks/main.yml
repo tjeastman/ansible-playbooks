@@ -5,7 +5,3 @@
   apt: name=octave update_cache=no state=latest
 - name: Install octave-statistics
   apt: name=octave-statistics update_cache=no state=latest
-- name: Install ipython
-  apt: name=ipython update_cache=no state=latest
-- name: Install ipython-notebook
-  apt: name=ipython-notebook update_cache=no state=latest

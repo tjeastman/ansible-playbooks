@@ -17,3 +17,5 @@
     - python-matplotlib
     - python-matplotlib-doc
     - python-virtualenv
+    - ipython
+    - ipython-notebook
