@@ -4,5 +4,5 @@
     - packages-base
     - desktop
     - packages
-    - chrome
+    - package-chrome
     - dev
