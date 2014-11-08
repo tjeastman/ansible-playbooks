@@ -15,5 +15,3 @@
   apt: name=nasm update_cache=no state=latest
 - name: Install simple-cdd
   apt: name=simple-cdd update_cache=no state=latest
-- name: Install liboctave-dev
-  apt: name=liboctave-dev update_cache=no state=latest
