@@ -6,4 +6,5 @@
     - packages-python
     - packages-tex
     - package-chrome
+    - package-java
     - dev
