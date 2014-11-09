@@ -2,7 +2,7 @@
 - hosts: local
   roles:
     - packages-base
-    - desktop
+    - packages-desktop
     - packages-python
     - packages-tex
     - package-chrome
