@@ -10,3 +10,4 @@
     - openjdk-7-jdk
     - nasm
     - simple-cdd
+    - libusb-dev
