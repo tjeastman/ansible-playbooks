@@ -17,5 +17,6 @@
     - python-matplotlib
     - python-matplotlib-doc
     - python-virtualenv
+    - python-usb
     - ipython
     - ipython-notebook
