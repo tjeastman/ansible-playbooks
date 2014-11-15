@@ -4,6 +4,9 @@
 - name: Install Python packages
   apt: name={{ item }} update_cache=no state=latest
   with_items:
+    - pyflakes
+    - pylint
+    - python-flake8
     - python-pip
     - python-numpy
     - python-numpy-doc
