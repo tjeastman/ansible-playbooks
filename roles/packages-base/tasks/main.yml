@@ -20,3 +20,6 @@
     - gnuplot
     - gnuplot-doc
     - iptables
+    - uuid-runtime
+    - rfkill
+    - ntp
