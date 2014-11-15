@@ -19,3 +19,4 @@
     - minicom
     - gnuplot
     - gnuplot-doc
+    - iptables
