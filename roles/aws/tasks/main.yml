@@ -1,0 +1,10 @@
+---
+- name: Launch an EC2 instance
+  ec2:
+    key_name: primary
+    instance_type: t2.micro
+    image: ami-b5a7ea85
+    wait: yes
+    count: 1
+    group: default
+    region: us-west-2
