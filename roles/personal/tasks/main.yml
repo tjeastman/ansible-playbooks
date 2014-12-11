@@ -35,3 +35,5 @@
   args:
     chdir: ~/.emacs.d/contrib/Pymacs
     creates: ~/.local/lib/python2.7/site-packages/Pymacs.pyc
+- name: Install virtualenvwrapper
+  pip: name=virtualenvwrapper state=latest extra_args=--user
