@@ -8,3 +8,5 @@
     count: 1
     group: default
     region: us-west-2
+    instance_tags:
+      type: test
