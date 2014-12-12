@@ -3,3 +3,7 @@
   connection: local
   roles:
     - aws
+- hosts: launched
+  sudo: yes
+  roles:
+    - aws_config
