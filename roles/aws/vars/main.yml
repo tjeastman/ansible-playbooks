@@ -1,0 +1,7 @@
+---
+image_id: ami-b5a7ea85
+instance_type: t2.micro
+region_id: us-west-2
+key_name: primary
+group_name: default
+host_type: test
