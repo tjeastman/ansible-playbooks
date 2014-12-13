@@ -4,6 +4,7 @@
   roles:
     - aws
 - hosts: launched
+  user: ubuntu
   sudo: yes
   roles:
     - aws_config
