@@ -1,5 +1,5 @@
 ---
-image_id: ami-b5a7ea85
+image_id: ami-3d50120d
 instance_type: t2.micro
 region_id: us-west-2
 key_name: primary
