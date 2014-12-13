@@ -2,6 +2,6 @@
 - name: Install zsh package
   apt: name=zsh update_cache=no state=present
 - name: Add user
-  user: name={{ username }} state=present shell=/bin/zsh
+  user: name={{ username }} state=present shell=/bin/zsh groups=adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev
 - name: Add key for user
   authorized_key: user={{ username }} key="{{ lookup('file', pubkeyfile) }}" state=present
