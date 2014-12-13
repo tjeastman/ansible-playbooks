@@ -1,3 +1,5 @@
 ---
 - name: Add user
   user: name={{ username }} state=present shell=/bin/bash
+- name: Add key for user
+  authorized_key: user={{ username }} key="{{ lookup('file', pubkeyfile) }}" state=present
