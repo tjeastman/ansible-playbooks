@@ -7,7 +7,6 @@
     - pyflakes
     - pylint
     - python-flake8
-    - python-pip
     - python-numpy
     - python-numpy-doc
     - python-scipy
