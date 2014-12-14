@@ -1,8 +1,8 @@
 ---
 - name: Unpack Hadoop tarball
   unarchive:
-    copy=yes
-    src=download/hadoop-{{ hadoop_version }}.tar.gz
+    copy=no
+    src=/data/hadoop-{{ hadoop_version }}.tar.bz2
     dest={{ hadoop_install_prefix }}
 
 - name: Set owner and group of unpacked Hadoop files
