@@ -1,6 +1,6 @@
 ---
 hadoop_version: 2.5.1
-hadoop_user: debian
+hadoop_user: "{{ username }}"
 hadoop_group: staff
 hadoop_install_prefix: /usr/local
 hadoop_config_directory: /usr/local/hadoop/etc/hadoop
