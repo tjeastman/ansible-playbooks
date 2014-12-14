@@ -7,6 +7,8 @@
   git: repo=https://github.com/tjeastman/emacs.d.git dest=~/projects/emacs.d
 - name: Link to emacs.d
   file: src=~/projects/emacs.d dest=~/.emacs.d state=link
+- name: Create emacs state directory
+  file: path=~/.emacs.d/state state=directory
 - name: Link to zsh
   file: src=~/projects/dotfiles/zsh dest=~/.zsh state=link
 - name: Link to zshrc
