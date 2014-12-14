@@ -1,5 +1,5 @@
 ---
-- name: Remove link to Spark directory
+- name: remove link to Spark directory
   file: dest={{ spark_install_prefix }}/spark state=absent
-- name: Remove Spark directory
+- name: remove Spark directory
   file: dest={{ spark_install_prefix }}/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }} state=absent

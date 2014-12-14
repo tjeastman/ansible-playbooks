@@ -1,11 +1,11 @@
 ---
-- name: Unpack Spark tarball
+- name: unpack Spark tarball
   unarchive:
     copy=no
     src=/data/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }}.tar.bz2
     dest={{ spark_install_prefix }}
 
-- name: Set owner and group of unpacked Spark files
+- name: set owner and group of unpacked Spark files
   file:
     dest={{ spark_install_prefix }}/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }}
     state=directory
@@ -13,7 +13,7 @@
     group={{ spark_group }}
     recurse=yes
 
-- name: Link to Spark directory
+- name: link to Spark directory
   file:
     src={{ spark_install_prefix }}/spark-{{ spark_version }}-bin-hadoop{{ hadoop_version }}
     dest={{ spark_install_prefix }}/spark
