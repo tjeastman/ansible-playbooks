@@ -5,3 +5,5 @@
   user: name={{ username }} state=present shell=/bin/zsh groups=adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev
 - name: Add key for user
   authorized_key: user={{ username }} key="{{ lookup('file', pubkeyfile) }}" state=present
+- name: Mount shared filesystem
+  mount: name=/mnt src=/dev/xvdf1 fstype=ext4 state=mounted
