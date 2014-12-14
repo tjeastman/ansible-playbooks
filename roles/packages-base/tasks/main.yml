@@ -8,18 +8,18 @@
     - git-man
     - emacs
     - zsh
-    - zsh-doc
-    - screen
-    - curl
-    - autojump
-    - ack-grep
-    - unzip
-    - htop
-    - wipe
-    - minicom
-    - gnuplot
-    - gnuplot-doc
-    - iptables
-    - uuid-runtime
-    - rfkill
-    - ntp
+#    - zsh-doc
+#    - screen
+#    - curl
+#    - autojump
+#    - ack-grep
+#    - unzip
+#    - htop
+#    - wipe
+#    - minicom
+#    - gnuplot
+#    - gnuplot-doc
+#    - iptables
+#    - uuid-runtime
+#    - rfkill
+#    - ntp
