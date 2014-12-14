@@ -10,6 +10,9 @@
     group: "{{ group_name }}"
     instance_tags:
       type: "{{ host_type }}"
+    volumes:
+      - device_name: /dev/sdf
+        snapshot: snap-67d82ce8
   register: ec2
 - name: Add instance DNS names to a host group
   local_action: add_host hostname={{ item.public_dns_name }} groupname=launched
