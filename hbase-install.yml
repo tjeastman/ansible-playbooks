@@ -1,4 +1,5 @@
 ---
 - hosts: all
+  sudo: yes
   roles:
-    - { role: hbase-install, sudo: yes }
+    - hbase-install

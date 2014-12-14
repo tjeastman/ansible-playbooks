@@ -1,4 +1,5 @@
 ---
 - hosts: all
+  sudo: yes
   roles:
-    - { role: hadoop-install, sudo: yes }
+    - hadoop-install

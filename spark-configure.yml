@@ -1,4 +1,5 @@
 ---
 - hosts: all
+  sudo: yes
   roles:
-    - { role: spark-configure, sudo: yes }
+    - spark-configure
