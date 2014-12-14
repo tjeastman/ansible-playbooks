@@ -1,11 +1,11 @@
 ---
-- name: Unpack Hadoop tarball
+- name: unpack Hadoop tarball
   unarchive:
     copy=no
     src=/data/hadoop-{{ hadoop_version }}.tar.bz2
     dest={{ hadoop_install_prefix }}
 
-- name: Set owner and group of unpacked Hadoop files
+- name: set owner and group of unpacked Hadoop files
   file:
     dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }}
     state=directory
@@ -13,19 +13,19 @@
     group={{ hadoop_group }}
     recurse=yes
 
-- name: Make Hadoop directory group writable
+- name: make Hadoop directory group writable
   file:
     dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }}
     state=directory
     mode=775
 
-- name: Link to Hadoop directory
+- name: link to Hadoop directory
   file:
     src={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }}
     dest={{ hadoop_install_prefix }}/hadoop
     state=link
 
-- name: Create Hadoop base data directory
+- name: create Hadoop base data directory
   file:
     dest={{ hadoop_data_directory }}
     state=directory
@@ -33,7 +33,7 @@
     group={{ hadoop_group }}
     mode=755
 
-- name: Create HDFS data directory
+- name: create HDFS data directory
   file:
     dest={{ hadoop_dfs_data_directory }}
     state=directory
@@ -41,7 +41,7 @@
     group={{ hadoop_group }}
     mode=755
 
-- name: Create Resource Manager directory
+- name: create Resource Manager directory
   file:
     dest={{ hadoop_resource_manager_directory }}
     state=directory
@@ -49,7 +49,7 @@
     group={{ hadoop_group }}
     mode=755
 
-- name: Create HDFS master node name directory
+- name: create HDFS master node name directory
   file:
     dest={{ hadoop_name_directory }}
     state=directory

@@ -1,11 +1,11 @@
 ---
-- name: Remove link to HBase directory
+- name: remove link to HBase directory
   file: dest={{ hbase_install_prefix }}/hbase state=absent
-- name: Remove HBase directory
+- name: remove HBase directory
   file: dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 state=absent
-- name: Remove HBase data directory
+- name: remove HBase data directory
   file: dest={{ hbase_data_directory }} state=absent
-- name: Remove HBase temporary directory
+- name: remove HBase temporary directory
   file: dest={{ hbase_temporary_directory }} state=absent
-- name: Remove zookeeper directory
+- name: remove zookeeper directory
   file: dest={{ hbase_zookeeper_directory }} state=absent

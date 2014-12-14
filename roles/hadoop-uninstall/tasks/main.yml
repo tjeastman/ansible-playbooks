@@ -1,15 +1,15 @@
 ---
-- name: Remove link to Hadoop directory
+- name: remove link to Hadoop directory
   file: dest={{ hadoop_install_prefix }}/hadoop state=absent
-- name: Remove HDFS data directory
+- name: remove HDFS data directory
   file: dest={{ hadoop_dfs_data_directory }} state=absent
-- name: Remove Resource Manager directory
+- name: remove Resource Manager directory
   file: dest={{ hadoop_resource_manager_directory }} state=absent
-- name: Remove HDFS master node name directory
+- name: remove HDFS master node name directory
   file: dest={{ hadoop_name_directory }} state=absent
-- name: Remove Hadoop data node file
+- name: remove Hadoop data node file
   file: dest={{ hadoop_config_directory }}/{{ hadoop_datanode_file }} state=absent
-- name: Remove Hadoop directory
+- name: remove Hadoop directory
   file: dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }} state=absent
-- name: Remove Hadoop base data directory
+- name: remove Hadoop base data directory
   file: dest={{ hadoop_data_directory }} state=absent

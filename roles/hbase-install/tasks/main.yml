@@ -1,15 +1,15 @@
 ---
-- name: Copy HBase
+- name: copy HBase
   unarchive: copy=no src=/data/hbase-{{ hbase_version }}-hadoop2-bin.tar.bz2 dest={{ hbase_install_prefix }}
-- name: Setup HBase directory
+- name: setup HBase directory
   file: dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 state=directory owner=root group=staff recurse=yes
-- name: Make HBase directory writable
+- name: make HBase directory writable
   file: dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 state=directory mode=775
-- name: Link to HBase directory
+- name: link to HBase directory
   file: src={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 dest={{ hbase_install_prefix }}/hbase state=link
-- name: Create HBase data directory
+- name: create HBase data directory
   file: dest={{ hbase_data_directory }} state=directory owner=debian group=staff mode=755
-- name: Create HBase temporary directory
+- name: create HBase temporary directory
   file: dest={{ hbase_temporary_directory }} state=directory owner=debian group=staff mode=755
-- name: Create zookeeper directory
+- name: create zookeeper directory
   file: dest={{ hbase_zookeeper_directory }} state=directory owner=debian group=staff mode=755
