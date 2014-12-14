@@ -13,6 +13,8 @@
   file: src=~/projects/dotfiles/zshrc dest=~/.zshrc state=link
 - name: Link to gitconfig
   file: src=~/projects/dotfiles/gitconfig dest=~/.gitconfig state=link
+- name: Link to gitignore.global
+  file: src=~/projects/dotfiles/gitignore.global dest=~/.gitignore.global state=link
 - name: Install gitconfig.user
   template: src=gitconfig.user dest=~/.gitconfig.user
 - name: Link to screenrc
