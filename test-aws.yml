@@ -3,12 +3,12 @@
   connection: local
   roles:
     - aws
-- hosts: launched
+- hosts: new
   user: ubuntu
   sudo: yes
   roles:
     - aws_config
     - packages-base
-- hosts: launched
+- hosts: new
   roles:
     - personal
