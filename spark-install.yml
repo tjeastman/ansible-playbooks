@@ -1,4 +1,4 @@
 ---
-- hosts: hadoop-cluster
+- hosts: all
   roles:
     - { role: spark-install, sudo: yes }
