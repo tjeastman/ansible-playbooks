@@ -9,3 +9,6 @@
   roles:
     - aws_config
     - packages-base
+- hosts: launched
+  roles:
+    - personal
