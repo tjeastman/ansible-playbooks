@@ -8,8 +8,8 @@
 - name: link to HBase directory
   file: src={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 dest={{ hbase_install_prefix }}/hbase state=link
 - name: create HBase data directory
-  file: dest={{ hbase_data_directory }} state=directory owner=debian group=staff mode=755
+  file: dest={{ hbase_data_directory }} state=directory owner={{ username }} group=staff mode=755
 - name: create HBase temporary directory
-  file: dest={{ hbase_temporary_directory }} state=directory owner=debian group=staff mode=755
+  file: dest={{ hbase_temporary_directory }} state=directory owner={{ username }} group=staff mode=755
 - name: create zookeeper directory
-  file: dest={{ hbase_zookeeper_directory }} state=directory owner=debian group=staff mode=755
+  file: dest={{ hbase_zookeeper_directory }} state=directory owner={{ username }} group=staff mode=755
