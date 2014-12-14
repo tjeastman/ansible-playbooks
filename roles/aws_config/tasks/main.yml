@@ -5,7 +5,9 @@
   user: name={{ username }} state=present shell=/bin/zsh groups=adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev,staff
 - name: add key for user
   authorized_key: user={{ username }} key="{{ lookup('file', pubkeyfile) }}" state=present
+- name: create data directory
+  file: path=/data state=directory
 - name: mount shared filesystem
-  mount: name=/mnt src=/dev/xvdf1 fstype=ext4 state=mounted
+  mount: name=/data src=/dev/xvdf1 fstype=ext4 state=mounted
 - name: setup user for sudo
   template: src=99-cloud-users dest=/etc/sudoers.d
