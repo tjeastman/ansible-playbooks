@@ -1,4 +1,4 @@
 ---
-- hosts: hadoop-cluster
+- hosts: all
   roles:
     - { role: hbase-uninstall, sudo: yes }
