@@ -3,5 +3,5 @@ image_id: ami-3d50120d
 instance_type: t2.micro
 region_id: us-west-2
 key_name: primary
-group_name: default
+group_name: secondary
 host_type: test
