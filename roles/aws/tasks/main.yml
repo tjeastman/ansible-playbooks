@@ -8,6 +8,7 @@
     wait: yes
     count: 1
     group: "{{ group_name }}"
+    vpc_subnet_id: "{{ vpc_subnet_id }}"
     instance_tags:
       type: "{{ host_type }}"
     volumes:
