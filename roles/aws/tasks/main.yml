@@ -13,9 +13,6 @@
     vpc_subnet_id: "{{ vpc_subnet_id }}"
     instance_tags:
       type: "{{ host_type }}"
-    volumes:
-      - device_name: /dev/sdf
-        snapshot: snap-67d82ce8
   register: ec2
 - name: add instance DNS names to a host group
   local_action: add_host hostname={{ item.public_dns_name }} groupname=new
