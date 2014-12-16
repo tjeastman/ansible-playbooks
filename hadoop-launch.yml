@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    node_count: 2
+    node_class: namenode
+  roles:
+    - hadoop-launch
+- hosts: localhost
+  connection: local
+  vars:
+    node_count: 3
+    node_class: datanode
+  roles:
+    - hadoop-launch
+- hosts: all
+  user: ubuntu
+  sudo: yes
+  roles:
+    - packages-base
+    - user
+    - aws_config
