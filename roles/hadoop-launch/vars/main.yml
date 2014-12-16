@@ -1,0 +1,9 @@
+---
+image_id: ami-3d50120d
+instance_type: t2.micro
+region_id: us-west-2
+key_name: primary
+group_name: secondary
+host_type: test
+vpc_subnet_id: subnet-835eede6
+domain: test.com

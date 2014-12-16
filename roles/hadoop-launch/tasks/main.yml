@@ -1,0 +1,32 @@
+---
+- name: launch Hadoop nodes
+  ec2:
+    key_name: "{{ key_name }}"
+    instance_type: "{{ instance_type }}"
+    image: "{{ image_id }}"
+    region: "{{ region_id }}"
+    wait: yes
+    exact_count: "{{ node_count }}"
+    count_tag:
+      class: "{{ node_class }}"
+    group: "{{ group_name }}"
+    vpc_subnet_id: "{{ vpc_subnet_id }}"
+    instance_tags:
+      class: "{{ node_class }}"
+  register: nodes
+- name: add public DNS names to new host group
+  local_action: add_host hostname={{ item.public_dns_name }} groupname=new
+  with_items: nodes.instances
+- name: wait for the nodes to boot
+  wait_for: host={{ item.public_dns_name }} port=22 delay=60 timeout=320 state=started
+  with_items: nodes.instances
+- name: configure internal DNS for the Hadoop nodes
+  route53:
+    command: create
+    zone: "{{ domain }}"
+    record: "{{ node_class }}{{ item.0 }}.{{ domain }}"
+    type: CNAME
+    ttl: 3600
+    value: "{{ item.1.private_dns_name }}"
+    overwrite: yes
+  with_indexed_items: nodes.instances
