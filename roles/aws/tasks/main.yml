@@ -22,5 +22,5 @@
   wait_for: host={{ item.public_dns_name }} port=22 delay=60 timeout=320 state=started
   with_items: ec2.instances
 - name: configure internal DNS for the new hosts
-  route53: command=create zone=test.com record="node{{ item.0 }}.test.com" type=CNAME ttl=3600 value={{ item.1.private_dns_name }}
+  route53: command=create zone={{ domain }} record="node{{ item.0 }}.{{ domain }}" type=CNAME ttl=3600 value={{ item.1.private_dns_name }}
   with_indexed_items: ec2.instances
