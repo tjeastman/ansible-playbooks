@@ -1,10 +1,4 @@
 ---
-- name: install zsh package
-  apt: name=zsh update_cache=no state=present
-- name: add user
-  user: name={{ username }} state=present shell=/bin/zsh groups={{ groupnames | join(",") }}
-- name: add key for user
-  authorized_key: user={{ username }} key="{{ lookup('file', pubkeyfile) }}" state=present
 - name: create data directory
   file: path=/data state=directory
 - name: mount shared filesystem
