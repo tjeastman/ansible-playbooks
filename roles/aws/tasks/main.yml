@@ -6,7 +6,9 @@
     image: "{{ image_id }}"
     region: "{{ region_id }}"
     wait: yes
-    count: 2
+    exact_count: 2
+    count_tag:
+      type: "{{ host_type }}"
     group: "{{ group_name }}"
     vpc_subnet_id: "{{ vpc_subnet_id }}"
     instance_tags:
