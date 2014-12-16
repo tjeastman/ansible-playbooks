@@ -1,0 +1,5 @@
+---
+- name: add user
+  user: name={{ username }} state=present shell=/bin/zsh groups={{ groupnames | join(",") }}
+- name: add key for user
+  authorized_key: user={{ username }} key="{{ lookup('file', public_key) }}" state=present
