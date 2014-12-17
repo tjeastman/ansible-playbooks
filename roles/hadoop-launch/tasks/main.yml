@@ -30,3 +30,12 @@
     value: "{{ item.1.private_dns_name }}"
     overwrite: yes
   with_indexed_items: nodes.instances
+- name: assign names to Hadoop nodes to match internal DNS names
+  ec2_tag:
+    region: "{{ region_id }}"
+    resource: "{{ item.1.id }}"
+    state: present
+    args:
+      tags:
+        Name: "{{ node_class }}{{ item.0 }}"
+    with_indexed_items: nodes.instances
