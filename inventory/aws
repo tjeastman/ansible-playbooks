@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+
+import argparse
+import collections
+import json
+import os
+
+import boto.ec2
+
+
+class Instance(object):
+
+    def __init__(self, instance):
+        self._instance = instance
+
+    @property
+    def groups(self):
+        return self._instance.tags.values()
+
+    @property
+    def hostname(self):
+        return self._instance.public_dns_name
+
+
+class InstanceIterator(object):
+
+    def __init__(self):
+        self._conn = boto.ec2.connect_to_region(
+            'us-west-2',
+            aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
+            aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'))
+
+    def __iter__(self):
+        for reservation in self._conn.get_all_reservations():
+            for instance in reservation.instances:
+                if instance.state != 'terminated':
+                    # print instance.tags
+                    # print instance.public_dns_name
+                    # print dir(instance)
+                    # print type(instance)
+                    # print
+                    yield Instance(instance)
+
+
+class Inventory(object):
+
+    def __init__(self, instances):
+        self._group = collections.defaultdict(list)
+        for instance in instances:
+            for group in instance.groups:
+                self._group[group].append(instance.hostname)
+
+    def to_json(self):
+        return json.dumps(self._group)
+
+
+def list_hosts():
+    return Inventory(InstanceIterator()).to_json()
+
+
+def list_host():
+    return json.dumps({})
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--list', help='list all hosts', action='store_true')
+    parser.add_argument('--host', help='list details about a specific host')
+    arguments = parser.parse_args()
+    if arguments.list:
+        print list_hosts()
+    elif arguments.host:
+        print list_host(arguments.host)
