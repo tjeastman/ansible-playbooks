@@ -17,4 +17,8 @@
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
   </property>
+  <property>
+    <name>yarn.scheduler.minimum-allocation-mb</name>
+    <value>128</value>
+  </property>
 </configuration>
