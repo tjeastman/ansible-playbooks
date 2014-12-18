@@ -21,6 +21,13 @@ class Instance(object):
     def hostname(self):
         return self._instance.public_dns_name
 
+    @property
+    def vars(self):
+        return {
+            'public_dns_name': self._instance.public_dns_name,
+            'private_dns_name': self._instance.private_dns_name,
+        }
+
 
 class InstanceIterator(object):
 
@@ -46,12 +53,16 @@ class Inventory(object):
 
     def __init__(self, instances):
         self._group = collections.defaultdict(list)
+        self._hostvars = {}
         for instance in instances:
             for group in instance.groups:
                 self._group[group].append(instance.hostname)
+                self._hostvars[instance.hostname] = instance.vars
 
     def to_json(self):
-        return json.dumps(self._group)
+        x = self._group
+        x['_meta'] = {'hostvars': self._hostvars}
+        return json.dumps(x)
 
 
 def list_hosts():
