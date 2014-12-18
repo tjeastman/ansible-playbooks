@@ -5,3 +5,4 @@ hbase_data_directory: /hbase
 hbase_temporary_directory: /hbase/tmp
 hbase_root_directory: hdfs://hname:9000/hbase
 hbase_zookeeper_directory: /hbase/zookeeper
+hbase_zookeeper_hosts: "{{ hostvars[groups['namenode'].0].private_dns_name }}"

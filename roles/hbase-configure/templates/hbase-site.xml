@@ -19,6 +19,6 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>hname</value>
+    <value>{{ hbase_zookeeper_hosts }}</value>
   </property>
 </configuration>
