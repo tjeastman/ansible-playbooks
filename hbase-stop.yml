@@ -1,0 +1,4 @@
+---
+- hosts: namenode
+  roles:
+    - hbase-stop
