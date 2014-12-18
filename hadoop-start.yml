@@ -1,0 +1,7 @@
+---
+- hosts: datanode
+  roles:
+    - hadoop-start-datanode
+- hosts: namenode
+  roles:
+    - hadoop-start-namenode

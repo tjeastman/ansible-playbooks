@@ -1,0 +1,13 @@
+---
+- name: start HDFS namenode
+  command: /usr/local/hadoop/sbin/hadoop-daemon.sh --config /usr/local/hadoop/etc/hadoop/ --script hdfs start namenode
+  args:
+    creates: "/tmp/hadoop-{{ hadoop_user }}-namenode.pid"
+- name: start YARN resource manager
+  command: /usr/local/hadoop/sbin/yarn-daemon.sh --config /usr/local/hadoop/etc/hadoop/ start resourcemanager
+  args:
+    creates: "/tmp/yarn-{{ hadoop_user }}-resourcemanager.pid"
+- name: start job history daemon
+  command: /usr/local/hadoop/sbin/mr-jobhistory-daemon.sh start historyserver --config /usr/local/hadoop/etc/hadoop/
+  args:
+    creates: "/tmp/mapred-{{ hadoop_user }}-historyserver.pid"

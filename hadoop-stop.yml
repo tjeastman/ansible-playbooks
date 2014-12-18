@@ -1,0 +1,7 @@
+---
+- hosts: datanode
+  roles:
+    - hadoop-stop-datanode
+- hosts: namenode
+  roles:
+    - hadoop-stop-namenode
