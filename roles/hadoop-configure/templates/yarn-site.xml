@@ -3,7 +3,7 @@
 <configuration>
   <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>hresource</value>
+    <value>{{ hadoop_resource_manager }}</value>
   </property>
   <property>
     <name>yarn.resourcemanager.nodes.include-path</name>

@@ -6,6 +6,7 @@ hadoop_install_prefix: /usr/local
 hadoop_config_directory: /usr/local/hadoop/etc/hadoop
 hadoop_datanode_file: datanodes
 hadoop_name_node: "{{ hostvars[groups['namenode'].0].private_dns_name }}"
+hadoop_resource_manager: "{{ hostvars[groups['namenode'].0].private_dns_name }}"
 hadoop_data_directory: /hadoop
 hadoop_name_directory: /hadoop/name
 hadoop_resource_manager_directory: /hadoop/resource
