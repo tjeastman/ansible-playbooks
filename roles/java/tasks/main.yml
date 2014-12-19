@@ -1,3 +1,0 @@
----
-- name: install Java
-  apt: name=openjdk-7-jdk update_cache=no state=present
