@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    region: us-west-2
+    key_name: primary
+    created_by: "{{ username }}"
+    purpose: test
+  roles:
+    - role: aws-network
+      subnet: 192.168.0.0/24
+    - role: aws-node
+      count: 1
+      class: namenode
+    - role: aws-node
+      count: 3
+      class: datanode

@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    region: us-west-2
+    created_by: "{{ username }}"
+    purpose: test
+  roles:
+    - role: aws-network-destroy
+      subnet: 192.168.0.0/24
