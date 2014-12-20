@@ -28,8 +28,8 @@
 - name: create a new security group
   ec2_group:
     state: present
-    name: "{{ created_by }}_{{ purpose }}_security_group"
-    description: "{{ purpose }} security group ({{ created_by }})"
+    name: "default"
+    description: "default VPC security group"
     region: "{{ region }}"
     vpc_id: "{{ vpc.vpc_id }}"
     rules:
