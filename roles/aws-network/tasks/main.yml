@@ -25,7 +25,7 @@
           - dest: 0.0.0.0/0
             gw: igw
   register: vpc
-- name: create a new security group
+- name: update the default security group for the VPC
   ec2_group:
     state: present
     name: "default"
@@ -42,7 +42,7 @@
         to_port: 65535
         cidr_ip: "{{ subnet }}"
   register: security_group
-- name: tag the new security group
+- name: assign a name to the security group
   ec2_tag: resource={{ security_group.group_id }} region={{ region }}
   args:
     tags:
