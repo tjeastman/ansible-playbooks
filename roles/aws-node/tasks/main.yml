@@ -20,9 +20,9 @@
       created_by: "{{ created_by }}"
       purpose: "{{ purpose }}"
   register: instances
-- name: add public DNS names to new host group
-  local_action: add_host hostname={{ item.public_dns_name }} groupname=new
-  with_items: instances.tagged_instances
+# - name: add public DNS names to new host group
+#   local_action: add_host hostname={{ item.public_dns_name }} groupname=new
+#   with_items: instances.tagged_instances
 - name: wait for the instances to boot
   wait_for: host={{ item.public_dns_name }} port=22 delay=60 timeout=320 state=started
   with_items: instances.tagged_instances
