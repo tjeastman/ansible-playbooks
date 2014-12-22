@@ -21,10 +21,10 @@
   register: nodes
 - name: add public DNS names to new host group
   local_action: add_host hostname={{ item.public_dns_name }} groupname=new
-  with_items: nodes.instances
+  with_items: nodes.tagged_instances
 - name: wait for the nodes to boot
   wait_for: host={{ item.public_dns_name }} port=22 delay=60 timeout=320 state=started
-  with_items: nodes.instances
+  with_items: nodes.tagged_instances
 # - name: configure internal DNS for the new nodes
 #   route53:
 #     command: create
@@ -34,10 +34,10 @@
 #     ttl: 3600
 #     value: "{{ item.1.private_dns_name }}"
 #     overwrite: yes
-#   with_indexed_items: nodes.instances
+#   with_indexed_items: nodes.tagged_instances
 - name: assign names to the nodes to match internal DNS names
   ec2_tag: region={{ region }} resource={{ item.id }} state=present
   args:
     tags:
       Name: "{{ created_by }}_{{ class }}{{ item.ami_launch_index }}"
-  with_items: nodes.instances
+  with_items: nodes.tagged_instances
