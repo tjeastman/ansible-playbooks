@@ -1,5 +1,5 @@
 ---
-- name: launch EC2 nodes
+- name: launch EC2 instances
   ec2:
     key_name: "{{ key_name }}"
     instance_type: "{{ instance_type }}"
@@ -18,14 +18,14 @@
       class: "{{ class }}"
       created_by: "{{ created_by }}"
       purpose: "{{ purpose }}"
-  register: nodes
+  register: instances
 - name: add public DNS names to new host group
   local_action: add_host hostname={{ item.public_dns_name }} groupname=new
-  with_items: nodes.tagged_instances
-- name: wait for the nodes to boot
+  with_items: instances.tagged_instances
+- name: wait for the instances to boot
   wait_for: host={{ item.public_dns_name }} port=22 delay=60 timeout=320 state=started
-  with_items: nodes.tagged_instances
-# - name: configure internal DNS for the new nodes
+  with_items: instances.tagged_instances
+# - name: configure internal DNS for the new instances
 #   route53:
 #     command: create
 #     zone: "{{ domain }}"
@@ -34,13 +34,13 @@
 #     ttl: 3600
 #     value: "{{ item.1.private_dns_name }}"
 #     overwrite: yes
-#   with_indexed_items: nodes.tagged_instances
-- name: assign names to the nodes to match internal DNS names
+#   with_indexed_items: instances.tagged_instances
+- name: assign names to the instances to match internal DNS names
   ec2_tag: region={{ region }} resource={{ item.id }} state=present
   args:
     tags:
       Name: "{{ created_by }}_{{ purpose }}_{{ class }}{{ item.ami_launch_index }}"
-  with_items: nodes.tagged_instances
+  with_items: instances.tagged_instances
 - name: add public DNS names to local host aliases file
   local_action: lineinfile dest=~/.hosts state=present line="{{ class }}{{ item.ami_launch_index }} {{ item.public_dns_name }}"
-  with_items: nodes.tagged_instances
+  with_items: instances.tagged_instances
