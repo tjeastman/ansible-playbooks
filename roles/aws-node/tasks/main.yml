@@ -39,5 +39,5 @@
   ec2_tag: region={{ region }} resource={{ item.id }} state=present
   args:
     tags:
-      Name: "{{ created_by }}_{{ class }}{{ item.ami_launch_index }}"
+      Name: "{{ created_by }}_{{ purpose }}_{{ class }}{{ item.ami_launch_index }}"
   with_items: nodes.tagged_instances
