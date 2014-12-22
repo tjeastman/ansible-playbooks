@@ -11,5 +11,5 @@
       purpose: "{{ purpose }}"
   register: instances
 - name: remove public DNS names from local host aliases file
-  local_action: lineinfile dest=~/.hosts state=absent line="{{ class }}{{ item.ami_launch_index }} {{ item.public_dns_name }}"
+  local_action: lineinfile dest={{ hosts_file }} state=absent line="{{ class }}{{ item.ami_launch_index }} {{ item.public_dns_name }}"
   with_items: instances.tagged_instances
