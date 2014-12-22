@@ -1,0 +1,15 @@
+---
+- name: terminate EC2 nodes
+  ec2:
+    instance_type: "{{ instance_type }}"
+    image: "{{ image }}"
+    region: "{{ region }}"
+    exact_count: 0
+    count_tag:
+      class: "{{ class }}"
+      created_by: "{{ created_by }}"
+      purpose: "{{ purpose }}"
+  register: nodes
+- name: remove public DNS names from local host aliases file
+  local_action: lineinfile dest=~/.hosts state=absent line="{{ class }}{{ item.ami_launch_index }} {{ item.public_dns_name }}"
+  with_items: nodes.tagged_instances
