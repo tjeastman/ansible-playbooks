@@ -13,5 +13,5 @@
       count: 1
       class: namenode
     - role: aws-node
-      count: 3
+      count: 2
       class: datanode
