@@ -32,10 +32,7 @@ class Instance(object):
 class InstanceIterator(object):
 
     def __init__(self):
-        self._conn = boto.ec2.connect_to_region(
-            'us-west-2',
-            aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
-            aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'))
+        self._conn = boto.ec2.connect_to_region(os.environ.get('EC2_REGION'))
 
     def __iter__(self):
         for reservation in self._conn.get_all_reservations():
