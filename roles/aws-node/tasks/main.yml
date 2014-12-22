@@ -6,6 +6,7 @@
     image: "{{ image }}"
     region: "{{ region }}"
     wait: yes
+    wait_timeout: 600
     exact_count: "{{ count }}"
     count_tag:
       class: "{{ class }}"
