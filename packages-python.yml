@@ -1,4 +1,5 @@
 ---
 - hosts: all
+  sudo: yes
   roles:
-    - { role: packages-python, sudo: yes }
+    - role: packages-python
