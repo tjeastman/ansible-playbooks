@@ -5,12 +5,15 @@
     key_name: primary
     created_by: "{{ username }}"
     purpose: test
+    namenodes: 1
+    datanodes: 2
+    subnet: 192.168.0.0/24
   roles:
     - role: aws-network
-      subnet: 192.168.0.0/24
+      subnet: "{{ subnet }}"
     - role: aws-node
-      count: 1
+      count: "{{ namenodes }}"
       class: namenode
     - role: aws-node
-      count: 2
+      count: "{{ datanodes }}"
       class: datanode
