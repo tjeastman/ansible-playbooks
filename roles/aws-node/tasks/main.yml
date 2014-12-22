@@ -24,7 +24,7 @@
 #   local_action: add_host hostname={{ item.public_dns_name }} groupname=new
 #   with_items: instances.tagged_instances
 - name: wait for the instances to boot
-  wait_for: host={{ item.public_dns_name }} port=22 delay=60 timeout=320 state=started
+  wait_for: host={{ item.public_dns_name }} port=22 delay=60 timeout=600 state=started
   with_items: instances.tagged_instances
 # - name: configure internal DNS for the new instances
 #   route53:
