@@ -2,7 +2,6 @@
 - hosts: localhost
   connection: local
   vars:
-    region: us-west-2
     created_by: "{{ username }}"
     purpose: test
   roles:
