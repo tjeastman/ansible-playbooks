@@ -8,8 +8,8 @@
 - name: delete VPC
   ec2_vpc:
     state: absent
-    vpc_id: "{{ vpc.vpc_id }}"
     region: "{{ region }}"
+    cidr_block: "{{ subnet }}"
     resource_tags:
       Name: "{{ created_by }}_{{ purpose }}_vpc"
       created_by: "{{ created_by }}"
