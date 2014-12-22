@@ -41,3 +41,6 @@
     tags:
       Name: "{{ created_by }}_{{ purpose }}_{{ class }}{{ item.ami_launch_index }}"
   with_items: nodes.tagged_instances
+- name: add public DNS names to local host aliases file
+  local_action: lineinfile dest=~/.hosts state=present line="{{ class }}{{ item.ami_launch_index }} {{ item.public_dns_name }}"
+  with_items: nodes.tagged_instances
