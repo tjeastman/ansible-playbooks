@@ -19,7 +19,8 @@ Install personal configs:
 ansible-playbook -i hosts.txt personal.yml -e name=name -e email=email -k
 ```
 
-Create a Hadoop cluster in EC2 with three datanodes:
+Create and configure a Hadoop cluster in EC2 with three datanodes:
 ```
 ansible-playbook hadoop-cluster-create.yml -e datanodes=3
+ansible-playbook -u ubuntu -i inventory/aws hadoop-cluster-config.yml
 ```
