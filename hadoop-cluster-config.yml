@@ -1,0 +1,6 @@
+- hosts: all
+  sudo: yes
+  roles:
+    - packages-base
+    - packages-util
+    - packages-python
