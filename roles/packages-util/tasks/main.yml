@@ -19,3 +19,4 @@
    - uuid-runtime
    - rfkill
    - ntp
+   - sox
