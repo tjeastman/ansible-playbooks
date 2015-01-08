@@ -1,3 +1,0 @@
----
-- name: setup user for sudo
-  template: src=99-cloud-users dest=/etc/sudoers.d
