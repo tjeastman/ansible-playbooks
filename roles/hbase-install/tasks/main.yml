@@ -1,6 +1,6 @@
 ---
 - name: copy HBase
-  unarchive: copy=yes src=download/hbase-{{ hbase_version }}-hadoop2-bin.tar.bz2 dest={{ hbase_install_prefix }}
+  unarchive: copy=yes src=download/hbase-{{ hbase_version }}-hadoop2-bin.tar.gz dest={{ hbase_install_prefix }}
 - name: setup HBase directory
   file: dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 state=directory owner=root group=staff recurse=yes
 - name: make HBase directory writable
