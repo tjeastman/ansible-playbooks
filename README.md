@@ -25,3 +25,9 @@ ansible-playbook aws-hadoop-cluster-create.yml -e datanodes=3 -e username=userna
 ansible-playbook -u ubuntu -i inventory/aws hadoop-cluster-config.yml
 ./inventory/aws --list
 ```
+
+Format the namenode:
+```
+cd /usr/local/hadoop
+./bin/hdfs namenode -format
+```
