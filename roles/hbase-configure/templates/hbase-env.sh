@@ -94,6 +94,7 @@ export HBASE_OPTS="-XX:+UseConcMarkSweepGC"
 
 # Extra ssh options.  Empty by default.
 # export HBASE_SSH_OPTS="-o ConnectTimeout=1 -o SendEnv=HBASE_CONF_DIR"
+export HBASE_SSH_OPTS="-o StrictHostKeyChecking=no"
 
 # Where log files are stored.  $HBASE_HOME/logs by default.
 # export HBASE_LOG_DIR=${HBASE_HOME}/logs
