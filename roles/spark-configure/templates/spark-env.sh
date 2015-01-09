@@ -41,3 +41,7 @@
 # - SPARK_HISTORY_OPTS, to set config properties only for the history server (e.g. "-Dx=y")
 # - SPARK_DAEMON_JAVA_OPTS, to set config properties for all daemons (e.g. "-Dx=y")
 # - SPARK_PUBLIC_DNS, to set the public dns name of the master or workers
+
+SPARK_EXECUTOR_MEMORY=64m
+SPARK_DRIVER_MEMORY=64m
+SPARK_WORKER_MEMORY=64m
