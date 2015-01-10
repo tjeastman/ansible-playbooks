@@ -1,5 +1,5 @@
 ---
-hbase_version: 0.96.2
+hbase_version: 0.98.9
 hbase_install_prefix: /usr/local
 hbase_data_directory: /hbase
 hbase_temporary_directory: /hbase/tmp
