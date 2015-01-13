@@ -1,0 +1,7 @@
+---
+- name: copy Phoenix
+  unarchive: copy=yes src=download/phoenix-{{ phoenix_version }}-bin.tar.gz dest={{ phoenix_install_prefix }}
+- name: link to Phoenix directory
+  file: src={{ phoenix_install_prefix }}/phoenix-{{ phoenix_version }}-bin dest={{ phoenix_install_prefix }}/phoenix state=link
+- name: copy Phoenix server library into HBase lib
+  copy: src=download/phoenix-{{ phoenix_version }}-bin/phoenix-4.2.2-server.jar dest={{ hbase_install_prefix}}/hbase/lib/
