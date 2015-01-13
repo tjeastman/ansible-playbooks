@@ -8,5 +8,6 @@
     - yarn-site.xml
     - hadoop-env.sh
     - yarn-env.sh
+    - hadoop-metrics.properties
 - name: copy Hadoop data node file
   template: src={{ hadoop_datanode_file }} dest={{ hadoop_config_directory }}
