@@ -31,3 +31,9 @@ Format the namenode:
 cd /usr/local/hadoop
 ./bin/hdfs namenode -format
 ```
+
+Setup Ganglia:
+```
+ansible-playbook -i inventory/aws ganglia-client-setup.yml -e 'ganglia_cluster_name="cluster name"' -e ganglia_host=hostname
+ansible-playbook -i inventory/aws ganglia-server-setup.yml -l namenode -e 'ganglia_cluster_name="cluster name"' -e ganglia_host=hostname
+```
