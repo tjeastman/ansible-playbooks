@@ -1,3 +1,7 @@
 ---
 - name: install Ganglia monitor package
   apt: name=ganglia-monitor update_cache=yes state=latest
+- name: configure Ganglia monitor
+  template: src=gmond.conf dest=/etc/ganglia/
+- name: restart Ganglia monitor
+  service: name=ganglia-monitor state=restarted
