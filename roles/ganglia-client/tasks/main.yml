@@ -1,0 +1,3 @@
+---
+- name: install Ganglia monitor package
+  apt: name=ganglia-monitor update_cache=yes state=latest
