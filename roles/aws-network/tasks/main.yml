@@ -41,6 +41,10 @@
         from_port: 0
         to_port: 65535
         cidr_ip: "{{ subnet }}"
+      - proto: udp
+        from_port: 0
+        to_port: 65535
+        cidr_ip: "{{ subnet }}"
   register: security_group
 - name: assign a name to the security group
   ec2_tag: resource={{ security_group.group_id }} region={{ region }}
