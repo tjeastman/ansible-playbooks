@@ -1,6 +1,7 @@
 ---
 - hosts: all
   connection: local
+  gather_facts: false
   vars:
     created_by: "{{ username }}"
     purpose: test

@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   connection: local
+  gather_facts: false
   vars:
     key_name: primary
     created_by: "{{ username }}"
