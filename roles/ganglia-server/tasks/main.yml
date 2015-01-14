@@ -12,3 +12,7 @@
   template: src=gmetad.conf dest=/etc/ganglia/
 - name: restart Ganglia server
   service: name=gmetad state=restarted
+- name: enable Ganglia web frontend
+  copy: src=apache.conf dest=/etc/apache2/sites-enabled/
+- name: restart Apache web server
+  service: name=apache2 state=restarted
