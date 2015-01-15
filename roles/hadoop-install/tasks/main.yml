@@ -4,7 +4,6 @@
     copy=yes
     src=download/hadoop-{{ hadoop_version }}.tar.gz
     dest={{ hadoop_install_prefix }}
-
 - name: set owner and group of unpacked Hadoop files
   file:
     dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }}
@@ -12,19 +11,16 @@
     owner=root
     group={{ hadoop_group }}
     recurse=yes
-
 - name: make Hadoop directory group writable
   file:
     dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }}
     state=directory
     mode=775
-
 - name: link to Hadoop directory
   file:
     src={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }}
     dest={{ hadoop_install_prefix }}/hadoop
     state=link
-
 - name: create Hadoop base data directory
   file:
     dest={{ hadoop_data_directory }}
@@ -32,7 +28,6 @@
     owner={{ hadoop_user }}
     group={{ hadoop_group }}
     mode=755
-
 - name: create HDFS data directory
   file:
     dest={{ hadoop_dfs_data_directory }}
@@ -40,7 +35,6 @@
     owner={{ hadoop_user }}
     group={{ hadoop_group }}
     mode=755
-
 - name: create Resource Manager directory
   file:
     dest={{ hadoop_resource_manager_directory }}
@@ -48,7 +42,6 @@
     owner={{ hadoop_user }}
     group={{ hadoop_group }}
     mode=755
-
 - name: create HDFS master node name directory
   file:
     dest={{ hadoop_name_directory }}

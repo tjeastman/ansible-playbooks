@@ -11,12 +11,14 @@
     open_ports:
       - { protocol: tcp, port: 22 }
       - { protocol: tcp, port: 80 }
-      - { protocol: tcp, port: 8080 }
-      - { protocol: tcp, port: 9090 }
-      - { protocol: tcp, port: 8088 }
-      - { protocol: tcp, port: 50070 }
-      - { protocol: tcp, port: 19888 }
-      - { protocol: tcp, port: 9095 }
+      - { protocol: tcp, port: 8080 }  # HBase REST API
+      - { protocol: tcp, port: 8085 }  # HBase REST API web UI
+      - { protocol: tcp, port: 9090 }  # HBase thrift service
+      - { protocol: tcp, port: 9095 }  # HBase thrift web UI
+      - { protocol: tcp, port: 8088 }  # Hadoop cluster metrics
+      - { protocol: tcp, port: 19888 } # Hadoop job history web UI
+      - { protocol: tcp, port: 50070 } # HDFS namenode web UI
+      - { protocol: tcp, port: 60010 } # HBase console
   roles:
     - role: aws-network
       subnet: "{{ subnet }}"
