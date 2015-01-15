@@ -54,3 +54,8 @@ Start Hadoop on the cluster:
 ```
 ansible-playbook -i inventory/aws hadoop-start.yml
 ```
+
+To destroy the cluster nodes and associated resources in AWS:
+```
+ansible-playbook aws-hadoop-cluster-destroy.yml -e created_by=username
+```
