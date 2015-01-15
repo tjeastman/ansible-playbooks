@@ -3,7 +3,6 @@
   connection: local
   gather_facts: false
   vars:
-    created_by: "{{ username }}"
     purpose: test
   roles:
     - role: aws-node-destroy

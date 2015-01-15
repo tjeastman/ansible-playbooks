@@ -4,7 +4,6 @@
   gather_facts: false
   vars:
     key_name: primary
-    created_by: "{{ username }}"
     purpose: test
     namenodes: 1
     datanodes: 3
