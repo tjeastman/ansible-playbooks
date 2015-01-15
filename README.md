@@ -21,7 +21,7 @@ ansible-playbook -i hosts.txt personal.yml -e name=name -e email=email -k
 
 Create and configure a Hadoop cluster in EC2 with three datanodes:
 ```
-ansible-playbook aws-hadoop-cluster-create.yml -e datanodes=3 -e username=username
+ansible-playbook aws-hadoop-cluster-create.yml -e username=username
 ansible-playbook -u ubuntu -i inventory/aws -e username=username -e shell=/path/to/sh -e public_key=/path/to/pubkey -e '{"groupnames":["group1","group2","group3"]}' add-superuser.yml
 ansible-playbook -i inventory/aws packages-base.yml
 ```
