@@ -14,7 +14,7 @@
   wait_for: host={{ item.public_dns_name }} port=22 delay=20 timeout=600 state=drained
   with_items: instances.instances
   when: instances.instances  # null when no matching instances are found
-- name: remove public DNS names from local host aliases file
-  local_action: lineinfile dest={{ hosts_file }} state=absent line="{{ class }}{{ item.ami_launch_index }} {{ item.public_dns_name }}"
-  with_items: instances.instances
-  when: instances.instances
+# - name: remove public DNS names from local host aliases file
+#   local_action: lineinfile dest={{ hosts_file }} state=absent line="{{ class }}{{ item.ami_launch_index }} {{ item.public_dns_name }}"
+#   with_items: instances.instances
+#   when: instances.instances
