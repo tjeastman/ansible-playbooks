@@ -7,7 +7,7 @@
     created_by: "{{ username }}"
     purpose: test
     namenodes: 1
-    datanodes: 2
+    datanodes: 3
     subnet: 192.168.0.0/24
     open_ports:
       - { protocol: tcp, port: 22 }
