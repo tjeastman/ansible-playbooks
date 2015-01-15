@@ -1,15 +1,44 @@
 ---
 - name: copy HBase
-  unarchive: copy=yes src=download/hbase-{{ hbase_version }}-hadoop2-bin.tar.gz dest={{ hbase_install_prefix }}
+  unarchive:
+    copy=yes
+    src=download/hbase-{{ hbase_version }}-hadoop2-bin.tar.gz
+    dest={{ hbase_install_prefix }}
 - name: setup HBase directory
-  file: dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 state=directory owner=root group=staff recurse=yes
+  file:
+    dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2
+    state=directory
+    owner=root
+    group=staff
+    recurse=yes
 - name: make HBase directory writable
-  file: dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 state=directory mode=775
+  file:
+    dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2
+    state=directory
+    mode=775
 - name: link to HBase directory
-  file: src={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2 dest={{ hbase_install_prefix }}/hbase state=link
+  file:
+    src={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2
+    dest={{ hbase_install_prefix }}/hbase
+    state=link
 - name: create HBase data directory
-  file: dest={{ hbase_data_directory }} state=directory owner={{ username }} group=staff mode=755
+  file:
+    dest={{ hbase_data_directory }}
+    state=directory
+    owner={{ username }}
+    group=staff
+    mode=755
 - name: create HBase temporary directory
-  file: dest={{ hbase_temporary_directory }} state=directory owner={{ username }} group=staff mode=755
+  file:
+    dest={{ hbase_temporary_directory }}
+    state=directory
+    owner={{ username }}
+    group=staff
+    mode=755
 - name: create zookeeper directory
-  file: dest={{ hbase_zookeeper_directory }} state=directory owner={{ username }} group=staff mode=755
+  file:
+    dest={{ hbase_zookeeper_directory }}
+    state=directory
+    owner={{ username }}
+    group=staff
+    mode=755
