@@ -33,6 +33,11 @@ View the list of EC2 instances:
 ./inventory/aws --list
 ```
 
+Copy SSH keys onto the cluster nodes (note that the private key should not be encrypted):
+```
+ansible-playbook -i inventory/aws -e private_key=/path/to/prikey -e public_key=/path/to/pubkey copy-ssh-keys.yml
+```
+
 Setup Ganglia:
 ```
 ansible-playbook -i inventory/aws ganglia-client-setup.yml -e 'ganglia_cluster_name="cluster name"' -e ganglia_host=hostname
