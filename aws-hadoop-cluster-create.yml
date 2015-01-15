@@ -3,7 +3,6 @@
   connection: local
   gather_facts: false
   vars:
-    key_name: primary
     created_by: "{{ username }}"
     purpose: test
     namenodes: 1
