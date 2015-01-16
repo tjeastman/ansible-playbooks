@@ -32,11 +32,11 @@ The group hadoop is created when Hadoop is installed above.
 Users in this group can start and stop Hadoop services without sudo.
 
 Some services on the Hadoop stack depend on being able to SSH between hosts without a password.
-The following playbook will copy SSH keys onto the cluster nodes
+The following playbook will copy SSH keys onto the cluster nodes:
 ```
 ansible-playbook -i inventory/aws -e private_key=/path/to/private_key -e public_key=/path/to/public_key copy-ssh-keys.yml
 ```
-Note that the private key should not be encrypted.
+Note that the private key file should not be encrypted.
 
 To start running Hadoop, first log in to the namenode and format HDFS:
 ```
@@ -48,7 +48,7 @@ Then start Hadoop on the cluster:
 ansible-playbook -i inventory/aws hadoop-start.yml
 ```
 
-There is a playbook that will destroy the cluster nodes and associated resources in AWS if desired:
+There is also a playbook that will destroy the cluster nodes and associated resources in AWS if desired:
 ```
 ansible-playbook aws-hadoop-cluster-destroy.yml -e created_by=username
 ```
