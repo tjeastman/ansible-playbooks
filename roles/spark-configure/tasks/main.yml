@@ -1,8 +1,12 @@
 ---
 - name: copy Spark slave node file
-  template: src={{ spark_slave_node_file }} dest={{ spark_config_directory }}
+  template:
+    src={{ spark_slave_node_file }}
+    dest={{ spark_config_directory }}
 - name: configure Spark cluster nodes
-  template: src={{ item }} dest={{ spark_config_directory }}
+  template:
+    src={{ item }}
+    dest={{ spark_config_directory }}
   with_items:
     - log4j.properties
     - spark-defaults.conf
