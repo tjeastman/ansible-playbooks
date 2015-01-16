@@ -4,4 +4,4 @@ spark_version: 1.2.0
 spark_install_prefix: /usr/local
 spark_config_directory: /usr/local/spark/conf
 spark_slave_node_file: slaves
-spark_group: staff
+spark_group: "{{ hadoop_group }}"
