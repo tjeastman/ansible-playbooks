@@ -26,7 +26,7 @@ Note that the Hadoop 2.5.2 binary distribution should be available in the local 
 The cluster creation playbook uses a standard Ubuntu AMI.
 This AMI provides a user named ubuntu with superuser privileges but you may wish to create you own user account:
 ```
-ansible-playbook -u ubuntu -i inventory/aws -e username=username -e shell=/path/to/sh -e public_key=/path/to/public_key -e '{"groupnames":["hadoop","suds","group","other_group"]}' add-superuser.yml
+ansible-playbook -u ubuntu -i inventory/aws -e username=username -e shell=/path/to/sh -e public_key=/path/to/public_key -e '{"groupnames":["hadoop","sudo","group","other_group"]}' add-superuser.yml
 ```
 The group hadoop is created when Hadoop is installed above.
 Users in this group can start and stop Hadoop services without sudo.
