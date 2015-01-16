@@ -5,6 +5,8 @@
     region: "{{ region }}"
     name: "{{ created_by }}_{{ purpose }}_security_group"
     description: "{{ purpose }} security group ({{ created_by }})"
+- name: delay before deleting VPC
+  pause: seconds=10
 - name: delete VPC
   ec2_vpc:
     state: absent
