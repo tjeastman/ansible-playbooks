@@ -1,6 +1,8 @@
 ---
 - name: configure Hadoop cluster nodes
-  template: src={{ item }} dest={{ hadoop_config_directory }}
+  template:
+    src={{ item }}
+    dest={{ hadoop_config_directory }}
   with_items:
     - core-site.xml
     - hdfs-site.xml
@@ -8,6 +10,12 @@
     - yarn-site.xml
     - hadoop-env.sh
     - yarn-env.sh
-    - hadoop-metrics2.properties
+- name: configure Hadoop cluster nodes to report metrics to Ganglia
+  template:
+    src=hadoop-metrics2.properties
+    dest={{ hadoop_config_directory }}
+  when: ganglia_host is defined
 - name: copy Hadoop data node file
-  template: src={{ hadoop_datanode_file }} dest={{ hadoop_config_directory }}
+  template:
+    src={{ hadoop_datanode_file }}
+    dest={{ hadoop_config_directory }}
