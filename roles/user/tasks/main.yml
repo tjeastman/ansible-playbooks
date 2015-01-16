@@ -4,10 +4,6 @@
 - name: set user shell
   user: name={{ username }} state=present shell={{ shell }}
   when: shell is defined
-- name: print out group names
-  debug: var=groupnames
-- name: print out group names again
-  debug: msg={{ groupnames | join(",") }}
 - name: add user to groups
   user: name={{ username }} state=present groups={{ groupnames | join(",") }}
   when: groupnames is defined
