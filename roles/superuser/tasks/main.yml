@@ -1,3 +1,5 @@
 ---
 - name: setup user for sudo
-  template: src=99-superusers dest=/etc/sudoers.d
+  template:
+    src=99-superusers
+    dest=/etc/sudoers.d

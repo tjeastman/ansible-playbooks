@@ -1,12 +1,23 @@
 ---
 - name: add user
-  user: name={{ username }} state=present
+  user:
+    name={{ username }}
+    state=present
 - name: set user shell
-  user: name={{ username }} state=present shell={{ shell }}
+  user:
+    name={{ username }}
+    state=present
+    shell={{ shell }}
   when: shell is defined
 - name: add user to groups
-  user: name={{ username }} state=present groups={{ groupnames | join(",") }}
+  user:
+    name={{ username }}
+    state=present
+    groups={{ groupnames | join(",") }}
   when: groupnames is defined
 - name: add key for user
-  authorized_key: user={{ username }} key="{{ lookup('file', public_key) }}" state=present
+  authorized_key:
+    user={{ username }}
+    key="{{ lookup('file', public_key) }}"
+    state=present
   when: public_key is defined
