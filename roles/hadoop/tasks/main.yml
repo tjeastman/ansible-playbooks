@@ -1,0 +1,5 @@
+---
+- name: add Hadoop group
+  group:
+    name={{ hadoop_group }}
+    state=present

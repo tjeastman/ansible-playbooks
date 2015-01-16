@@ -1,8 +1,8 @@
 ---
 java_home: /usr/lib/jvm/java-7-openjdk-amd64
 hadoop_version: 2.5.2
-hadoop_user: "{{ username }}"
-hadoop_group: staff
+hadoop_user: root
+hadoop_group: hadoop
 hadoop_install_prefix: /usr/local
 hadoop_config_directory: /usr/local/hadoop/etc/hadoop
 hadoop_datanode_file: datanodes
