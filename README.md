@@ -12,7 +12,7 @@ See the contents of aws-hadoop-cluster-create.yml for additional configuration v
 
 There is a dynamic inventory script that can be used to view the list of EC2 instances:
 ```
-./inventory/aws --list
+./inventory/aws --list | python -m json.tool
 ```
 
 Install some required packages and then install and configure Hadoop.
