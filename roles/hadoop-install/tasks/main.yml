@@ -8,7 +8,7 @@
   file:
     dest={{ hadoop_install_prefix }}/hadoop-{{ hadoop_version }}
     state=directory
-    owner=root
+    owner={{ hadoop_user }}
     group={{ hadoop_group }}
     recurse=yes
 - name: make Hadoop directory group writable
@@ -46,6 +46,6 @@
   file:
     dest={{ hadoop_name_directory }}
     state=directory
-    owner=root
+    owner={{ hadoop_user }}
     group={{ hadoop_group }}
     mode=775
