@@ -2,4 +2,4 @@
 - name: stop HBase
   command: /usr/local/hbase/bin/stop-hbase.sh
   args:
-    removes: "/tmp/hbase-{{ hadoop_user }}-master.pid"
+    removes: "/tmp/hbase-{{ ansible_ssh_user }}-master.pid"

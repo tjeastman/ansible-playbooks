@@ -2,4 +2,4 @@
 - name: start HBase
   command: /usr/local/hbase/bin/start-hbase.sh
   args:
-    creates: "/tmp/hbase-{{ hadoop_user }}-master.pid"
+    creates: "/tmp/hbase-{{ ansible_ssh_user }}-master.pid"
