@@ -8,8 +8,8 @@
   file:
     dest={{ hbase_install_prefix }}/hbase-{{ hbase_version }}-hadoop2
     state=directory
-    owner=root
-    group={{ hadoop_group }}
+    owner={{ hbase_user }}
+    group={{ hbase_group }}
     recurse=yes
 - name: make HBase directory writable
   file:
@@ -25,20 +25,20 @@
   file:
     dest={{ hbase_data_directory }}
     state=directory
-    owner={{ username }}
-    group={{ hadoop_group }}
-    mode=755
+    owner={{ hbase_user }}
+    group={{ hbase_group }}
+    mode=775
 - name: create HBase temporary directory
   file:
     dest={{ hbase_temporary_directory }}
     state=directory
-    owner={{ username }}
-    group={{ hadoop_group }}
-    mode=755
+    owner={{ hbase_user }}
+    group={{ hbase_group }}
+    mode=775
 - name: create zookeeper directory
   file:
     dest={{ hbase_zookeeper_directory }}
     state=directory
-    owner={{ username }}
-    group={{ hadoop_group }}
-    mode=755
+    owner={{ hbase_user }}
+    group={{ hbase_group }}
+    mode=775

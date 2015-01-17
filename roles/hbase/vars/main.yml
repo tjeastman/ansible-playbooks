@@ -7,3 +7,4 @@ hbase_root_directory: "hdfs://{{ hostvars[groups['namenode'].0].private_dns_name
 hbase_zookeeper_directory: /hbase/zookeeper
 hbase_zookeeper_hosts: "{{ hostvars[groups['namenode'].0].private_dns_name }}"
 hbase_group: "{{ hadoop_group }}"
+hbase_user: "{{ hadoop_user }}"
