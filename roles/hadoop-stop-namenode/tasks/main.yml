@@ -2,12 +2,18 @@
 - name: stop job history daemon
   command: /usr/local/hadoop/sbin/mr-jobhistory-daemon.sh stop historyserver --config /usr/local/hadoop/etc/hadoop/
 - name: remove job history PID file
-  file: path=/tmp/mapred-{{ hadoop_user }}-historyserver.pid state=absent
+  file:
+    path=/tmp/mapred-{{ hadoop_user }}-historyserver.pid
+    state=absent
 - name: stop YARN resource manager
   command: /usr/local/hadoop/sbin/yarn-daemon.sh --config /usr/local/hadoop/etc/hadoop/ stop resourcemanager
 - name: remove YARN resource manager PID file
-  file: path=/tmp/yarn-{{ hadoop_user }}-resourcemanager.pid state=absent
+  file:
+    path=/tmp/yarn-{{ hadoop_user }}-resourcemanager.pid
+    state=absent
 - name: stop HDFS namenode
   command: /usr/local/hadoop/sbin/hadoop-daemon.sh --config /usr/local/hadoop/etc/hadoop/ --script hdfs stop namenode
 - name: remove HDFS namenode PID file
-  file: path=/tmp/hadoop-{{ hadoop_user }}-namenode.pid state=absent
+  file:
+    path=/tmp/hadoop-{{ hadoop_user }}-namenode.pid
+    state=absent
