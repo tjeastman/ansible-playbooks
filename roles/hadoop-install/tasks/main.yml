@@ -27,21 +27,21 @@
     state=directory
     owner={{ hadoop_user }}
     group={{ hadoop_group }}
-    mode=755
+    mode=775
 - name: create HDFS data directory
   file:
     dest={{ hadoop_dfs_data_directory }}
     state=directory
     owner={{ hadoop_user }}
     group={{ hadoop_group }}
-    mode=755
+    mode=775
 - name: create Resource Manager directory
   file:
     dest={{ hadoop_resource_manager_directory }}
     state=directory
     owner={{ hadoop_user }}
     group={{ hadoop_group }}
-    mode=755
+    mode=775
 - name: create HDFS master node name directory
   file:
     dest={{ hadoop_name_directory }}

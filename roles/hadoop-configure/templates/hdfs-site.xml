@@ -10,6 +10,10 @@
         <value>file://{{ hadoop_dfs_data_directory }}</value>
     </property>
     <property>
+        <name>dfs.datanode.data.dir.perm</name>
+        <value>775</value>
+    </property>
+    <property>
         <name>dfs.namenode.name.dir</name>
         <value>file://{{ hadoop_name_directory }}</value>
     </property>
