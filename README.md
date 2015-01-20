@@ -48,6 +48,14 @@ Then start Hadoop on the cluster:
 ansible-playbook -i inventory/aws hadoop-start.yml
 ```
 
+To install and run HBase, execute the following playbooks:
+```
+ansible-playbook -i inventory/aws hbase-install.yml
+ansible-playbook -i inventory/aws hbase-configure.yml
+ansible-playbook -i inventory/aws hbase-start.yml
+```
+The HBase 0.98.9 binary distribution (for Hadoop 2) should be available in the local download directory (download/hbase-0.98.9-hadoop2-bin.tar.gz).
+
 There is also a playbook that will destroy the cluster nodes and associated resources in AWS if desired:
 ```
 ansible-playbook aws-hadoop-cluster-destroy.yml -e created_by=username
