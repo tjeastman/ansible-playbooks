@@ -38,11 +38,6 @@ class InstanceIterator(object):
         for reservation in self._conn.get_all_reservations():
             for instance in reservation.instances:
                 if instance.state != 'terminated':
-                    # print instance.tags
-                    # print instance.public_dns_name
-                    # print dir(instance)
-                    # print type(instance)
-                    # print
                     yield Instance(instance)
 
 
