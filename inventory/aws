@@ -44,17 +44,17 @@ class InstanceIterator(object):
 class Inventory(object):
 
     def __init__(self, instances):
-        self._group = collections.defaultdict(list)
-        self._hostvars = {}
+        grouping = collections.defaultdict(list)
+        hostvars = {}
         for instance in instances:
             for group in instance.groups:
-                self._group[group].append(instance.hostname)
-                self._hostvars[instance.hostname] = instance.vars
+                grouping[group].append(instance.hostname)
+                hostvars[instance.hostname] = instance.vars
+        self._contents = grouping
+        self._contents['_meta'] = {'hostvars': hostvars}
 
     def to_json(self):
-        x = self._group
-        x['_meta'] = {'hostvars': self._hostvars}
-        return json.dumps(x)
+        return json.dumps(self._contents)
 
 
 def list_hosts():
