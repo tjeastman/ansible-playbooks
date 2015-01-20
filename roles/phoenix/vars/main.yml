@@ -1,4 +1,4 @@
 ---
 phoenix_version: 4.2.2
 phoenix_install_prefix: /usr/local
-phoenix_group: staff
+phoenix_group: "{{ hadoop_group }}"
