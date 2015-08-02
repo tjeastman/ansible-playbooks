@@ -11,3 +11,8 @@
     - nasm
     - simple-cdd
     - libusb-dev
+    - fritzing
+    - fritzing-data
+    - arduino
+    - arduino-core
+    - arduino-mk

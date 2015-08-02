@@ -17,3 +17,6 @@
     - vlc
     - gnucash
     - gnucash-docs
+    - librecad
+    - docker
+    - openscam
