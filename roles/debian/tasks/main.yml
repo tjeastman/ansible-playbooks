@@ -1,0 +1,5 @@
+---
+- name: update APT sources file
+  template: src=sources.list dest=/etc/apt
+- name: upgrade Debian
+  apt: update_cache=yes upgrade=dist
