@@ -4,4 +4,4 @@
 - name: Add Google’s Debian package repository
   copy: src=google-chrome.list dest=/etc/apt/sources.list.d/
 - name: Install Google Chrome
-  apt: name=google-chrome-stable state=present
+  apt: name=google-chrome-stable update_cache=yes state=present
