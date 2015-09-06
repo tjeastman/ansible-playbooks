@@ -1,5 +1,6 @@
 ---
-- hosts: local
+- hosts: all
+  sudo: yes
   roles:
     - packages-base
     - packages-desktop
