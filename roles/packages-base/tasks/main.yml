@@ -10,3 +10,5 @@
     - zsh
     - python-pip
     - openjdk-7-jdk
+    - openssh-client
+    - openssh-server
