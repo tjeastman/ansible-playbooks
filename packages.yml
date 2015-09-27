@@ -8,4 +8,5 @@
     - packages-tex
     - package-chrome
     - packages-java
+    - packages-octave
     - packages-dev
