@@ -3,6 +3,7 @@
   sudo: yes
   roles:
     - packages-base
+    - packages-util
     - packages-desktop
     - packages-python
     - packages-tex
