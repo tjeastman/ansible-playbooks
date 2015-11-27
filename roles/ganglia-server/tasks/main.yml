@@ -7,7 +7,6 @@
   apt: name={{ item }} update_cache=no state=latest
   with_items:
     - rrdtool
-    - ganglia-monitor
     - gmetad
     - ganglia-webfrontend
 - name: configure Ganglia server
