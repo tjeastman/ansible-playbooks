@@ -1,0 +1,3 @@
+---
+- name: install Apt cacher package
+  apt: name=apt-cacher-ng update_cache=yes state=latest
