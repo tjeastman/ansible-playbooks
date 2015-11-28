@@ -1,7 +1,9 @@
 ---
 - name: install Ganglia monitor package
   apt: name=ganglia-monitor update_cache=yes state=latest
+- name: create Ganglia Python modules directory
+  file: dest={{ ganglia_python_module_directory }} state=directory
+  notify: restart ganglia monitor
 - name: configure Ganglia monitor
   template: src=gmond.conf dest=/etc/ganglia/
-- name: restart Ganglia monitor
-  service: name=ganglia-monitor state=restarted
+  notify: restart ganglia monitor
