@@ -7,3 +7,6 @@
 - name: configure Ganglia monitor
   template: src=gmond.conf dest=/etc/ganglia/
   notify: restart ganglia monitor
+- name: configure Ganglia monitor python module
+  copy: src=parse_sensors.pyconf dest=/etc/ganglia/conf.d/
+  notify: restart ganglia monitor

@@ -1,0 +1,46 @@
+modules {
+  module {
+    name = "parse_sensors"
+    language = "python"
+
+    # map a name to an identifier in the hiearchy of sensor data
+    param ACPI_Temp_0 { value = "acpitz-virtual-0:temp1_input" }
+    param ACPI_Temp_1 { value = "acpitz-virtual-0:temp2_input" }
+    param CPU_Temp { value = "coretemp-isa-0000:temp1_input" }
+    param Core_0_Temp { value = "coretemp-isa-0000:temp2_input" }
+    param Core_1_Temp { value = "coretemp-isa-0000:temp3_input" }
+    param Core_2_Temp { value = "coretemp-isa-0000:temp4_input" }
+    param Core_3_Temp { value = "coretemp-isa-0000:temp5_input" }
+    param VCore { value = "nct6791-isa-0290:in0_input" }
+    param Vin_1 { value = "nct6791-isa-0290:in1_input" }
+    param AVCC { value = "nct6791-isa-0290:in2_input" }
+    param +3.3V { value = "nct6791-isa-0290:in3_input" }
+    param Vin_4 { value = "nct6791-isa-0290:in4_input" }
+    param Vin_5 { value = "nct6791-isa-0290:in5_input" }
+    param Vin_6 { value = "nct6791-isa-0290:in6_input" }
+    param 3VSB { value = "nct6791-isa-0290:in7_input" }
+    param Vbat { value = "nct6791-isa-0290:in8_input" }
+    param Vin_9 { value = "nct6791-isa-0290:in9_input" }
+    param Vin_10 { value = "nct6791-isa-0290:in10_input" }
+    param Vin_11 { value = "nct6791-isa-0290:in11_input" }
+    param Vin_12 { value = "nct6791-isa-0290:in12_input" }
+    param Vin_13 { value = "nct6791-isa-0290:in13_input" }
+    param Vin_14 { value = "nct6791-isa-0290:in14_input" }
+    param Fan_1 { value = "nct6791-isa-0290:fan1_input" }
+    param Fan_2 { value = "nct6791-isa-0290:fan2_input" }
+    param Fan_3 { value = "nct6791-isa-0290:fan3_input" }
+    param Fan_4 { value = "nct6791-isa-0290:fan4_input" }
+    param Fan_5 { value = "nct6791-isa-0290:fan5_input" }
+    param Fan_6 { value = "nct6791-isa-0290:fan6_input" }
+    param SYSTIN { value = "nct6791-isa-0290:temp1_input" }
+    param CPUTIN { value = "nct6791-isa-0290:temp2_input" }
+    param AUXTIN0 { value = "nct6791-isa-0290:temp3_input" }
+    param AUXTIN1 { value = "nct6791-isa-0290:temp4_input" }
+    param AUXTIN2 { value = "nct6791-isa-0290:temp5_input" }
+    param AUXTIN3 { value = "nct6791-isa-0290:temp6_input" }
+    param PECI_Agent_0 { value = "nct6791-isa-0290:temp7_input" }
+    param PCH_CHIP_CPU_MAX_TEMP { value = "nct6791-isa-0290:temp8_input" }
+    param PCH_CHIP_TEMP { value = "nct6791-isa-0290:temp9_input" }
+    param PCH_CPU_TEMP { value = "nct6791-isa-0290:temp10_input" }
+  }
+}
