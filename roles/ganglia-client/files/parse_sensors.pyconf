@@ -44,3 +44,48 @@ modules {
     param PCH_CPU_TEMP { value = "nct6791-isa-0290:temp10_input" }
   }
 }
+
+collection_group {
+  collect_every = 60
+  time_threshold = 3600
+
+  # turn on various named sensor data defined above
+  metric { name = "ACPI_Temp_0" title = "ACPI Temperature 0" }
+  metric { name = "ACPI_Temp_1" title = "ACPI Temperature 1" }
+  metric { name = "CPU_Temp" title = "CPU Temperature" }
+  metric { name = "Core_0_Temp" title = "CPU Core 0 Temperature" }
+  metric { name = "Core_1_Temp" title = "CPU Core 1 Temperature" }
+  metric { name = "Core_2_Temp" title = "CPU Core 2 Temperature" }
+  metric { name = "Core_3_Temp" title = "CPU Core 3 Temperature" }
+  metric { name = "VCore" title = "VCore" }
+  metric { name = "Vin_1" title = "Vin 1" }
+  metric { name = "AVCC" title = "AVCC" }
+  metric { name = "+3.3V" title = "+3.3V" }
+  metric { name = "Vin_4" title = "Vin 4" }
+  metric { name = "Vin_5" title = "Vin 5" }
+  metric { name = "Vin_6" title = "Vin 6" }
+  metric { name = "3VSB" title = "3VSB" }
+  metric { name = "Vbat" title = "Vbat" }
+  metric { name = "Vin_9" title = "Vin 9" }
+  metric { name = "Vin_10" title = "Vin 10" }
+  metric { name = "Vin_11" title = "Vin 11" }
+  metric { name = "Vin_12" title = "Vin 12" }
+  metric { name = "Vin_13" title = "Vin 13" }
+  metric { name = "Vin_14" title = "Vin 14" }
+  metric { name = "Fan_1" title = "Fan 1" }
+  metric { name = "Fan_2" title = "Fan 2" }
+  metric { name = "Fan_3" title = "Fan 3" }
+  metric { name = "Fan_4" title = "Fan 4" }
+  metric { name = "Fan_5" title = "Fan 5" }
+  metric { name = "Fan_6" title = "Fan 6" }
+  metric { name = "SYSTIN" title = "SYSTIN" }
+  metric { name = "CPUTIN" title = "CPUTIN" }
+  metric { name = "AUXTIN0" title = "AUXTIN0" }
+  metric { name = "AUXTIN1" title = "AUXTIN1" }
+  metric { name = "AUXTIN2" title = "AUXTIN2" }
+  metric { name = "AUXTIN3" title = "AUXTIN3" }
+  metric { name = "PECI_Agent_0" title = "PECI Agent 0" }
+  metric { name = "PCH_CHIP_CPU_MAX_TEMP" title = "PCH_CHIP_CPU_MAX_TEMP" }
+  metric { name = "PCH_CHIP_TEMP" title = "PCH_CHIP_TEMP" }
+  metric { name = "PCH_CPU_TEMP" title = "PCH_CPU_TEMP" }
+}
