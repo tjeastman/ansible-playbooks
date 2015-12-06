@@ -47,7 +47,7 @@ modules {
 
 collection_group {
   collect_every = 60
-  time_threshold = 3600
+  time_threshold = 120
 
   # turn on various named sensor data defined above
   metric { name = "ACPI_Temp_0" title = "ACPI Temperature 0" }
