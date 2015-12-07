@@ -4,3 +4,5 @@
   with_items:
     - graphite-carbon
     - graphite-web
+- name: install graphite web configuration file
+  template: src=local_settings.py dest=/etc/graphite
