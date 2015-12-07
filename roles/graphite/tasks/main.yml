@@ -1,0 +1,6 @@
+---
+- name: install graphite
+  apt: name={{ item }} state=latest
+  with_items:
+    - graphite-carbon
+    - graphite-web
