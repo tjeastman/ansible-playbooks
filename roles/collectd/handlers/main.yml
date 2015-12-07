@@ -1,0 +1,3 @@
+---
+- name: restart collectd
+  action: service name=collectd state=restarted
