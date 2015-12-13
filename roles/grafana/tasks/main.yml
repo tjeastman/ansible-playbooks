@@ -1,0 +1,7 @@
+---
+- name: add Package Cloud key
+  apt_key: url=https://packagecloud.io/gpg.key state=present
+- name: add Grafana Debian package repository
+  copy: src=grafana.list dest=/etc/apt/sources.list.d/
+- name: install Grafana
+  apt: name=grafana update_cache=yes state=present
