@@ -22,3 +22,6 @@
    - silversearcher-ag
    - sysstat
    - ufw
+   - nmap
+   - coreutils
+
