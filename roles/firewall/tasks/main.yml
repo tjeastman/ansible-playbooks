@@ -1,0 +1,11 @@
+---
+- name: allow SSH
+  ufw: rule=allow name=ssh
+- name: allow HTTP
+  ufw: rule=allow name=www
+- name: set outgoing policy
+  ufw: direction=outgoing policy=allow
+- name: set incoming policy
+  ufw: direction=incoming policy=deny
+- name: enable UFW
+  ufw: state=enabled
