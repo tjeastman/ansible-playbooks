@@ -1,3 +1,4 @@
 ---
 graphite_secret_key: UNSAFE_DEFAULT
 graphite_timezone: America/Los_Angeles
+carbon_enable_logrotation: True
