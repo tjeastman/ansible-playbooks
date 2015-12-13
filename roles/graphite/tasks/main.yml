@@ -6,3 +6,5 @@
     - graphite-web
 - name: install graphite web configuration file
   template: src=local_settings.py dest=/etc/graphite
+- name: install defaults file for Carbon
+  copy: src=graphite-carbon dest=/etc/default
