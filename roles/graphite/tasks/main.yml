@@ -8,3 +8,5 @@
   template: src=local_settings.py dest=/etc/graphite
 - name: install defaults file for Carbon
   copy: src=graphite-carbon dest=/etc/default
+- name: install Carbon configuration file
+  template: src=carbon.conf dest=/etc/carbon
