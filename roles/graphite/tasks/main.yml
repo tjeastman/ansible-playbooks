@@ -14,3 +14,8 @@
   template: src=storage-aggregation.conf dest=/etc/carbon
 - name: install Carbon configuration file
   template: src=carbon.conf dest=/etc/carbon
+- name: install Apache
+  apt: name={{ item }} state=present
+  with_items:
+    - apache2
+    - libapache2-mod-wsgi
