@@ -16,3 +16,6 @@
     - arduino
     - arduino-core
     - arduino-mk
+    - make
+    - gcc
+    - g++
