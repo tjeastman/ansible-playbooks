@@ -1,6 +1,6 @@
 ---
-- name: allow SSH
-  ufw: rule=allow name=ssh
+- name: limit SSH
+  ufw: rule=limit name=ssh
 - name: allow HTTP
   ufw: rule=allow name=www
 - name: set outgoing policy
