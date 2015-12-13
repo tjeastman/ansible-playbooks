@@ -6,6 +6,8 @@
     - graphite-web
 - name: install graphite web configuration file
   template: src=local_settings.py dest=/etc/graphite
+# FIX need to run this:
+# sudo graphite-manage syncdb
 - name: install defaults file for Carbon
   copy: src=graphite-carbon dest=/etc/default
 - name: install Carbon storage aggregation configuration file
