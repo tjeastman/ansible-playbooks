@@ -3,6 +3,8 @@
   ufw: rule=limit name=ssh
 - name: allow HTTP
   ufw: rule=allow name=www
+- name: allow carbon
+  ufw: rule=allow port=2003
 - name: set outgoing policy
   ufw: direction=outgoing policy=allow
 - name: set incoming policy
