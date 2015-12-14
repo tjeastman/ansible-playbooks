@@ -11,8 +11,13 @@
 # FIX change permissions/ownership of database file
 - name: install defaults file for Carbon
   copy: src=graphite-carbon dest=/etc/default
-- name: install Carbon storage aggregation configuration file
-  template: src=storage-aggregation.conf dest=/etc/carbon
+- name: install Carbon storage configuration files
+  template: src={{ item }} dest=/etc/carbon
+  with_items:
+    - storage-aggregation.conf
+    - storage-schemas.conf
+  notify:
+    - restart carbon-cache
 - name: install Carbon configuration file
   template: src=carbon.conf dest=/etc/carbon
 - name: install Apache
