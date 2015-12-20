@@ -1,0 +1,11 @@
+[graphite-servers]
+graphite
+
+[grafana-servers]
+grafana
+
+[apt-servers]
+apt
+
+[desktops]
+desktop
