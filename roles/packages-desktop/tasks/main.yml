@@ -6,16 +6,16 @@
     - gimp
     - audacity
     - inkscape
-    - virtualbox
+##    - virtualbox
     - vagrant
     - freecad
     - ipython-qtconsole
-    - kicad
+##    - kicad
     - openscad
     - vlc
     - gnucash
     - gnucash-docs
     - librecad
-    - docker.io
-    - openscam
+##    - docker.io
+##    - openscam
     - cinnamon
