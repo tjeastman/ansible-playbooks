@@ -7,6 +7,8 @@
   ufw: rule=allow port={{ debian_cache_port }}
 - name: allow carbon
   ufw: rule=allow port=2003
+- name: allow NFS
+  ufw: rule=allow port=2049
 - name: set outgoing policy
   ufw: direction=outgoing policy=allow
 - name: set incoming policy
