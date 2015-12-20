@@ -1,0 +1,11 @@
+# {{ ansible_managed }}
+
+deb http://{{ debian_cache_host }}:{{ debian_cache_port }}/{{ debian_mirror_host }}/debian {{ debian_distribution }} main contrib non-free
+deb-src http://{{ debian_cache_host }}:{{ debian_cache_port }}/{{ debian_mirror_host }}/debian {{ debian_distribution }} main contrib non-free
+
+deb http://security.debian.org/ {{ debian_distribution }}/updates main
+deb-src http://security.debian.org/ {{ debian_distribution }}/updates main
+
+# {{ debian_distribution }}-updates, previously known as 'volatile'
+deb http://{{ debian_cache_host }}:{{ debian_cache_port }}/{{ debian_mirror_host }}/debian {{ debian_distribution }}-updates main
+deb-src http://{{ debian_cache_host }}:{{ debian_cache_port }}/{{ debian_mirror_host }}/debian {{ debian_distribution }}-updates main
