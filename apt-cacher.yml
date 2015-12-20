@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: apt-servers
   sudo: yes
   roles:
     - apt-cacher
