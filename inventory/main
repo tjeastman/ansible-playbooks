@@ -9,6 +9,10 @@ apt
 
 [apt-clients]
 desktop
+laptop1
 
 [desktops]
 desktop
+
+[laptops]
+laptop1
