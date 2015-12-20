@@ -11,3 +11,4 @@
     - packages-java
     - packages-octave
     - packages-dev
+    - packages-gnuplot

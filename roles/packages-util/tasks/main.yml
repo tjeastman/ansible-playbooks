@@ -11,8 +11,6 @@
    - htop
    - wipe
    - minicom
-   - gnuplot
-   - gnuplot-doc
    - iptables
    - uuid-runtime
    - rfkill
@@ -24,4 +22,3 @@
    - ufw
    - nmap
    - coreutils
-

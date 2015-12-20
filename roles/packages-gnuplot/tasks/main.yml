@@ -1,0 +1,9 @@
+---
+- name: install gnuplot
+  apt: name={{ item }} update_cache=no state=latest
+  with_items:
+   - gnuplot
+   - gnuplot-doc
+   - gnuplot-tex
+   - gnuplot-x11
+   - gnuplot-data
