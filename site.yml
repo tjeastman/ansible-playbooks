@@ -1,5 +1,6 @@
 ---
 - include: apt-cacher.yml
 - include: apt.yml
+- include: packages.yml
 - include: graphite.yml
 - include: collectd.yml
