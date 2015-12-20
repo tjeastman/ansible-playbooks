@@ -11,3 +11,4 @@
     - openssh-client
     - openssh-server
     - lm-sensors  # FIX run sensors-detect to generate config file
+    - cryptsetup
