@@ -11,6 +11,9 @@ apt
 desktop
 laptop1
 
+[nfs-servers]
+nfs
+
 [desktops]
 desktop
 
