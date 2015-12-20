@@ -5,3 +5,4 @@
 - include: graphite.yml
 - include: collectd.yml
 - include: nfs-server.yml
+- include: grafana.yml
