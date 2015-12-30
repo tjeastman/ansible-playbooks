@@ -13,5 +13,7 @@
   ufw: direction=outgoing policy=allow
 - name: set incoming policy
   ufw: direction=incoming policy=deny
+- name: allow gmond
+  ufw: rule=allow port=8649 proto=udp
 - name: enable UFW
   ufw: state=enabled
