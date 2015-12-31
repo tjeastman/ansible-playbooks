@@ -15,5 +15,8 @@
   ufw: direction=incoming policy=deny
 - name: allow gmond
   ufw: rule=allow port=8649 proto=udp
+# FIX port for graphite
+- name: allow 8090
+  ufw: rule=allow port=8090
 - name: enable UFW
   ufw: state=enabled
