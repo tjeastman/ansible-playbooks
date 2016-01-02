@@ -1,0 +1,3 @@
+---
+- name: install usbtiny rules file
+  template: src=99-usbtiny.rules dest=/etc/udev/rules.d
