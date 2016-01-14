@@ -1,6 +1,9 @@
 ---
-- name: install influxdb
+- name: install InfluxDB
   apt: name={{ item }} state=present
   with_items:
     - influxdb
     - influxdb-client  # FIX put into a different role?
+- name: install InfluxDB configuration file
+  template: src=influxdb.conf dest=/etc/influxdb
+  notify: restart InfluxDB
