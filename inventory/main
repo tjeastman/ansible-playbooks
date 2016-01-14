@@ -20,3 +20,6 @@ desktop
 
 [laptops]
 laptop1
+
+[influx-servers]
+influx

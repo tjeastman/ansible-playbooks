@@ -1,0 +1,5 @@
+---
+- hosts: influx-servers
+  sudo: yes
+  roles:
+    - influxdb
