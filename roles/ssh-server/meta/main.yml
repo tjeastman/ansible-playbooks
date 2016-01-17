@@ -1,0 +1,6 @@
+---
+dependencies:
+  - role: firewall
+    firewall_rules:
+      - rule: limit
+        port: 22
