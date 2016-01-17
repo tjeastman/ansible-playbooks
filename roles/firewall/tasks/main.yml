@@ -1,27 +1,8 @@
 ---
 - name: install Uncomplicated FireWall package
   apt: name=ufw update_cache={{ package_cache_update }} state={{ package_state }}
-- name: limit SSH
-  ufw: rule=limit name=ssh
-- name: allow HTTP
-  ufw: rule=allow name=www
-- name: allow APT cache
-  ufw: rule=allow port={{ debian_cache_port }}
-- name: allow carbon
-  ufw: rule=allow port=2003
-- name: allow NFS
-  ufw: rule=allow port=2049
-- name: set outgoing policy
-  ufw: direction=outgoing policy=allow
-- name: set incoming policy
-  ufw: direction=incoming policy=deny
-- name: allow gmond
-  ufw: rule=allow port=8649 proto=udp
-# FIX port for graphite
-- name: allow 8090
-  ufw: rule=allow port=8090
-# grafana
-- name: allow 3000
-  ufw: rule=allow port=3000
-- name: enable UFW
+- name: add firewall rules
+  ufw: rule={{ item.rule }} port={{ item.port }}
+  with_items: "{{ firewall_rules }}"
+- name: enable firewall
   ufw: state=enabled
