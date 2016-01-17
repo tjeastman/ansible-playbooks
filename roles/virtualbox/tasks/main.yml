@@ -1,0 +1,12 @@
+---
+- name: install Linux kernel headers (686-pae)
+  apt: name=linux-headers-686-pae update_cache={{ package_cache_update }} state={{ package_state }}
+  when: ansible_architecture == "i386"
+- name: install Linux kernel headers (amd64)
+  apt: name=linux-headers-amd64 update_cache={{ package_cache_update }} state={{ package_state }}
+  when: ansible_architecture == "x86_64"
+- name: install Virtualbox packages
+  apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
+  with_items:
+    - virtualbox
+    - virtualbox-dkms
