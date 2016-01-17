@@ -1,4 +1,6 @@
 ---
+- name: install Uncomplicated FireWall package
+  apt: name=ufw update_cache={{ package_cache_update }} state={{ package_state }}
 - name: limit SSH
   ufw: rule=limit name=ssh
 - name: allow HTTP

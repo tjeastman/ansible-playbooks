@@ -19,7 +19,6 @@
    - aspell
    - silversearcher-ag
    - sysstat
-   - ufw
    - nmap
    - coreutils
    - sshpass
