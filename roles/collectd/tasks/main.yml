@@ -1,9 +1,10 @@
 ---
-- name: install collectd
-  apt: name={{ item }} state=present
+- name: install collectd packages
+  apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
   with_items:
     - collectd
     - collectd-utils
 - name: install collectd configuration file
   template: src=collectd.conf dest=/etc/collectd
-  notify: restart collectd
+  notify:
+    - restart collectd
