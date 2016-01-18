@@ -1,0 +1,3 @@
+---
+- name: restart Grafana
+  action: service name=grafana-server state=restarted
