@@ -1,12 +1,12 @@
 ---
 - name: add Google’s Linux package signing key
   apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
-  register: package_config
+  register: google_package_config
 - name: add Google’s Debian package repository
   copy: src=google-chrome.list dest=/etc/apt/sources.list.d
-  register: package_config
+  register: google_package_config
 - name: update APT cache
   apt: update_cache=yes
-  when: package_config.changed or package_cache_update == "yes"
+  when: google_package_config.changed or package_cache_update == "yes"
 - name: install Google Chrome package
   apt: name=google-chrome-stable update_cache=no state={{ package_state }}
