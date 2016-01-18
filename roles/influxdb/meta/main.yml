@@ -1,0 +1,12 @@
+---
+dependencies:
+  - role: firewall
+    firewall_rules:
+      # - rule: allow
+      #   port: 8086
+      # - rule: allow
+      #   port: 8088
+      - rule: allow  # web-based admin interface
+        port: 8083
+      - rule: allow  # collectd listener
+        port: 25826
