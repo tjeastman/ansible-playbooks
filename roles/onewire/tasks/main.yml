@@ -1,0 +1,5 @@
+---
+- name: install OneWire packages
+  apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
+  with_items:
+    - libow-dev
