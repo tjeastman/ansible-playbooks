@@ -2,3 +2,5 @@
 graphite_host: localhost
 graphite_port: 2003
 graphite_protocol: tcp
+influx_server_host: influx
+influx_server_port: 25826
