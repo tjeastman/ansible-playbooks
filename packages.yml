@@ -5,10 +5,10 @@
     - packages-base
     - packages-util
     - packages-desktop
-    - packages-python
-    - packages-tex
-    - package-chrome
-    - packages-java
-    - packages-octave
+    - python
+    - tex
+    - chrome
+    - java
+    - octave
     - packages-dev
     - packages-gnuplot
