@@ -1,0 +1,5 @@
+---
+- hosts: desktops:laptops
+  sudo: yes
+  roles:
+    - chrome
