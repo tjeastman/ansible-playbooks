@@ -1,5 +1,5 @@
 ---
-- name: Install packages
+- name: install miscellaneous software development packages
   apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
   with_items:
     - avrdude

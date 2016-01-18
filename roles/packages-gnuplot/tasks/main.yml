@@ -1,5 +1,5 @@
 ---
-- name: Install gnuplot packages
+- name: install gnuplot packages
   apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
   with_items:
    - gnuplot
