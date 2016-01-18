@@ -1,6 +1,6 @@
 ---
 - name: install InfluxDB
-  apt: name={{ item }} state=present
+  apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
   with_items:
     - influxdb
     - influxdb-client  # FIX put into a different role?
