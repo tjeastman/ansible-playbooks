@@ -10,5 +10,5 @@
     - chrome
     - java
     - octave
-    - packages-dev
-    - packages-gnuplot
+    - development
+    - gnuplot
