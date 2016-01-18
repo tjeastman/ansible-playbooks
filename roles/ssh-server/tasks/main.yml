@@ -2,6 +2,6 @@
 - name: install OpenSSH server package
   apt: name=openssh-server update_cache={{ package_cache_update }} state={{ package_state }}
 - name: install OpenSSH server configuration file
-  template: src=sshd_config dest=/etc/ssh/
+  template: src=sshd_config dest=/etc/ssh owner=root group=root mode=644
   notify:
     - restart ssh server
