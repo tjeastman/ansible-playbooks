@@ -1,9 +1,14 @@
 ---
-- name: add Package Cloud key
+- name: add Package Cloud package signing key
   apt_key: url=https://packagecloud.io/gpg.key state=present
+  register: grafana_package_config
 - name: add Grafana APT package repository
-  copy: src=grafana.list dest=/etc/apt/sources.list.d/
+  copy: src=grafana.list dest=/etc/apt/sources.list.d
+  register: grafana_package_config
+- name: update APT cache
+  apt: update_cache=yes
+  when: grafana_package_config.changed or package_cache_update == "yes"
 - name: install HTTPS APT transport package
-  apt: name=apt-transport-https update_cache={{ package_cache_update }} state={{ package_state }}
+  apt: name=apt-transport-https update_cache=no state={{ package_state }}
 - name: install Grafana package
-  apt: name=grafana update_cache=yes state={{ package_state }}
+  apt: name=grafana update_cache=no state={{ package_state }}
