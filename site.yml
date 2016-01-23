@@ -3,7 +3,6 @@
 - include: apt.yml
 - include: packages.yml
 - include: influx.yml
-- include: graphite.yml
 - include: collectd.yml
 - include: nfs-server.yml
 - include: grafana.yml

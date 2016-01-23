@@ -1,5 +1,0 @@
----
-- hosts: graphite-servers
-  sudo: yes
-  roles:
-    - graphite
