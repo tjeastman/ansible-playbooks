@@ -1,0 +1,12 @@
+---
+dependencies:
+  - role: firewall
+    firewall_rules:
+      - rule: allow
+        port: {{ rpc_nfsd_port }}
+      - rule: allow
+        port: {{ rpc_statd_port }}
+      - rule: allow
+        port: {{ rpc_statd_outgoing_port }}
+      - rule: allow
+        port: {{ rpc_mountd_port }}
