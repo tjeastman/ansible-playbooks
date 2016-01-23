@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 # If you do not set values for the NEED_ options, they will be attempted
 # autodetected; this should be sufficient for most people. Valid alternatives
 # for the NEED_ options are "yes" and "no".
@@ -10,7 +12,7 @@ NEED_STATD=
 #   when you have a port-based firewall. To use a fixed port, set this
 #   this variable to a statd argument like: "--port 4000 --outgoing-port 4001".
 #   For more information, see rpc.statd(8) or http://wiki.debian.org/SecuringNFS
-STATDOPTS=
+STATDOPTS="--port {{ rpc_statd_port }} --outgoing-port {{ rpc_statd_outgoing_port }}"
 
 # Do you want to start the idmapd daemon? It is only needed for NFSv4.
 NEED_IDMAPD=

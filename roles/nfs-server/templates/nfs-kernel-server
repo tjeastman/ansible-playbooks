@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 # Number of servers to start up
 RPCNFSDCOUNT=8
 
@@ -9,7 +11,7 @@ RPCNFSDPRIORITY=0
 # a fixed port here using the --port option. For more information,
 # see rpc.mountd(8) or http://wiki.debian.org/SecuringNFS
 # To disable NFSv4 on the server, specify '--no-nfs-version 4' here
-RPCMOUNTDOPTS="--manage-gids"
+RPCMOUNTDOPTS="--manage-gids --port {{ rpc_mountd_port }}"
 
 # Do you want to start the svcgssd daemon? It is only required for Kerberos
 # exports. Valid alternatives are "yes" and "no"; the default is "no".

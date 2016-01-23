@@ -1,0 +1,4 @@
+---
+rpc_statd_port: 32766
+rpc_statd_outgoing_port: 32765
+rpc_mountd_port: 32767
