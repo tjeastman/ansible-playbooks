@@ -2,8 +2,8 @@
 dependencies:
   - role: firewall
     firewall_rules:
-      # - rule: allow
-      #   port: 8086
+      - rule: allow  # HTTP endpoints
+        port: 8086
       # - rule: allow
       #   port: 8088
       - rule: allow  # web-based admin interface
