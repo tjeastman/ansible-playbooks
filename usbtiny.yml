@@ -1,5 +1,5 @@
 ---
 - hosts: desktops:laptops
-  sudo: yes
+  become: yes
   roles:
     - usbtiny

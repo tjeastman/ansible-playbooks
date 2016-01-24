@@ -1,5 +1,5 @@
 ---
 - hosts: grafana-servers
-  sudo: yes
+  become: yes
   roles:
     - grafana

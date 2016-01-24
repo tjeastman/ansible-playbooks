@@ -1,6 +1,6 @@
 ---
 - hosts: desktops:laptops
-  sudo: yes
+  become: yes
   roles:
     - packages-base
     - packages-util
