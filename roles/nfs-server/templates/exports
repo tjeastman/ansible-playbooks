@@ -11,6 +11,8 @@
 # /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
 #
 {% for directory in nfs_exports %}
-{{ directory }}	{% for exports in nfs_exports[directory] %}{{ exports.clients }}({{ exports.options|join(",") }}) {% endfor %}
+{{ directory }}	{% for exports in nfs_exports[directory] -%}
+{{ exports.clients }}({{ exports.options|join(",") }}){% if not loop.last %} {% endif %}
+{% endfor %}
 
 {% endfor %}
