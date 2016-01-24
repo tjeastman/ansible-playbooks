@@ -1,8 +1,6 @@
 ---
-- name: install NFS packages
-  apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
-  with_items:
-    - nfs-kernel-server
+- name: install NFS package
+  apt: name=nfs-kernel-server update_cache={{ package_cache_update }} state={{ package_state }}
 - name: create export directory
   file: path=/srv/nfs state=directory
   notify:
