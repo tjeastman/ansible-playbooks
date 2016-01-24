@@ -3,4 +3,4 @@ dependencies:
   - role: firewall
     firewall_rules:
       - rule: allow
-        port: 3000
+        port: "{{ grafana_http_port }}"
