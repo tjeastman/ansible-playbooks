@@ -7,7 +7,7 @@
   when: "'create' in item"
   notify:
     - restart NFS
-- name: add exports file
+- name: add NFS exports file
   template: src=exports dest=/etc
   notify:
     - restart NFS
