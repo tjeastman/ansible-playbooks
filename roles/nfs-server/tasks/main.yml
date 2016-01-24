@@ -1,8 +1,10 @@
 ---
 - name: install NFS package
   apt: name=nfs-kernel-server update_cache={{ package_cache_update }} state={{ package_state }}
-- name: create export directory
-  file: path=/srv/nfs state=directory
+- name: create NFS export directories
+  file: path={{ item.path }} owner={{ item.create.owner }} group={{ item.create.group }} mode={{ item.create.mode }} state=directory
+  with_items: "{{ exports }}"
+  when: "'create' in item"
   notify:
     - restart NFS
 - name: add exports file
