@@ -1,0 +1,7 @@
+{
+    "name": "{{ grafana_datasource_name }}",
+    "type": "{{ grafana_datasource_type }}",
+    "access": "{{ grafana_datasource_access }}",
+    "url": "{{ grafana_datasource_url }}",
+    "basicAuth": false
+}

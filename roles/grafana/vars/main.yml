@@ -1,3 +1,11 @@
 ---
+grafana_hostname: grafana
 grafana_http_port: 3000
 grafana_enable_anonymous_access: "true"
+grafana_admin_user: admin
+grafana_admin_password: admin
+grafana_datasource_name: influx_data_source
+grafana_datasource_type: influxdb
+grafana_datasource_access: direct
+grafana_datasource_url: http://influx/
+grafana_api_datasources_url: "http://{{ grafana_hostname }}:{{ grafana_http_port }}/api/datasources"

@@ -18,3 +18,39 @@
   template: src=grafana.ini dest=/etc/grafana owner=root group=grafana mode=640
   notify:
     - restart Grafana
+- name: load existing Grafana data sources
+  uri:
+    method: GET
+    url: "{{ grafana_api_datasources_url }}"
+    user: "{{ grafana_admin_user }}"
+    password: "{{ grafana_admin_password }}"
+    force_basic_auth: yes
+  register: datasources
+- name: search for the data source to create/update
+  set_fact:
+    matching_datasources: "{{ datasources.json|selectattr('name', 'equalto', grafana_datasource_name)|list }}"
+- name: ensure that at most one instance of the data source exists
+  fail: msg="Unexpected multiple copies of data source named {{ grafana_datasource_name }}"
+  when: matching_datasources|length > 1
+- name: add the data source if it does not exist
+  uri:
+    method: POST
+    body_format: json
+    body: "{{ lookup('template', 'datasource.json')|from_json }}"
+    url: "{{ grafana_api_datasources_url }}"
+    user: "{{ grafana_admin_user }}"
+    password: "{{ grafana_admin_password }}"
+    force_basic_auth: yes
+    status_code: 200
+  when: matching_datasources|length == 0
+- name: update the data source if it does exist
+  uri:
+    method: PUT
+    body_format: json
+    body: "{{ lookup('template', 'datasource.json')|from_json }}"
+    url: "{{ grafana_api_datasources_url }}/{{ matching_datasources.0.id }}"
+    user: "{{ grafana_admin_user }}"
+    password: "{{ grafana_admin_password }}"
+    force_basic_auth: yes
+    status_code: 200
+  when: matching_datasources|length == 1
