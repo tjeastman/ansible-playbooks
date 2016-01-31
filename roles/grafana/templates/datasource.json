@@ -3,5 +3,8 @@
     "type": "{{ grafana_datasource_type }}",
     "access": "{{ grafana_datasource_access }}",
     "url": "{{ grafana_datasource_url }}",
+    "database": "{{ grafana_datasource_database }}",
+    "password": "{{ grafana_datasource_password }}",
+    "user": "{{ grafana_datasource_user }}",
     "basicAuth": false
 }

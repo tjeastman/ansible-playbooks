@@ -7,5 +7,8 @@ grafana_admin_password: admin
 grafana_datasource_name: influx_data_source
 grafana_datasource_type: influxdb
 grafana_datasource_access: direct
-grafana_datasource_url: http://influx/
+grafana_datasource_url: http://influx:8086
+grafana_datasource_database: metrics
+grafana_datasource_password: root
+grafana_datasource_user: root
 grafana_api_datasources_url: "http://{{ grafana_hostname }}:{{ grafana_http_port }}/api/datasources"
