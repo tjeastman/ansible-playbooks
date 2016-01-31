@@ -1,2 +1,3 @@
 ---
 grafana_http_port: 3000
+grafana_enable_anonymous_access: "true"
