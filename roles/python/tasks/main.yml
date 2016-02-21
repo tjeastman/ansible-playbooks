@@ -21,6 +21,7 @@
     - python-usb
     - python-boto
     - python-gnucash
+    - python-serial
     - ipython
     - ipython-doc
     - ipython-notebook
