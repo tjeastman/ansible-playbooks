@@ -29,3 +29,4 @@
    - hwinfo
    - lshw
    - lshw-gtk
+   - python-pygments
