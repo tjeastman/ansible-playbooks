@@ -24,3 +24,8 @@
    - sshpass
    - rsync
    - influxdb-client
+   - dmidecode
+   - hardinfo
+   - hwinfo
+   - lshw
+   - lshw-gtk
