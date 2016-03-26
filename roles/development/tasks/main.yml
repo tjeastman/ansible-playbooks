@@ -18,3 +18,4 @@
     - gcc
     - g++
     - sdcc
+    - clang
