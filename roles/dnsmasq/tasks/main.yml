@@ -1,0 +1,5 @@
+---
+- name: install dnsmasq configuration file
+  template: src=dnsmasq.conf dest=/etc
+  notify:
+    - restart dnsmasq
