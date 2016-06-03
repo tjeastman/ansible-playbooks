@@ -30,3 +30,4 @@
    - lshw
    - lshw-gtk
    - python-pygments
+   - tree
