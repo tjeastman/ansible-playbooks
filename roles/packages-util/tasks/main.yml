@@ -31,3 +31,4 @@
    - lshw-gtk
    - python-pygments
    - tree
+   - graphviz
