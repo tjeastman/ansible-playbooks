@@ -19,3 +19,4 @@
     - g++
     - sdcc
     - clang
+    - cmake
