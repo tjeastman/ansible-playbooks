@@ -3,5 +3,7 @@
   apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
   with_items:
     - octave
+    - octave-doc
+    - octave-info
     - octave-statistics
     - liboctave-dev
