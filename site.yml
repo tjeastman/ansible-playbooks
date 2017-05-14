@@ -6,3 +6,4 @@
 - include: collectd.yml
 - include: nfs-server.yml
 - include: grafana.yml
+- include: spotify.yml
