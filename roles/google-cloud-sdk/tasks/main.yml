@@ -6,5 +6,9 @@
 - name: add Google’s Cloud SDK package repository
   copy: src=google-cloud-sdk.list dest=/etc/apt/sources.list.d/
 
-- name: install Google Chrome package
-  apt: name=google-cloud-sdk update_cache=yes state=present
+- name: install Google Cloud SDK packages
+  apt: name={{ item }} update_cache=yes state=present
+  with_items:
+    - google-cloud-sdk
+    - google-cloud-sdk-datalab
+
