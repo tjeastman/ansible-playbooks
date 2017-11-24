@@ -1,24 +1,29 @@
 ---
 - name: add Google Cloud Platform package signing key
+  become: yes
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    id: D0BC747FD8CAF7117500D6FA3746C208A7317B0F
     state: present
   register: google_cloud_package_key
 
 - name: add Google Cloud SDK package repository
+  become: yes
   copy:
     src: google-cloud-sdk.list
     dest: /etc/apt/sources.list.d/
   register: google_cloud_package_repository
 
 - name: update APT cache
+  become: yes
   apt:
     update_cache: yes
   when: google_cloud_package_repository.changed or google_cloud_package_key.changed
 
 - name: install Google Cloud SDK
+  become: yes
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     update_cache: no
     state: present
   with_items:

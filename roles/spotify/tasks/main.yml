@@ -1,22 +1,26 @@
 ---
-- name: add the Spotify package signing key
+- name: add Spotify package signing key
+  become: yes
   apt_key:
     keyserver: hkp://keyserver.ubuntu.com:80
     id: BBEBDCB318AD50EC6865090613B00F1FD2C19886
   register: spotify_package_key
 
-- name: add the Spotify package repository
+- name: add Spotify package repository
+  become: yes
   copy:
     src: spotify.list
     dest: /etc/apt/sources.list.d/
   register: spotify_package_repository
 
 - name: update APT cache
+  become: yes
   apt:
     update_cache: yes
   when: spotify_package_repository.changed or spotify_package_key.changed
 
 - name: install Spotify
+  become: yes
   apt:
     name: spotify-client
     update_cache: no
