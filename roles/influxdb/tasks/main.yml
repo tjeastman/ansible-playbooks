@@ -1,7 +1,14 @@
 ---
-- name: install InfluxDB package
-  apt: name=influxdb update_cache={{ package_cache_update }} state={{ package_state }}
+- name: install InfluxDB
+  become: yes
+  apt:
+    name: influxdb
+    state: present
+
 - name: install InfluxDB configuration file
-  template: src=influxdb.conf dest=/etc/influxdb
+  become: yes
+  template:
+    src: influxdb.conf
+    dest: /etc/influxdb/
   notify:
     - restart InfluxDB

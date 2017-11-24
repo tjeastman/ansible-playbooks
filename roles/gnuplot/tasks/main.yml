@@ -1,7 +1,8 @@
 ---
-- name: install gnuplot packages
+- name: install gnuplot
+  become: yes
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
   with_items:
    - gnuplot

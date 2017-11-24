@@ -1,10 +1,17 @@
 ---
 - name: install collectd packages
-  apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
   with_items:
     - collectd
     - collectd-utils
+
 - name: install collectd configuration file
-  template: src=collectd.conf dest=/etc/collectd
+  become: yes
+  template:
+    src: collectd.conf
+    dest: /etc/collectd/
   notify:
     - restart collectd

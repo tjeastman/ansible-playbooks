@@ -1,12 +1,30 @@
 ---
-- name: install Uncomplicated FireWall package
-  apt: name=ufw update_cache={{ package_cache_update }} state={{ package_state }}
+- name: install Uncomplicated FireWall
+  become: yes
+  apt:
+    name: ufw
+    state: present
+
 - name: set policy for outgoing traffic
-  ufw: direction=outgoing policy=allow
+  become: yes
+  ufw:
+    direction: outgoing
+    policy: allow
+
 - name: set policy for incoming traffic
-  ufw: direction=incoming policy=deny
+  become: yes
+  ufw:
+    direction: incoming
+    policy: deny
+
 - name: add firewall rules
-  ufw: rule={{ item.rule }} port={{ item.port }}
+  become: yes
+  ufw:
+    rule: "{{ item.rule }}"
+    port: "{{ item.port }}"
   with_items: "{{ firewall_rules }}"
+
 - name: enable firewall
-  ufw: state=enabled
+  become: yes
+  ufw:
+    state: enabled
