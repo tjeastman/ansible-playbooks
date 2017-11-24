@@ -1,5 +1,0 @@
----
-- hosts: desktops:laptops
-  become: yes
-  roles:
-    - spotify
