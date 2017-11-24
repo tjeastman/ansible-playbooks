@@ -1,3 +1,0 @@
----
-- name: Add APT source configuration file
-  template: src=sources.list dest=/etc/apt

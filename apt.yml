@@ -1,5 +1,0 @@
----
-- hosts: apt-clients
-  become: yes
-  roles:
-    - apt
