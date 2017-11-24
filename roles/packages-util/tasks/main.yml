@@ -32,3 +32,8 @@
    - python-pygments
    - tree
    - graphviz
+   - inotify-tools
+   - inotify-hookable
+   - diction
+   - xclip
+   - apt-file

@@ -19,4 +19,7 @@
     - g++
     - sdcc
     - clang
+    - libclang-dev
     - cmake
+    - libssl-dev
+    - exuberant-ctags
