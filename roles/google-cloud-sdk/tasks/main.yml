@@ -1,19 +1,25 @@
 ---
-# directions: https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
-- name: add Google’s Cloud Platform package signing key
+- name: add Google Cloud Platform package signing key
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
+  register: google_cloud_package_key
 
-- name: add Google’s Cloud SDK package repository
+- name: add Google Cloud SDK package repository
   copy:
     src: google-cloud-sdk.list
     dest: /etc/apt/sources.list.d/
+  register: google_cloud_package_repository
 
-- name: install Google Cloud SDK packages
+- name: update APT cache
+  apt:
+    update_cache: yes
+  when: google_cloud_package_repository.changed or google_cloud_package_key.changed
+
+- name: install Google Cloud SDK
   apt:
     name: {{ item }}
-    update_cache: yes
+    update_cache: no
     state: present
   with_items:
     - google-cloud-sdk
