@@ -1,9 +1,0 @@
----
-- name: start HDFS datanode
-  command: /usr/local/hadoop/sbin/hadoop-daemon.sh --config /usr/local/hadoop/etc/hadoop/ --script hdfs start datanode
-  args:
-    creates: "/tmp/hadoop-{{ ansible_ssh_user }}-datanode.pid"
-- name: start YARN node manager
-  command: /usr/local/hadoop/sbin/yarn-daemon.sh --config /usr/local/hadoop/etc/hadoop/ start nodemanager
-  args:
-    creates: "/tmp/yarn-{{ ansible_ssh_user }}-nodemanager.pid"

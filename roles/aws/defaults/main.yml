@@ -1,5 +1,0 @@
----
-public: yes
-instance_type: t2.micro
-image: ami-3d50120d
-region: us-west-2

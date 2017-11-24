@@ -1,3 +1,0 @@
-{% for host in groups['datanode'] %}
-{{ hostvars[host].private_dns_name }}
-{% endfor %}

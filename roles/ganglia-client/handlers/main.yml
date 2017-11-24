@@ -1,3 +1,0 @@
----
-- name: restart ganglia monitor
-  action: service name=ganglia-monitor state=restarted

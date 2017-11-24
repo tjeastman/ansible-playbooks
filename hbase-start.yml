@@ -1,4 +1,0 @@
----
-- hosts: namenode
-  roles:
-    - hbase-start
