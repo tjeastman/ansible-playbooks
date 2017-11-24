@@ -1,6 +1,8 @@
 ---
 - name: install TeX packages
-  apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
+  apt:
+    name: {{ item }}
+    state: present
   with_items:
     - texlive-latex-base
     - texlive-latex-base-doc

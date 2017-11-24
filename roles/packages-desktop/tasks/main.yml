@@ -1,6 +1,8 @@
 ---
-- name: Install packages
-  apt: name={{ item }} update_cache={{ package_cache_update }} state={{ package_state }}
+- name: install packages
+  apt:
+    name: {{ item }}
+    state: present
   with_items:
     - fonts-inconsolata
     - gimp

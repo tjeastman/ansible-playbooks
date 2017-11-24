@@ -1,5 +1,7 @@
 ---
 - name: install USBtinyISP udev rules file
-  template: src=99-usbtiny.rules dest=/etc/udev/rules.d
+  template:
+    src: 99-usbtiny.rules
+    dest: /etc/udev/rules.d/
   notify:
     - restart udev

@@ -1,14 +1,20 @@
 ---
 # directions: https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
 - name: add Google’s Cloud Platform package signing key
-  apt_key: url=https://packages.cloud.google.com/apt/doc/apt-key.gpg state=present
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
 
 - name: add Google’s Cloud SDK package repository
-  copy: src=google-cloud-sdk.list dest=/etc/apt/sources.list.d/
+  copy:
+    src: google-cloud-sdk.list
+    dest: /etc/apt/sources.list.d/
 
 - name: install Google Cloud SDK packages
-  apt: name={{ item }} update_cache=yes state=present
+  apt:
+    name: {{ item }}
+    update_cache: yes
+    state: present
   with_items:
     - google-cloud-sdk
     - google-cloud-sdk-datalab
-

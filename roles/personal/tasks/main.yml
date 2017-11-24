@@ -1,43 +1,60 @@
 ---
 - name: create projects directory
-  file: path=~/projects state=directory
+  file:
+    path: ~/projects
+    state: directory
+
 - name: clone dotfiles repository
-  git: repo=https://github.com/tjeastman/dotfiles.git dest=~/projects/dotfiles accept_hostkey=yes
+  git:
+    repo: https://github.com/tjeastman/dotfiles.git
+    dest: ~/projects/dotfiles
+
 - name: clone emacs.d repository
-  git: repo=https://github.com/tjeastman/emacs.d.git dest=~/projects/emacs.d
+  git:
+    repo: https://github.com/tjeastman/emacs.d.git
+    dest: ~/projects/emacs.d
+
 - name: link to emacs.d
-  file: src=~/projects/emacs.d dest=~/.emacs.d state=link
+  file:
+    src: ~/projects/emacs.d
+    dest: ~/.emacs.d
+    state: link
+
 - name: create Emacs state directory
-  file: path=~/.emacs.d/state state=directory
-- name: link to zsh
-  file: src=~/projects/dotfiles/zsh dest=~/.zsh state=link
-- name: link to zshrc
-  file: src=~/projects/dotfiles/zshrc dest=~/.zshrc state=link
-- name: link to gitconfig
-  file: src=~/projects/dotfiles/gitconfig dest=~/.gitconfig state=link
-- name: link to gitignore.global
-  file: src=~/projects/dotfiles/gitignore.global dest=~/.gitignore.global state=link
+  file:
+    path: ~/.emacs.d/state
+    state: directory
+
+- name: create links
+  file:
+    src: ~/projects/dotfiles/{{ item }}
+    dest: ~/.{{ item }}
+    state: link
+  with_items:
+    - Xdefaults
+    - aspell.en.pws
+    - avrduderc
+    - bash
+    - bash_logout
+    - bash_profile
+    - bashrc
+    - ctags
+    - gitconfig
+    - gitignore.global
+    - octaverc
+    - profile
+    - pylintrc
+    - screenrc
+    - sqliterc
+    - zsh
+    - zshrc
+   
 - name: install gitconfig.user
-  template: src=gitconfig.user dest=~/.gitconfig.user
-- name: link to screenrc
-  file: src=~/projects/dotfiles/screenrc dest=~/.screenrc state=link
-- name: link to octaverc
-  file: src=~/projects/dotfiles/octaverc dest=~/.octaverc state=link
-- name: install rope
-  pip: name=rope state=latest extra_args=--user
-- name: install ropemode
-  pip: name=ropemode state=latest extra_args=--user
-- name: install ropemacs
-  pip: name=ropemacs state=latest extra_args=--user
-- name: build Pymacs
-  command: make
-  args:
-    chdir: ~/.emacs.d/contrib/Pymacs
-    creates: ~/.emacs.d/contrib/Pymacs/pymacs.el
-- name: install Pymacs
-  command: python setup.py install --user
-  args:
-    chdir: ~/.emacs.d/contrib/Pymacs
-    creates: ~/.local/lib/python2.7/site-packages/Pymacs.pyc
-- name: install virtualenvwrapper
-  pip: name=virtualenvwrapper state=latest extra_args=--user
+  template:
+    src: gitconfig.user
+    dest: ~/.gitconfig.user
+
+- name: install Python packages
+  pip:
+    requirements: ~/projects/dotfiles/requirements.txt
+    extra_args: --user
