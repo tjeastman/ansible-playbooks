@@ -16,6 +16,16 @@
     - cryptsetup
     - gnupg2
 
+- name: install network packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - iptables
+    - rfkill
+    - nmap
+
 - name: install utility packages
   become: yes
   apt:
@@ -31,15 +41,12 @@
    - htop
    - wipe
    - minicom
-   - iptables
    - uuid-runtime
-   - rfkill
    - ntp
    - sox
    - aspell
    - silversearcher-ag
    - sysstat
-   - nmap
    - coreutils
    - sshpass
    - rsync
