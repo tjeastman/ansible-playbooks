@@ -9,7 +9,6 @@
     - git-man
     - emacs
     - zsh
-    - python-pip
     - openssh-client
     - openssh-server
     - lm-sensors  # FIX run sensors-detect to generate config file
@@ -76,8 +75,6 @@
     - audacity
     - inkscape
     - vagrant
-    - freecad
-    - ipython-qtconsole
 ##    - kicad
     - openscad
     - vlc
