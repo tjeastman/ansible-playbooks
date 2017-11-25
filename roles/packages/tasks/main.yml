@@ -32,39 +32,38 @@
     name: "{{ item }}"
     state: present
   with_items:
-   - zsh-doc
-   - screen
-   - curl
-   - autojump
-   - ack-grep
-   - unzip
-   - htop
-   - wipe
-   - minicom
-   - uuid-runtime
-   - ntp
-   - sox
-   - aspell
-   - silversearcher-ag
-   - sysstat
-   - coreutils
-   - sshpass
-   - rsync
-   - influxdb-client
-   - dmidecode
-   - hardinfo
-   - hwinfo
-   - lshw
-   - lshw-gtk
-   - python-pygments
-   - tree
-   - graphviz
-   - inotify-tools
-   - inotify-hookable
-   - diction
-   - xclip
-   - apt-file
-   - tasksel
+    - zsh-doc
+    - screen
+    - curl
+    - autojump
+    - ack-grep
+    - unzip
+    - htop
+    - wipe
+    - minicom
+    - uuid-runtime
+    - ntp
+    - sox
+    - aspell
+    - silversearcher-ag
+    - sysstat
+    - coreutils
+    - sshpass
+    - rsync
+    - influxdb-client
+    - dmidecode
+    - hardinfo
+    - hwinfo
+    - lshw
+    - lshw-gtk
+    - tree
+    - graphviz
+    - inotify-tools
+    - inotify-hookable
+    - diction
+    - xclip
+    - apt-file
+    - tasksel
 
 - name: install desktop packages
   become: yes
