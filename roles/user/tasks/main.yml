@@ -1,10 +1,12 @@
 ---
 - name: add user
+  become: yes
   user:
     name: "{{ username }}"
     state: present
 
 - name: set user shell
+  become: yes
   user:
     name: "{{ username }}"
     state: present
@@ -12,6 +14,7 @@
   when: shell is defined
 
 - name: add user to groups
+  become: yes
   user:
     name: "{{ username }}"
     state: present
@@ -19,6 +22,7 @@
   when: groupnames is defined
 
 - name: add key for user
+  become: yes
   authorized_key:
     user: "{{ username }}"
     key: "{{ lookup('file', public_key) }}"

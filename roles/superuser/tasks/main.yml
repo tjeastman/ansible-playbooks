@@ -1,6 +1,0 @@
----
-- name: setup user for sudo
-  become: yes
-  template:
-    src: 99-superusers
-    dest: /etc/sudoers.d/
