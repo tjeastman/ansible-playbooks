@@ -1,6 +1,28 @@
 ---
-- name: add Docker’s official GPG key
+- name: add Docker package signing key
+  become: yes
   apt_key:
     url: https://download.docker.com/linux/debian/gpg
-    id: 0EBFCD88
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    state: present
+  register: docker_package_key
+
+- name: add Docker package repository
+  become: yes
+  copy:
+    src: docker.list
+    dest: /etc/apt/sources.list.d/
+  register: docker_package_repository
+
+- name: update APT cache
+  become: yes
+  apt:
+    update_cache: yes
+  when: docker_package_repository.changed or docker_package_key.changed
+
+- name: install Docker
+  become: yes
+  apt:
+    name: docker-ce
+    update_cache: no
     state: present
