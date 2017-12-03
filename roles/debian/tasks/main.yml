@@ -4,3 +4,12 @@
   template:
     src: sources.list
     dest: /etc/apt/
+
+- name: install APT transport packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apt-transport-https
+    - apt-transport-s3
