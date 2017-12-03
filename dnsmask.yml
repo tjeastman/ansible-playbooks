@@ -1,5 +1,0 @@
----
-- hosts: dns
-  become: yes
-  roles:
-    - dnsmasq

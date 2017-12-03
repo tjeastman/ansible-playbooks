@@ -7,7 +7,8 @@
   with_items:
     - git
     - git-man
-    - emacs
+    - emacs25
+    - emacs25-common-non-dfsg
     - zsh
     - openssh-client
     - lm-sensors  # FIX run sensors-detect to generate config file
@@ -62,6 +63,15 @@
     - xclip
     - apt-file
     - tasksel
+
+- name: install gRPC packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - protobuf-compiler
+    - protobuf-compiler-grpc
 
 - name: install desktop packages
   become: yes
