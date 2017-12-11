@@ -59,6 +59,7 @@
    - xclip
    - apt-file
    - tasksel
+   - redis-tools
 
 - name: install gRPC packages
   become: yes
