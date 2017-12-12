@@ -67,6 +67,7 @@
     - apt-file
     - tasksel
     - redis-tools
+    - sqlite3
 
 - name: install gRPC packages
   become: yes
