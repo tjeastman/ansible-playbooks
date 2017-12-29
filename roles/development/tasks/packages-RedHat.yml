@@ -14,6 +14,7 @@
     - git
     - iperf3
     - make
+    - python2-pip
     - rsync
     - screen
     - telnet
