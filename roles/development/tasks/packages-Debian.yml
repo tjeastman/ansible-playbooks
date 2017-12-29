@@ -1,0 +1,20 @@
+---
+- name: install base development packages (Debian)
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - clang
+    - cloud-utils
+    - cmake
+    - emacs25
+    - g++
+    - gcc
+    - git
+    - iperf3
+    - make
+    - rsync
+    - screen
+    - unzip
+    - wget

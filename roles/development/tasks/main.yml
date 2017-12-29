@@ -1,38 +1,6 @@
 ---
-- name: install miscellaneous software development packages
-  become: yes
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - avrdude
-    - gcc-avr
-    - avr-libc
-    - nasm
-    - simple-cdd
-    - libusb-dev
-    - fritzing
-    - fritzing-data
-    - arduino
-    - arduino-core
-    - arduino-mk
-    - make
-    - gcc
-    - g++
-    - sdcc
-    - clang
-    - libclang-dev
-    - cmake
-    - libssl-dev
-    - exuberant-ctags
+- name: determine ansible_os_family
+  setup:
+    filter: "ansible_os_family"
 
-- name: install packages to support GTK application development
-  become: yes
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - glade
-    - libgtk-3-0
-    - libgtk-3-dev
-    - libgtkmm-3.0-dev
+- include: packages-{{ ansible_os_family }}.yml
