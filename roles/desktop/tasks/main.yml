@@ -1,0 +1,19 @@
+---
+- name: install desktop packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - fonts-inconsolata
+    - gimp
+    - audacity
+    - inkscape
+    - vagrant
+##    - kicad
+    - openscad
+    - vlc
+    - librecad
+##    - openscam
+    - cinnamon
+    - xclip
