@@ -5,10 +5,6 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - git
-    - git-man
-    - emacs25
-    - emacs25-common-non-dfsg
     - zsh
     - openssh-client
     - lm-sensors  # FIX run sensors-detect to generate config file
@@ -31,12 +27,8 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - zsh-doc
-    - screen
-    - curl
     - autojump
     - ack-grep
-    - unzip
     - htop
     - wipe
     - minicom
@@ -48,7 +40,6 @@
     - sysstat
     - coreutils
     - sshpass
-    - rsync
     - influxdb-client
     - dmidecode
     - hardinfo
@@ -60,36 +51,5 @@
     - inotify-tools
     - inotify-hookable
     - diction
-    - xclip
-    - apt-file
-    - tasksel
-
-- name: install gRPC packages
-  become: yes
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - protobuf-compiler
-    - protobuf-compiler-grpc
-
-- name: install desktop packages
-  become: yes
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - fonts-inconsolata
-    - gimp
-    - audacity
-    - inkscape
-    - vagrant
-##    - kicad
-    - openscad
-    - vlc
-    - gnucash
-    - gnucash-docs
-    - librecad
-##    - docker.io
-##    - openscam
-    - cinnamon
+    - redis-tools
+    - sqlite3

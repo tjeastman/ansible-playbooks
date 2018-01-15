@@ -13,3 +13,12 @@
   with_items:
     - apt-transport-https
     - apt-transport-s3
+
+- name: install misc. Debian packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apt-file
+    - tasksel

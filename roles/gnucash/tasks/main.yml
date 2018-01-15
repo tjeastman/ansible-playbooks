@@ -1,0 +1,9 @@
+---
+- name: install gnucash
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - gnucash
+    - gnucash-docs
