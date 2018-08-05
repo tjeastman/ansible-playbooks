@@ -53,3 +53,5 @@
     - diction
     - redis-tools
     - sqlite3
+    - strace
+    - vnstat
