@@ -1,23 +1,9 @@
 ---
-- name: install Linux kernel headers (i386)
-  become: yes
-  apt:
-    name: linux-headers-686-pae
-    state: present
-  when: ansible_architecture == "i386"
-
-- name: install Linux kernel headers (amd64)
-  become: yes
-  apt:
-    name: linux-headers-amd64
-    state: present
-  when: ansible_architecture == "x86_64"
-
 - name: install VirtualBox
   become: yes
   apt:
-    name: "{{ item }}"
+    name:
+      - virtualbox
+      - virtualbox-dkms
     state: present
-  with_items:
-    - virtualbox
-    - virtualbox-dkms
+  when: ansible_os_family == "Debian"

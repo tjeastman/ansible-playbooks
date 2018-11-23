@@ -2,8 +2,9 @@
 - name: install Fritzing
   become: yes
   apt:
-    name: "{{ item }}"
+    name:
+      - fritzing
+      - fritzing-data
+      - fritzing-parts
     state: present
-  with_items:
-    - fritzing
-    - fritzing-data
+  when: ansible_os_family == "Debian"
