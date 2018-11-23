@@ -9,9 +9,10 @@
 
 - name: add Spotify package repository
   become: yes
-  copy:
-    src: spotify.list
-    dest: /etc/apt/sources.list.d/
+  apt_repository:
+    repo: deb http://repository.spotify.com stable non-free
+    state: present
+    filename: spotify
   when: ansible_os_family == "Debian"
   register: spotify_package_repository
 

@@ -10,9 +10,10 @@
 
 - name: add Google Debian package repository
   become: yes
-  copy:
-    src: google-chrome.list
-    dest: /etc/apt/sources.list.d/
+  apt_repository:
+    repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+    state: present
+    filename: google-chrome
   when: ansible_os_family == "Debian"
   register: google_package_repository
 
