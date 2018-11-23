@@ -1,4 +1,12 @@
 ---
+- name: install Saleae udev rules file
+  become: yes
+  template:
+    src: 99-saleae.rules
+    dest: /etc/udev/rules.d/
+  notify:
+    - restart udev
+
 - name: create Saleae Logic install directory
   become: yes
   file:
