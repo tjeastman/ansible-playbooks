@@ -1,0 +1,19 @@
+---
+- name: create Saleae Logic install directory
+  become: yes
+  file:
+    path: /opt/logic/
+    state: directory
+
+- name: download Saleae Logic
+  get_url:
+    url: "{{ saleae_logic_download_prefix }}{{ saleae_logic_download_file | urlencode }}"
+    dest: /tmp/saleae-logic.zip
+    checksum: "{{ saleae_logic_checksum }}"
+
+- name: install Saleae Logic
+  become: yes
+  unarchive:
+    remote_src: yes
+    src: /tmp/saleae-logic.zip
+    dest: /opt/logic/
