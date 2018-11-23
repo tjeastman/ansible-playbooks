@@ -7,21 +7,37 @@
   notify:
     - restart udev
 
-- name: create Saleae Logic install directory
-  become: yes
-  file:
-    path: /opt/logic/
-    state: directory
-
 - name: download Saleae Logic
+  become: yes
   get_url:
     url: "{{ saleae_logic_download_prefix }}{{ saleae_logic_download_file | urlencode }}"
-    dest: /tmp/saleae-logic.zip
+    dest: "/opt/{{ saleae_logic_download_file }}"
     checksum: "{{ saleae_logic_checksum }}"
 
 - name: install Saleae Logic
   become: yes
   unarchive:
     remote_src: yes
-    src: /tmp/saleae-logic.zip
+    src: "/opt/{{ saleae_logic_download_file }}"
+    dest: /opt/
+    owner: root
+    group: dialout  # Saleae Logic writes state within the install directory
+
+- name: create link to Saleae Logic install directory
+  become: yes
+  file:
+    src: "/opt/{{ saleae_logic_install_directory }}"
+    dest: /opt/logic
+    state: link
+
+- name: copy Saleae Logic application icon
+  become: yes
+  copy:
+    src: Logic.png
     dest: /opt/logic/
+
+- name: register Saleae Logic with the desktop
+  become: yes
+  copy:
+    src: saleae-logic-analyzer.desktop
+    dest: /usr/share/applications/
