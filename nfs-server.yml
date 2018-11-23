@@ -1,5 +1,0 @@
----
-- hosts: nfs-servers
-  become: yes
-  roles:
-    - nfs-server

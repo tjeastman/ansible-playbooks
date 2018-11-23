@@ -1,3 +1,0 @@
----
-- name: restart NFS
-  action: service name=nfs-kernel-server state=restarted
