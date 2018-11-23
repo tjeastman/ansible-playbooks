@@ -28,7 +28,6 @@
     state: present
   with_items:
     - autojump
-    - ack-grep
     - htop
     - wipe
     - minicom
@@ -36,11 +35,9 @@
     - ntp
     - sox
     - aspell
-    - silversearcher-ag
     - sysstat
     - coreutils
     - sshpass
-    - influxdb-client
     - dmidecode
     - hardinfo
     - hwinfo
@@ -48,8 +45,6 @@
     - lshw-gtk
     - tree
     - graphviz
-    - inotify-tools
-    - inotify-hookable
     - diction
     - redis-tools
     - sqlite3
