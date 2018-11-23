@@ -1,5 +1,0 @@
----
-debian_apt_proxy: http://debian-apt-cache
-debian_apt_proxy_port: 3142
-debian_mirror: mirrors.kernel.org/debian/
-debian_release: testing
