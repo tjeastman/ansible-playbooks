@@ -1,24 +1,47 @@
 ---
-- name: add Docker package signing key
+- name: add Docker Debian package signing key
   become: yes
   apt_key:
     url: https://download.docker.com/linux/debian/gpg
     id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
     state: present
+  when: ansible_distribution == "Debian"
   register: docker_package_key
 
-- name: add Docker package repository
+- name: add Docker Ubuntu package signing key
   become: yes
-  copy:
-    src: docker.list
-    dest: /etc/apt/sources.list.d/
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    state: present
+  when: ansible_distribution == "Ubuntu"
+  register: docker_package_key
+
+- name: add Debian Docker package repository
+  become: yes
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+    state: present
+    filename: docker
+  when: ansible_distribution == "Debian"
+  register: docker_package_repository
+
+- name: add Ubuntu Docker package repository
+  become: yes
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+    state: present
+    filename: docker
+  when: ansible_distribution == "Ubuntu"
   register: docker_package_repository
 
 - name: update APT cache
   become: yes
   apt:
     update_cache: yes
-  when: docker_package_repository.changed or docker_package_key.changed
+  when:
+    - ansible_os_family == "Debian"
+    - docker_package_repository.changed or docker_package_key.changed
 
 - name: install Docker
   become: yes
@@ -26,3 +49,4 @@
     name: docker-ce
     update_cache: no
     state: present
+  when: ansible_os_family == "Debian"
