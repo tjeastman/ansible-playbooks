@@ -5,19 +5,5 @@
     name: "{{ item }}"
     state: latest
   with_items:
-    - clang
     - cloud-utils
-    - cmake
-    - curl
-    - emacs25
-    - emacs25-common-non-dfsg
-    - g++
-    - gcc
-    - git
-    - git-man
     - iperf3
-    - make
-    - rsync
-    - screen
-    - unzip
-    - wget

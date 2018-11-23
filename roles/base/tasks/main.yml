@@ -1,0 +1,46 @@
+---
+- name: install base packages
+  become: yes
+  apt:
+    name:
+      - aspell
+      - bzip2
+      - bzip2-doc
+      - curl
+      - emacs25
+      - emacs25-common-non-dfsg  # docs
+      - git
+      - git-man
+      - gnupg2
+      - rsync
+      - screen
+      - telnet
+      - tree
+      - unzip
+      - wget
+      - zsh
+      - zsh-doc
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: install system services
+  become: yes
+  apt:
+    name:
+      - openssh-server
+      - ntp
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: install compilers and build tools
+  become: yes
+  apt:
+    name:
+      - clang
+      - cmake
+      - g++
+      - gcc
+      - golang
+      - make
+    state: present
+  when: ansible_os_family == "Debian"

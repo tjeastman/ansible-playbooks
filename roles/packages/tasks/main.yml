@@ -5,11 +5,9 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - zsh
     - openssh-client
     - lm-sensors  # FIX run sensors-detect to generate config file
     - cryptsetup
-    - gnupg2
 
 - name: install network packages
   become: yes
@@ -34,9 +32,7 @@
     - wipe
     - minicom
     - uuid-runtime
-    - ntp
     - sox
-    - aspell
     - sysstat
     - coreutils
     - sshpass
@@ -45,7 +41,6 @@
     - hwinfo
     - lshw
     - lshw-gtk
-    - tree
     - graphviz
     - diction
     - redis-tools
