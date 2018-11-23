@@ -2,29 +2,13 @@
 - name: install Python packages
   become: yes
   apt:
-    name: "{{ item }}"
+    name:
+      - python
+      - python-doc
+      - python-dev
+      - python-pip
+      - python-virtualenv
+      - python-ipython
+      - python-ipython-doc
     state: present
-  with_items:
-    - python-dev
-    - pyflakes
-    - pylint
-    - python-flake8
-    - python-numpy
-    - python-numpy-doc
-    - python-scipy
-    - python-scipy-doc
-    - python-pandas
-    - python-tables
-    - python-sklearn
-    - python-sklearn-doc
-    - python-numexpr
-    - python-matplotlib
-    - python-matplotlib-doc
-    - python-virtualenv
-    - python-usb
-    - python-boto
-    - python-gnucash
-    - python-serial
-    - ipython
-    - ipython-doc
-    - ipython-notebook
+  when: ansible_os_family == "Debian"

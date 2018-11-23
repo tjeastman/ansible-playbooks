@@ -3,29 +3,42 @@
   become: yes
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    id: D0BC747FD8CAF7117500D6FA3746C208A7317B0F
+    id: 54A647F9048D5688D7DA2ABE6A030B21BA07F4FB
     state: present
+  when: ansible_os_family == "Debian"
   register: google_cloud_package_key
 
-- name: add Google Cloud SDK package repository
+- name: add Debian Google Cloud SDK package repository
   become: yes
-  copy:
-    src: google-cloud-sdk.list
-    dest: /etc/apt/sources.list.d/
+  apt_repository:
+    repo: deb http://packages.cloud.google.com/apt cloud-sdk-stretch main
+    state: present
+    filename: google-cloud-sdk
+  when: ansible_distribution == "Debian"
+  register: google_cloud_package_repository
+
+- name: add Ubuntu Google Cloud SDK package repository
+  become: yes
+  apt_repository:
+    repo: deb http://packages.cloud.google.com/apt cloud-sdk-cosmic main
+    state: present
+    filename: google-cloud-sdk
+  when: ansible_distribution == "Ubuntu"
   register: google_cloud_package_repository
 
 - name: update APT cache
   become: yes
   apt:
     update_cache: yes
-  when: google_cloud_package_repository.changed or google_cloud_package_key.changed
+  when:
+    - ansible_os_family == "Debian"
+    - google_cloud_package_repository.changed or google_cloud_package_key.changed
 
 - name: install Google Cloud SDK
   become: yes
   apt:
-    name: "{{ item }}"
-    update_cache: no
+    name:
+      - google-cloud-sdk
+      - google-cloud-sdk-datalab
     state: present
-  with_items:
-    - google-cloud-sdk
-    - google-cloud-sdk-datalab
+  when: ansible_os_family == "Debian"
