@@ -2,11 +2,10 @@
 - name: install gnuplot
   become: yes
   apt:
-    name: "{{ item }}"
+    name:
+      - gnuplot
+      - gnuplot-doc
+      - gnuplot-x11
+      - gnuplot-data
     state: present
-  with_items:
-   - gnuplot
-   - gnuplot-doc
-   - gnuplot-tex
-   - gnuplot-x11
-   - gnuplot-data
+  when: ansible_os_family == "Debian"

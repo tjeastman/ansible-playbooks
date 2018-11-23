@@ -2,12 +2,12 @@
 - name: install Arduino and related packages
   become: yes
   apt:
-    name: "{{ item }}"
+    name:
+      - arduino
+      - arduino-core
+      - arduino-mk
+      - avr-libc
+      - avrdude
+      - gcc-avr
     state: present
-  with_items:
-    - arduino
-    - arduino-core
-    - arduino-mk
-    - avr-libc
-    - avrdude
-    - gcc-avr
+  when: ansible_os_family == "Debian"

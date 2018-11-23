@@ -2,11 +2,11 @@
 - name: install GNU Octave
   become: yes
   apt:
-    name: "{{ item }}"
+    name:
+      - octave
+      - octave-doc
+      - octave-info
+      - octave-statistics
+      - liboctave-dev
     state: present
-  with_items:
-    - octave
-    - octave-doc
-    - octave-info
-    - octave-statistics
-    - liboctave-dev
+  when: ansible_os_family == "Debian"

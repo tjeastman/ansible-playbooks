@@ -2,11 +2,11 @@
 - name: install TeX packages
   become: yes
   apt:
-    name: "{{ item }}"
+    name:
+      - texlive-latex-base
+      - texlive-latex-base-doc
+      - texlive-latex-recommended
+      - texlive-latex-recommended-doc
+      - texlive-extra-utils
     state: present
-  with_items:
-    - texlive-latex-base
-    - texlive-latex-base-doc
-    - texlive-latex-recommended
-    - texlive-latex-recommended-doc
-    - texlive-extra-utils
+  when: ansible_os_family == "Debian"
