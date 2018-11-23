@@ -1,1 +1,7 @@
 ---
+- name: replace caps lock key with control
+  become: yes
+  lineinfile:
+    path: /etc/default/keyboard
+    regexp: '^XKBOPTIONS='
+    line: 'XKBOPTIONS="ctrl:nocaps"'
