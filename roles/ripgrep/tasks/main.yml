@@ -1,0 +1,14 @@
+---
+- name: install Debian ripgrep package
+  become: yes
+  apt:
+    deb: https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
+    state: present
+  when: ansible_distribution == "Debian"
+
+- name: install Ubuntu ripgrep package
+  become: yes
+  apt:
+    name: ripgrep
+    state: present
+  when: ansible_distribution == "Ubuntu"
