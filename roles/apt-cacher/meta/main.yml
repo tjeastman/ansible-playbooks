@@ -1,6 +1,0 @@
----
-dependencies:
-  - role: firewall
-    firewall_rules:
-      - rule: allow
-        port: {{ debian_cache_port }}

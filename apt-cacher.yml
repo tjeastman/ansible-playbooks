@@ -1,5 +1,0 @@
----
-- hosts: apt-servers
-  become: yes
-  roles:
-    - apt-cacher
