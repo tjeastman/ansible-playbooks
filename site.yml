@@ -1,9 +1,23 @@
 ---
-- include: apt-cacher.yml
-- include: apt.yml
-- include: packages.yml
-- include: influx.yml
-- include: collectd.yml
-- include: nfs-server.yml
-- include: grafana.yml
-- include: spotify.yml
+- hosts: all
+  roles:
+    - base
+    - arduino
+    - bazel
+    - gnuplot
+    - google-cloud-sdk
+    - java
+    - octave
+    - python
+    - ripgrep
+    - tex
+    - usbtiny
+- hosts: desktop
+  roles:
+    - chrome
+    - docker
+    - fritzing
+    - gnucash
+    - saleae
+    - spotify
+    - virtualbox
