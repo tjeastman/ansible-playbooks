@@ -5,24 +5,28 @@
     url: https://bazel.build/bazel-release.pub.gpg
     id: 71A1D0EFCFEB6281FD0437C93D5919B448457EE0
     state: present
+  when: ansible_os_family == "Debian"
   register: bazel_package_key
 
-- name: add Bazel repository
+- name: add Bazel package repository
   become: yes
-  copy:
-    src: bazel.list
-    dest: /etc/apt/sources.list.d/
+  apt_repository:
+    repo: deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8
+    state: present
+    filename: bazel
+  when: ansible_os_family == "Debian"
   register: bazel_package_repository
 
 - name: update APT cache
   become: yes
   apt:
     update_cache: yes
-  when: bazel_package_repository.changed or bazel_package_key.changed
+  when:
+    - ansible_os_family == "Debian"
+    - bazel_package_repository.changed or bazel_package_key.changed
 
 - name: install Bazel
   become: yes
   apt:
     name: bazel
-    update_cache: no
     state: present
