@@ -43,10 +43,20 @@
     - ansible_os_family == "Debian"
     - docker_package_repository.changed or docker_package_key.changed
 
+- name: install Docker system-level dependencies
+  become: yes
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+    state: present
+  when: ansible_os_family == "Debian"
+
 - name: install Docker
   become: yes
   apt:
     name: docker-ce
-    update_cache: no
     state: present
   when: ansible_os_family == "Debian"
