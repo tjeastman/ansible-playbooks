@@ -47,3 +47,4 @@
     - sqlite3
     - strace
     - vnstat
+    - neofetch
