@@ -48,16 +48,11 @@
     - sqliterc
     - zsh
     - zshrc
-   
+
 - name: install gitconfig.user
   template:
     src: gitconfig.user
     dest: ~/.gitconfig.user
-
-- name: install Python packages
-  pip:
-    requirements: ~/projects/dotfiles/requirements.txt
-    extra_args: --user
 
 - name: add user to groups
   become: yes
