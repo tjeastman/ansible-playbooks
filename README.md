@@ -1,5 +1,5 @@
 ansible-playbooks
 =================
 ```
-ansible-playbook -i inventory/local -k -K site.yml
+ansible-playbook -K -i inventory/local site.yml
 ```
