@@ -58,3 +58,14 @@
   pip:
     requirements: ~/projects/dotfiles/requirements.txt
     extra_args: --user
+
+- name: add user to groups
+  become: yes
+  user:
+    name: "{{ username }}"
+    state: present
+    shell: /bin/zsh
+    groups:
+      - docker
+      - dialout
+    append: yes
