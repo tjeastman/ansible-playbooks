@@ -12,6 +12,7 @@
   unarchive:
     src: /opt/arduino-1.8.8-linux64.tar.xz
     dest: /opt/
+    creates: /opt/arduino-1.8.8/
   when: ansible_architecture == "x86_64" and ansible_system == "Linux"
 
 - name: install Arduino-related packages
