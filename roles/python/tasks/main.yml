@@ -13,3 +13,13 @@
       - virtualenvwrapper
     state: present
   when: ansible_os_family == "Debian"
+
+- name: install Python build packages
+  become: yes
+  apt:
+    name:
+      - libbz2-dev
+      - libsqlite3-dev
+      - libssl-dev
+    state: present
+  when: ansible_os_family == "Debian"
