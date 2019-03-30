@@ -1,8 +1,0 @@
----
-- name: install base development packages (Debian)
-  become: yes
-  apt:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - cloud-utils

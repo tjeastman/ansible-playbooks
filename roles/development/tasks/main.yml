@@ -1,6 +1,0 @@
----
-- name: determine ansible_os_family
-  setup:
-    filter: "ansible_os_family"
-
-- include: packages-{{ ansible_os_family }}.yml
