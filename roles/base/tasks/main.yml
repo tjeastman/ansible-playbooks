@@ -4,21 +4,45 @@
   apt:
     name:
       - aspell
+      - atop
+      - autojump
       - bzip2
       - bzip2-doc
+      - coreutils
+      - cryptsetup
       - curl
+      - dmidecode
       - emacs25
       - emacs25-common-non-dfsg  # docs
       - git
       - git-man
       - gnupg2
+      - hardinfo
+      - htop
+      - hwinfo
       - iperf3
+      - iptables
+      - minicom
+      - neofetch
+      - nmap
+      - openssh-client
+      - powertop
+      - redis-tools
+      - rfkill
       - rsync
       - screen
+      - sox
+      - sqlite3
+      - sshpass
+      - strace
+      - sysstat
       - telnet
       - tree
       - unzip
+      - uuid-runtime
+      - vnstat
       - wget
+      - wipe
       - zsh
       - zsh-doc
     state: present

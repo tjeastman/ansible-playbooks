@@ -5,19 +5,7 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - openssh-client
     - lm-sensors  # FIX run sensors-detect to generate config file
-    - cryptsetup
-
-- name: install network packages
-  become: yes
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - iptables
-    - rfkill
-    - nmap
 
 - name: install utility packages
   become: yes
@@ -25,27 +13,8 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - atop
-    - powertop
-    - autojump
-    - htop
-    - wipe
-    - minicom
-    - uuid-runtime
-    - sox
-    - sysstat
-    - coreutils
-    - sshpass
-    - dmidecode
-    - hardinfo
-    - hwinfo
     - lshw
     - lshw-gtk
     - graphviz
     - diction
-    - redis-tools
-    - sqlite3
-    - strace
-    - vnstat
-    - neofetch
     - ffmpegthumbnailer
