@@ -55,6 +55,7 @@
   apt:
     name:
       - clang
+      - clojure
       - cmake
       - g++
       - gcc
