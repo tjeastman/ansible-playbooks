@@ -5,18 +5,6 @@
     name: "{{ item }}"
     state: latest
   with_items:
-    - bash-completion
-    - bash-completion-extras
     - bind-utils
     - cloud-utils
-    - emacs
-    - gcc
-    - git
-    - iperf3
-    - make
     - python2-pip
-    - rsync
-    - screen
-    - telnet
-    - unzip
-    - wget

@@ -6,4 +6,3 @@
     state: latest
   with_items:
     - cloud-utils
-    - iperf3

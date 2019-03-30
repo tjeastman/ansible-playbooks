@@ -1,5 +1,5 @@
 ---
-- name: install base packages
+- name: install base packages (Debian)
   become: yes
   apt:
     name:
@@ -12,6 +12,7 @@
       - git
       - git-man
       - gnupg2
+      - iperf3
       - rsync
       - screen
       - telnet
@@ -23,7 +24,24 @@
     state: present
   when: ansible_os_family == "Debian"
 
-- name: install system services
+- name: install base packages (RedHat)
+  become: yes
+  yum:
+    name:
+    - bash-completion
+    - bash-completion-extras
+    - emacs
+    - git
+    - iperf3
+    - rsync
+    - screen
+    - telnet
+    - unzip
+    - wget
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: install system services (Debian)
   become: yes
   apt:
     name:
@@ -32,7 +50,7 @@
     state: present
   when: ansible_os_family == "Debian"
 
-- name: install compilers and build tools
+- name: install compilers and build tools (Debian)
   become: yes
   apt:
     name:
@@ -44,3 +62,12 @@
       - make
     state: present
   when: ansible_os_family == "Debian"
+
+- name: install compilers and build tools (RedHat)
+  become: yes
+  yum:
+    name:
+      - gcc
+      - make
+    state: present
+  when: ansible_os_family == "RedHat"
