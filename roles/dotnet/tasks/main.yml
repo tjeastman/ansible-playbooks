@@ -1,0 +1,36 @@
+---
+- name: add Microsoft Linux package signing key
+  become: yes
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+    state: present
+  when: ansible_os_family == "Debian"
+  register: microsoft_package_key
+
+- name: add Microsoft Debian package repository
+  become: yes
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-bionic-prod bionic main
+    state: present
+    filename: dotnet
+  when: ansible_os_family == "Debian"
+  register: microsoft_package_repository
+
+- name: update APT cache
+  become: yes
+  apt:
+    update_cache: yes
+  when:
+    - ansible_os_family == "Debian"
+    - microsoft_package_repository.changed or microsoft_package_key.changed
+
+- name: install dotnet
+  become: yes
+  apt:
+    name:
+      - dotnet-sdk-2.2
+      - dotnet-runtime-2.2
+    update_cache: no
+    state: present
+  when: ansible_os_family == "Debian"
