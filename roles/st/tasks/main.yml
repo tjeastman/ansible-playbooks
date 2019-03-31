@@ -1,0 +1,9 @@
+---
+- name: install st build dependencies (Debian)
+  become: yes
+  apt:
+    name:
+      - libfontconfig1-dev
+      - libxft-dev
+    state: present
+  when: ansible_os_family == "Debian"
