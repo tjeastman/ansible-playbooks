@@ -25,6 +25,7 @@
       - minicom
       - neofetch
       - nmap
+      - openconnect
       - openssh-client
       - powertop
       - redis-tools
