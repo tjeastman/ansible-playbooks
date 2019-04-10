@@ -54,9 +54,11 @@
     state: present
   when: ansible_os_family == "Debian"
 
-- name: install Docker
+- name: install Docker and Docker Compose
   become: yes
   apt:
-    name: docker-ce
+    name:
+      - docker-ce
+      - docker-compose
     state: present
   when: ansible_os_family == "Debian"
