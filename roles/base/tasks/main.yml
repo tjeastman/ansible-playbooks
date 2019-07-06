@@ -12,8 +12,9 @@
       - cryptsetup
       - curl
       - dmidecode
-      - emacs25
-      - emacs25-common-non-dfsg  # docs
+      - emacs-bin-common
+      - emacs-common
+      - emacs-gtk
       - git
       - git-man
       - gnupg2
