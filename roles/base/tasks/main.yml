@@ -87,6 +87,7 @@
       - gcc
       - golang
       - make
+      - nim
     state: present
   when: ansible_os_family == "Debian"
 
