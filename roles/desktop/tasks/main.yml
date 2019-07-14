@@ -5,18 +5,19 @@
     name: "{{ item }}"
     state: present
   with_items:
+    - audacity
+    - cinnamon
+    - ffmpegthumbnailer
     - fonts-inconsolata
     - gimp
-    - audacity
-    - inkscape
-    - vagrant
-    - kicad
-    - openscad
-    - vlc
-    - librecad
-    - cinnamon
-    - xclip
-    - ffmpegthumbnailer
+    - gnome-tweaks
     - i3
     - i3status
+    - inkscape
+    - kicad
+    - librecad
+    - openscad
     - slock
+    - vagrant
+    - vlc
+    - xclip
