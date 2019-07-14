@@ -1,0 +1,7 @@
+---
+- name: install FeedReader
+  become: yes
+  apt:
+    name: feedreader
+    state: present
+  when: ansible_os_family == "Debian"
