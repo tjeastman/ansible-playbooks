@@ -12,6 +12,7 @@
       - cryptsetup
       - curl
       - dmidecode
+      - dos2unix
       - emacs-bin-common
       - emacs-common
       - emacs-gtk
