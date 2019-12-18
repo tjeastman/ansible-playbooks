@@ -3,6 +3,7 @@
   become: yes
   apt:
     name:
+      - pipx
       - python
       - python-doc
       - python-dev
