@@ -18,6 +18,7 @@
       - emacs-gtk
       - git
       - git-man
+      - glances
       - gnupg2
       - hardinfo
       - htop
