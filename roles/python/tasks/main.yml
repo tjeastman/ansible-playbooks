@@ -6,12 +6,13 @@
       - pipenv
       - pipx
       - python
-      - python-doc
       - python-dev
-      - python-pip
-      - python-virtualenv
+      - python-doc
       - python-ipython
       - python-ipython-doc
+      - python-pip
+      - python-virtualenv
+      - python3-venv
     state: present
   when: ansible_os_family == "Debian"
 
