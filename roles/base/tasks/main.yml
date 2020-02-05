@@ -26,6 +26,7 @@
       - iperf3
       - iptables
       - minicom
+      - mysql-client
       - neofetch
       - nmap
       - openconnect
