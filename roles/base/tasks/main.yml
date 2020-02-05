@@ -45,6 +45,7 @@
       - unzip
       - uuid-runtime
       - vnstat
+      - wavemon
       - wget
       - wipe
       - zsh
