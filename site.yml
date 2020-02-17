@@ -4,6 +4,7 @@
     - arduino
     - base
     - bazel
+    - docker
     - dotnet
     - firewall
     - gnuplot
@@ -16,7 +17,6 @@
     - usbtiny
 - hosts: desktop
   roles:
-    - docker
     - feedreader
     - fritzing
     - gnucash
