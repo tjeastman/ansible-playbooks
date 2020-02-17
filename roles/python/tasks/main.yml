@@ -3,7 +3,6 @@
   become: yes
   apt:
     name:
-      - pipenv
       - pipx
       - python
       - python-dev
