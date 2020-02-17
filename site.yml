@@ -1,13 +1,14 @@
 ---
 - hosts: all
   roles:
-    - base
     - arduino
+    - base
     - bazel
+    - dotnet
+    - firewall
     - gnuplot
     - google-cloud-sdk
     - java
-    - dotnet
     - octave
     - python
     - ripgrep
@@ -15,13 +16,13 @@
     - usbtiny
 - hosts: desktop
   roles:
-    - chrome
     - docker
+    - feedreader
     - fritzing
     - gnucash
+    - google-chrome
+    - redshift
     - saleae
     - spotify
-    - virtualbox
-    - redshift
-    - feedreader
     - st
+    - virtualbox

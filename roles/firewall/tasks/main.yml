@@ -1,9 +1,10 @@
 ---
-- name: install Uncomplicated FireWall
+- name: install UFW
   become: yes
   apt:
     name: ufw
     state: present
+  when: ansible_os_family == "Debian"
 
 - name: set policy for outgoing traffic
   become: yes
@@ -17,14 +18,13 @@
     direction: incoming
     policy: deny
 
-- name: add firewall rules
+- name: allow incoming SSH
   become: yes
   ufw:
-    rule: "{{ item.rule }}"
-    port: "{{ item.port }}"
-  with_items: "{{ firewall_rules }}"
+    rule: allow
+    port: "22"
 
-- name: enable firewall
+- name: enable UFW
   become: yes
   ufw:
     state: enabled
