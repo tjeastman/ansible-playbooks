@@ -4,7 +4,7 @@
   get_url:
     url: https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz
     checksum: sha256:7b261ffe4dea65a82a670afdd37c0e18a9e474154f17fbd480e90ddfd77ba3ea
-    dest: /opt/
+    dest: /opt/arduino-1.8.8-linux64.tar.xz
   when: ansible_architecture == "x86_64" and ansible_system == "Linux"
 
 - name: unpack Arduino IDE package
