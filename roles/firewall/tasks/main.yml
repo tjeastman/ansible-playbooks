@@ -21,8 +21,8 @@
 - name: allow incoming SSH
   become: yes
   ufw:
+    name: OpenSSH
     rule: allow
-    port: "22"
 
 - name: enable UFW
   become: yes
