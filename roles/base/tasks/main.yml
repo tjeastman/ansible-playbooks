@@ -86,6 +86,8 @@
   apt:
     name:
       - clang
+      - clang-format
+      - clangd
       - clojure
       - cmake
       - g++
