@@ -25,6 +25,7 @@
       - hwinfo
       - iperf3
       - iptables
+      - keychain
       - minicom
       - mysql-client
       - neofetch
