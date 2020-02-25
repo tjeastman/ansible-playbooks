@@ -59,16 +59,16 @@
   become: yes
   yum:
     name:
-    - bash-completion
-    - bash-completion-extras
-    - emacs
-    - git
-    - iperf3
-    - rsync
-    - screen
-    - telnet
-    - unzip
-    - wget
+      - bash-completion
+      - bash-completion-extras
+      - emacs
+      - git
+      - iperf3
+      - rsync
+      - screen
+      - telnet
+      - unzip
+      - wget
     state: present
   when: ansible_os_family == "RedHat"
 
