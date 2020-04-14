@@ -15,6 +15,7 @@
       - dos2unix
       - emacs-bin-common
       - emacs-common
+      - emacs-common-non-dfsg
       - emacs-gtk
       - git
       - git-man
