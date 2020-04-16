@@ -29,8 +29,8 @@
   become: yes
   apt:
     name:
-      - dotnet-sdk-2.2
-      - dotnet-runtime-2.2
+      - dotnet-sdk-3.1
+      - dotnet-runtime-3.1
     update_cache: no
     state: present
   when: ansible_os_family == "Debian"
