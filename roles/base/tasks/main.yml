@@ -22,6 +22,7 @@
       - glances
       - gnupg2
       - hardinfo
+      - highlight
       - htop
       - hwinfo
       - iperf3
