@@ -3,7 +3,6 @@
   roles:
     - arduino
     - base
-    - bazel
     - docker
     - dotnet
     - firewall
