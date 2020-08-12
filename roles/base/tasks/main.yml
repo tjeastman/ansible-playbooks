@@ -18,6 +18,7 @@
       - emacs-common
       - emacs-common-non-dfsg
       - emacs-gtk
+      - gawk
       - git
       - git-man
       - glances
