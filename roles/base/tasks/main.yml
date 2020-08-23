@@ -27,6 +27,8 @@
       - highlight
       - htop
       - hwinfo
+      - imagemagick
+      - imagemagick-doc
       - iperf3
       - iptables
       - keychain
