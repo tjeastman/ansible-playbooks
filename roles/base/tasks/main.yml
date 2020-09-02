@@ -99,6 +99,7 @@
       - g++
       - gcc
       - golang
+      - leiningen
       - make
       - nim
     state: present
