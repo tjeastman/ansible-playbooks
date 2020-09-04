@@ -11,6 +11,7 @@
       - coreutils
       - cryptsetup
       - curl
+      - default-mysql-client
       - direnv
       - dmidecode
       - dos2unix
@@ -33,7 +34,6 @@
       - iptables
       - keychain
       - minicom
-      - mysql-client
       - neofetch
       - nmap
       - openconnect
