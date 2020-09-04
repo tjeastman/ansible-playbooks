@@ -6,7 +6,9 @@
     checksum: sha512:865a442ac7c2406794d93669afbff6b54a598c22bc9b6e39e5257ad8305a56cca5537aa4b19048a087688d8bf2f1fb046577f5565f66c471cbe14dd399004eb3
     dest: /opt/arduino-1.8.13-linux64.tar.xz
     mode: 0644
-  when: ansible_architecture == "x86_64" and ansible_system == "Linux"
+  when:
+    - ansible_architecture == "x86_64"
+    - ansible_system == "Linux"
 
 - name: unpack Arduino IDE package
   become: yes
@@ -14,7 +16,9 @@
     src: /opt/arduino-1.8.13-linux64.tar.xz
     dest: /opt/
     creates: /opt/arduino-1.8.13/
-  when: ansible_architecture == "x86_64" and ansible_system == "Linux"
+  when:
+    - ansible_architecture == "x86_64"
+    - ansible_system == "Linux"
 
 - name: install Arduino-related packages
   become: yes
