@@ -17,15 +17,28 @@
   when: ansible_distribution == "Ubuntu"
   register: docker_package_key
 
-- name: add Debian Docker package repository
+- name: add Debian Docker package repository (x86)
   become: yes
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/debian buster stable
     state: present
     filename: docker
+    mode: 0644
   when:
     - ansible_distribution == "Debian"
     - ansible_architecture == "x86_64"
+  register: docker_package_repository
+
+- name: add Debian Docker package repository (ARM)
+  become: yes
+  apt_repository:
+    repo: deb [arch=armhf] https://download.docker.com/linux/debian buster stable
+    state: present
+    filename: docker
+    mode: 0644
+  when:
+    - ansible_distribution == "Debian"
+    - ansible_architecture == "armv7l"
   register: docker_package_repository
 
 - name: add Ubuntu Docker package repository
@@ -34,6 +47,7 @@
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
     state: present
     filename: docker
+    mode: 0644
   when:
     - ansible_distribution == "Ubuntu"
     - ansible_architecture == "x86_64"
