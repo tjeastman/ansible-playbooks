@@ -1,6 +1,0 @@
----
-dependencies:
-  - role: firewall
-    firewall_rules:
-      - rule: allow
-        port: "{{ grafana_http_port }}"

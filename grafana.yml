@@ -1,5 +1,0 @@
----
-- hosts: grafana-servers
-  become: yes
-  roles:
-    - grafana
