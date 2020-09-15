@@ -3,10 +3,12 @@
   become: yes
   apt:
     name:
+      - texlive-extra-utils
       - texlive-latex-base
       - texlive-latex-base-doc
+      - texlive-latex-extra
+      - texlive-latex-extra-doc
       - texlive-latex-recommended
       - texlive-latex-recommended-doc
-      - texlive-extra-utils
     state: present
   when: ansible_os_family == "Debian"
