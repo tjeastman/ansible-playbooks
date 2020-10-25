@@ -5,6 +5,7 @@
     name:
       - clang
       - clang-format
+      - clang-tidy
       - clangd
       - clojure
       - cmake
