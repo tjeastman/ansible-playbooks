@@ -11,6 +11,7 @@
     - google-cloud-sdk
     - java
     - octave
+    - platformio
     - python
     - ripgrep
     - tex
