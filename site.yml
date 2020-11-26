@@ -18,6 +18,7 @@
 - hosts: desktop
   roles:
     - feedreader
+    - firefox
     - fritzing
     - gnucash
     - google-chrome
