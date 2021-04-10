@@ -1,0 +1,10 @@
+---
+- name: install CUDA
+  become: yes
+  apt:
+    name:
+      - nvidia-cuda-toolkit
+      - nvidia-driver-460
+      - nvidia-utils-460
+    state: present
+  when: ansible_os_family == "Debian"
