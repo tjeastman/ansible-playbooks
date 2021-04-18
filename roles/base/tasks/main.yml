@@ -35,6 +35,7 @@
       - keychain
       - minicom
       - neofetch
+      - net-tools
       - nmap
       - openconnect
       - openssh-client
