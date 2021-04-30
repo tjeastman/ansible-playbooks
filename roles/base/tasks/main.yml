@@ -34,6 +34,7 @@
       - iptables
       - keychain
       - minicom
+      - ncal
       - neofetch
       - net-tools
       - nmap
