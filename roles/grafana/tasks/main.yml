@@ -1,0 +1,34 @@
+---
+- name: add Grafana package signing key
+  become: yes
+  apt_key:
+    url: https://packages.grafana.com/gpg.key
+    id: 4E40DDF6D76E284A4A6780E48C8C34C524098CB6
+    state: present
+  when: ansible_os_family == "Debian"
+  register: grafana_package_key
+
+- name: add Grafana package repository
+  become: Yes
+  apt_repository:
+    repo: deb https://packages.grafana.com/oss/deb stable main
+    state: present
+    filename: grafana
+  when: ansible_os_family == "Debian"
+  register: grafana_package_repository
+
+- name: update APT cache
+  become: yes
+  apt:
+    update_cache: yes
+  when:
+    - ansible_os_family == "Debian"
+    - grafana_package_repository.changed or grafana_package_key.changed
+
+- name: install Grafana
+  become: yes
+  apt:
+    name: grafana
+    update_cache: no
+    state: present
+  when: ansible_os_family == "Debian"
