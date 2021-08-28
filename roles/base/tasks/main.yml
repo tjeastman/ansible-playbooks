@@ -51,6 +51,7 @@
       - strace
       - sysstat
       - telnet
+      - thefuck
       - tree
       - unzip
       - uuid-runtime
