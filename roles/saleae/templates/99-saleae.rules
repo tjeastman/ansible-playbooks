@@ -1,4 +1,0 @@
-# {{ ansible_managed }}
-
-# Saleae Logic Analyzer
-SUBSYSTEM=="usb", ATTR{idVendor}=="{{ saleae_logic_vendor_id }}", ATTR{idProduct}=="{{ saleae_logic_product_id }}", GROUP="{{ saleae_logic_group }}", MODE="{{ saleae_logic_mode }}"
