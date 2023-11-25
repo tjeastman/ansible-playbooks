@@ -43,6 +43,7 @@
       - powertop
       - redis-tools
       - rfkill
+      - ripgrep
       - rsync
       - screen
       - sox
