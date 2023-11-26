@@ -1,5 +1,15 @@
 ---
-- name: install dnsmasq configuration file
-  template: src=dnsmasq.conf dest=/etc
-  notify:
-    - restart dnsmasq
+- name: install dnsmasq
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - dnsmasq
+      - dnsmasq-base
+    state: present
+
+- name: copy dnsmasq configuration file
+  become: yes
+  ansible.builtin.template:
+    src: local.conf
+    dest: /etc/dnsmasq.d/
+  notify: restart dnsmasq
