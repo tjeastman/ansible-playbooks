@@ -1,5 +1,0 @@
----
-- name: install OneWire
-  apt:
-    name: libow-dev
-    state: present
