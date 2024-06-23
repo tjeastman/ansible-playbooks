@@ -1,7 +1,7 @@
 ---
 - name: install Python packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - pipx
       - python-dev-is-python3
@@ -12,15 +12,15 @@
       - python3-pip
       - python3-venv
     state: present
-  when: ansible_os_family == "Debian"
 
 - name: install Python build packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - libbz2-dev
       - liblzma-dev
       - libsqlite3-dev
       - libssl-dev
+      - libreadline-dev
+      - zlib1g-dev
     state: present
-  when: ansible_os_family == "Debian"
