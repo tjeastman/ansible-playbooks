@@ -1,0 +1,20 @@
+---
+- name: install OpenSSH server package
+  become: yes
+  ansible.builtin.apt:
+    name: openssh-server
+    state: present
+
+- name: copy passwords.conf
+  become: yes
+  ansible.builtin.copy:
+    src: passwords.conf
+    dest: /etc/ssh/sshd_config.d/
+  notify: restart sshd
+
+- name: copy root.conf
+  become: yes
+  ansible.builtin.copy:
+    src: root.conf
+    dest: /etc/ssh/sshd_config.d/
+  notify: restart sshd
