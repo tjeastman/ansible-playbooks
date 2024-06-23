@@ -1,0 +1,13 @@
+---
+- name: install KiCad packages
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - kicad
+      - kicad-doc-en
+      - kicad-footprints
+      - kicad-libraries
+      - kicad-packages3d
+      - kicad-symbols
+      - kicad-templates
+    state: present
