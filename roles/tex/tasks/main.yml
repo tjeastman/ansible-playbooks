@@ -1,9 +1,10 @@
 ---
 - name: install TeX packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - texlive-extra-utils
+      - texlive-fonts-extra
       - texlive-latex-base
       - texlive-latex-base-doc
       - texlive-latex-extra
@@ -11,4 +12,3 @@
       - texlive-latex-recommended
       - texlive-latex-recommended-doc
     state: present
-  when: ansible_os_family == "Debian"
