@@ -1,0 +1,14 @@
+---
+- name: install Python build packages
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - libbz2-dev
+      - libffi-dev
+      - liblzma-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - tk-dev
+      - zlib1g-dev
+    state: present
