@@ -1,0 +1,9 @@
+---
+- name: install zsh packages
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - zsh
+      - zsh-common
+      - zsh-doc
+    state: present

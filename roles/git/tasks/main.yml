@@ -1,0 +1,9 @@
+---
+- name: install git packages
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - git
+      - git-doc
+      - git-man
+    state: present
