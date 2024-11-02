@@ -1,10 +1,9 @@
 ---
-- name: install QEMU
+- name: install QEMU packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - qemu-system-data
       - qemu-system-x86
       - qemu-utils
     state: present
-  when: ansible_os_family == "Debian"

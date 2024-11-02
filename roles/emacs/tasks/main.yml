@@ -1,7 +1,7 @@
 ---
 - name: install Emacs build packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - libgtk-3-dev
       - libXpm
@@ -11,4 +11,3 @@
       - libgnutls28-dev
       - libxml2-dev
     state: present
-  when: ansible_os_family == "Debian"

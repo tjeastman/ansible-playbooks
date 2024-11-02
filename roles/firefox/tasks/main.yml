@@ -1,8 +1,6 @@
 ---
 - name: install Firefox
   become: yes
-  apt:
+  ansible.builtin.apt:
     name: firefox
-    update_cache: no
     state: present
-  when: ansible_os_family == "Debian"

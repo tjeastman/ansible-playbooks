@@ -1,9 +1,8 @@
 ---
-- name: install gnucash
+- name: install gnucash packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - gnucash
       - gnucash-docs
     state: present
-  when: ansible_os_family == "Debian"
