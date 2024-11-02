@@ -1,9 +1,8 @@
 ---
-- name: install VirtualBox
+- name: install VirtualBox packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - virtualbox
       - virtualbox-dkms
     state: present
-  when: ansible_os_family == "Debian"

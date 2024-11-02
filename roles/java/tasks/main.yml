@@ -1,11 +1,10 @@
 ---
 - name: install Java packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - openjdk-8-jre
       - openjdk-8-jdk
       - openjdk-8-doc
       - gradle
     state: present
-  when: ansible_os_family == "Debian"

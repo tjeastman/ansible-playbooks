@@ -1,5 +1,5 @@
 ---
-- name: install dnsmasq
+- name: install dnsmasq packages
   become: yes
   ansible.builtin.apt:
     name:

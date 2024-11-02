@@ -1,7 +1,7 @@
 ---
-- name: install GNU Octave
+- name: install GNU Octave packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - octave
       - octave-doc
@@ -9,4 +9,3 @@
       - octave-statistics
       - liboctave-dev
     state: present
-  when: ansible_os_family == "Debian"

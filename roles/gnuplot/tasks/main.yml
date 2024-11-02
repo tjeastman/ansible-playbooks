@@ -1,11 +1,10 @@
 ---
-- name: install gnuplot
+- name: install gnuplot packages
   become: yes
-  apt:
+  ansible.builtin.apt:
     name:
       - gnuplot
       - gnuplot-doc
       - gnuplot-x11
       - gnuplot-data
     state: present
-  when: ansible_os_family == "Debian"
