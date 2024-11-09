@@ -1,0 +1,6 @@
+---
+- name: install GnuPG package
+  become: yes
+  ansible.builtin.apt:
+    name: gpg
+    state: present
