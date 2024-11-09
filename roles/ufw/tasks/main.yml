@@ -1,0 +1,6 @@
+---
+- name: install UFW
+  become: yes
+  ansible.builtin.apt:
+    name: ufw
+    state: present
