@@ -1,0 +1,13 @@
+---
+- name: install dhcp-helper package
+  become: yes
+  ansible.builtin.apt:
+    name: dhcp-helper
+    state: present
+
+- name: copy dhcp-helper configuration file
+  become: yes
+  ansible.builtin.template:
+    src: dhcp-helper
+    dest: /etc/default/
+  notify: restart dhcp-helper
