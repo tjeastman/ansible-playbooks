@@ -1,34 +1,31 @@
 ---
 - name: add Spotify package signing key
   become: yes
-  apt_key:
-    url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-    id: 8FD3D9A8D3800305A9FFF259D1742AD60D811D58
+  ansible.builtin.apt_key:
+    url: https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg
+    id: 63CBEEC9006602088F9B19326224F9941A8AA6D1
+    keyring: /etc/apt/trusted.gpg.d/spotify.gpg
     state: present
-  when: ansible_os_family == "Debian"
   register: spotify_package_key
 
 - name: add Spotify package repository
   become: yes
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: deb http://repository.spotify.com stable non-free
     state: present
     filename: spotify
-  when: ansible_os_family == "Debian"
   register: spotify_package_repository
 
 - name: update APT cache
   become: yes
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
   when:
-    - ansible_os_family == "Debian"
     - spotify_package_repository.changed or spotify_package_key.changed
 
 - name: install Spotify
   become: yes
-  apt:
+  ansible.builtin.apt:
     name: spotify-client
     update_cache: no
     state: present
-  when: ansible_os_family == "Debian"
