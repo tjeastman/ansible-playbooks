@@ -1,6 +1,6 @@
 ---
 - name: restart udev
   become: yes
-  service:
+  ansible.builtin.service:
     name: udev
     state: restarted

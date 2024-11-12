@@ -1,43 +1,8 @@
 ---
 - name: install Saleae udev rules file
   become: yes
-  copy:
+  ansible.builtin.copy:
     src: 99-saleae.rules
     dest: /etc/udev/rules.d/
   notify:
     - restart udev
-
-- name: download Saleae Logic
-  become: yes
-  get_url:
-    url: "{{ saleae_logic_download_prefix }}{{ saleae_logic_download_file | urlencode }}"
-    dest: "/opt/{{ saleae_logic_download_file }}"
-    checksum: "{{ saleae_logic_checksum }}"
-
-- name: install Saleae Logic
-  become: yes
-  unarchive:
-    remote_src: yes
-    src: "/opt/{{ saleae_logic_download_file }}"
-    dest: /opt/
-    owner: root
-    group: dialout  # Saleae Logic writes state within the install directory
-
-- name: create link to Saleae Logic install directory
-  become: yes
-  file:
-    src: "/opt/{{ saleae_logic_install_directory }}"
-    dest: /opt/logic
-    state: link
-
-- name: copy Saleae Logic application icon
-  become: yes
-  copy:
-    src: Logic.png
-    dest: /opt/logic/
-
-- name: register Saleae Logic with the desktop
-  become: yes
-  copy:
-    src: saleae-logic-analyzer.desktop
-    dest: /usr/share/applications/

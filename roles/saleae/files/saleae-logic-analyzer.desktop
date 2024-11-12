@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Saleae Logic
-Exec=/opt/logic/Logic
-Icon=/opt/logic/Logic.png
-Type=Application
-Categories=Electronics;
-Encoding=UTF-8
-Terminal=false
-Comment=Saleae logic analyzer
