@@ -1,0 +1,16 @@
+---
+- name: install unattended-upgrades package
+  become: yes
+  ansible.builtin.apt:
+    name: unattended-upgrades
+    state: present
+
+- name: copy unattended-upgrades configuration file
+  become: yes
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /etc/apt/apt.conf.d/
+  with_items:
+    - 52unattended-upgrades-local
+    - 20auto-upgrades
+  notify: restart unattended-upgrades
