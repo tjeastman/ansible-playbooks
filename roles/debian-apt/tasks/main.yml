@@ -1,0 +1,14 @@
+---
+- name: copy APT configuration file
+  become: yes
+  ansible.builtin.template:
+    src: apt/sources.list
+    dest: /etc/apt/
+  register: apt_sources
+
+- name: update APT cache
+  become: yes
+  ansible.builtin.apt:
+    update_cache: yes
+  when:
+    - apt_sources.changed
