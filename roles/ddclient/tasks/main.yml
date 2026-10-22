@@ -1,0 +1,16 @@
+---
+- name: install ddclient
+  become: yes
+  ansible.builtin.apt:
+    name: ddclient
+    state: present
+
+- name: render ddclient.conf
+  become: yes
+  ansible.builtin.template:
+    src: ddclient.conf
+    dest: /etc/ddclient.conf
+    owner: root
+    group: root
+    mode: '0600'
+  notify: restart ddclient
