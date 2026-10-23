@@ -1,3 +1,5 @@
+{{ ansible_managed | comment }}
+
 # Sample config for Prometheus.
 
 global:
@@ -41,4 +43,7 @@ scrape_configs:
     # If prometheus-node-exporter is installed, grab stats about the local
     # machine by default.
     static_configs:
-      - targets: ['localhost:9100']
+      - targets:
+{% for target in prometheus_targets %}
+          - {{ target.host }}:{{ target.port }}
+{% endfor %}
