@@ -1,0 +1,7 @@
+---
+- name: install Mosquitto message broker package
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - mosquitto
+    state: present
