@@ -1,0 +1,6 @@
+---
+- name: install tftpd-hpa TFTP server package
+  become: yes
+  ansible.builtin.apt:
+    name: tftpd-hpa
+    state: present
