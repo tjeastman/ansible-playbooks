@@ -1,0 +1,17 @@
+---
+- name: install Prometheus server package
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - prometheus
+    state: present
+
+- name: render prometheus.yml
+  become: yes
+  ansible.builtin.template:
+    src: prometheus.yml
+    dest: /etc/prometheus/prometheus.yml
+    owner: root
+    group: prometheus
+    mode: '0640'
+  notify: restart prometheus
