@@ -1,0 +1,64 @@
+---
+- name: install OpenTofu package signing key
+  become: yes
+  notify: update APT cache
+  ansible.builtin.get_url:
+    url: https://get.opentofu.org/opentofu.gpg
+    dest: /etc/apt/keyrings/opentofu.gpg
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: check for OpenTofu package repo signing key
+  ansible.builtin.stat:
+    path: /etc/apt/keyrings/opentofu-repo.gpg
+  register: opentofu_package_repo_signing_key
+
+- name: install OpenTofu package repo signing key
+  become: yes
+  when: not opentofu_package_repo_signing_key.stat.exists
+  notify: update APT cache
+  block:
+    - name: download OpenTofu ASCII-armored package repo signing key
+      ansible.builtin.get_url:
+        url: https://packages.opentofu.org/opentofu/tofu/gpgkey
+        dest: /tmp/opentofu-package-repo-signing-key.asc
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: create OpenTofu package repo signing key
+      ansible.builtin.command:
+        cmd: gpg --dearmor --yes --output /etc/apt/keyrings/opentofu-repo.gpg /tmp/opentofu-package-repo-signing-key.asc
+        creates: /etc/apt/keyrings/opentofu-repo.gpg
+
+    - name: set permissions of OpenTofu package repo signing key
+      ansible.builtin.file:
+        path: /etc/apt/keyrings/opentofu-repo.gpg
+        owner: root
+        group: root
+        mode: '0644'
+
+- name: add OpenTofu package repository
+  become: yes
+  notify: update APT cache
+  ansible.builtin.deb822_repository:
+    name: opentofu
+    types: [deb]
+    uris:
+      - https://packages.opentofu.org/opentofu/tofu/any/
+    suites:
+      - any
+    components:
+      - main
+    signed_by: /etc/apt/keyrings/opentofu.gpg,/etc/apt/keyrings/opentofu-repo.gpg
+    state: present
+
+- name: execute pending handlers
+  ansible.builtin.meta: flush_handlers
+
+- name: install OpenTofu
+  become: yes
+  ansible.builtin.apt:
+    name: tofu
+    state: present
