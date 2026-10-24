@@ -1,0 +1,23 @@
+---
+- name: install WireGuard
+  become: yes
+  ansible.builtin.apt:
+    name: wireguard
+    state: present
+
+- name: render WireGuard configuration
+  become: yes
+  ansible.builtin.template:
+    src: wg.conf
+    dest: "/etc/wireguard/{{ wireguard_interface }}.conf"
+    owner: root
+    group: root
+    mode: '0600'
+  notify: restart WireGuard
+
+- name: enable and start WireGuard interface
+  become: yes
+  ansible.builtin.systemd_service:
+    name: "wg-quick@{{ wireguard_interface }}"
+    enabled: true
+    state: started
