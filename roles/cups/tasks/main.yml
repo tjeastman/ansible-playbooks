@@ -1,0 +1,6 @@
+---
+- name: install CUPS package
+  become: yes
+  ansible.builtin.apt:
+    name: cups
+    state: present
