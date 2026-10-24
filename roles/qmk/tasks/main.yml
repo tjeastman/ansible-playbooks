@@ -1,0 +1,9 @@
+---
+- name: install QMK firmware dependency packages
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - dfu-programmer
+      - dfu-util
+      - gcc-arm-none-eabi
+    state: present
