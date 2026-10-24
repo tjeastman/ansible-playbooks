@@ -1,0 +1,6 @@
+---
+- name: install apt-cacher-ng package
+  become: yes
+  ansible.builtin.apt:
+    name: apt-cacher-ng
+    state: present
