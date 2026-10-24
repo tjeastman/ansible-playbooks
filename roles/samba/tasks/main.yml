@@ -1,0 +1,10 @@
+---
+- name: install Samba
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - samba
+      - samba-common
+      - samba-common-bin
+      - samba-libs
+    state: present
