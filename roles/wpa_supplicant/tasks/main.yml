@@ -1,0 +1,23 @@
+---
+- name: install wpa_supplicant package
+  become: yes
+  ansible.builtin.apt:
+    name: wpasupplicant
+    state: present
+
+- name: render wpa_supplicant configuration file
+  become: yes
+  ansible.builtin.template:
+    src: wpa_supplicant.conf
+    dest: "/etc/wpa_supplicant/wpa_supplicant-{{ wpa_supplicant_interface }}.conf"
+    owner: root
+    group: root
+    mode: '0600'
+  notify: restart wpa_supplicant
+
+- name: enable and start wpa_supplicant interface
+  become: yes
+  ansible.builtin.systemd_service:
+    name: "wpa_supplicant@{{ wpa_supplicant_interface }}"
+    enabled: true
+    state: started
