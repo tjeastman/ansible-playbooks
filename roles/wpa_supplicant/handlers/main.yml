@@ -1,6 +1,0 @@
----
-- name: restart wpa_supplicant
-  become: yes
-  ansible.builtin.service:
-    name: "wpa_supplicant@{{ wpa_supplicant_interface }}"
-    state: restarted

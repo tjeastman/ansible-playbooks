@@ -13,11 +13,3 @@
     owner: root
     group: root
     mode: '0600'
-  notify: restart wpa_supplicant
-
-- name: enable and start wpa_supplicant interface
-  become: yes
-  ansible.builtin.systemd_service:
-    name: "wpa_supplicant@{{ wpa_supplicant_interface }}"
-    enabled: true
-    state: started
