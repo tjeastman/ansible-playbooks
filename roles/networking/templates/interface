@@ -1,0 +1,7 @@
+{{ ansible_managed | comment }}
+
+allow-hotplug {{ networking_interface }}
+iface {{ networking_interface }} inet dhcp
+{% for setting in networking_interface_settings %}
+    {{ setting.key }} {{ setting.value }}
+{% endfor %}

@@ -1,0 +1,7 @@
+---
+- name: render network interface configuration file
+  become: yes
+  ansible.builtin.template:
+    src: interface
+    dest: "/etc/network/interfaces.d/{{ networking_interface }}"
+  notify: restart networking
