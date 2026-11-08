@@ -7,7 +7,7 @@
       - dnsmasq-base
     state: present
 
-- name: copy dnsmasq configuration file
+- name: render dnsmasq configuration file
   become: yes
   ansible.builtin.template:
     src: local.conf
