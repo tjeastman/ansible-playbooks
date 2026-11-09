@@ -1,0 +1,26 @@
+---
+- name: render nginx site
+  become: yes
+  ansible.builtin.template:
+    src: site
+    dest: "/etc/nginx/sites-available/{{ item.nginx_site_file }}"
+    owner: root
+    group: root
+    mode: '0644'
+  vars:
+    nginx_ssl_certificate: "{{ item.nginx_ssl_certificate }}"
+    nginx_ssl_certificate_key: "{{ item.nginx_ssl_certificate_key }}"
+    nginx_server_name: "{{ item.nginx_server_name }}"
+    nginx_proxy_pass_host: "{{ item.nginx_proxy_pass_host }}"
+    nginx_proxy_pass_port: "{{ item.nginx_proxy_pass_port }}"
+  loop: "{{ nginx_sites }}"
+  notify: restart nginx
+
+- name: enable nginx site
+  become: yes
+  ansible.builtin.file:
+    src: "/etc/nginx/sites-available/{{ item.nginx_site_file }}"
+    dest: "/etc/nginx/sites-enabled/{{ item.nginx_site_file }}"
+    state: link
+  loop: "{{ nginx_sites }}"
+  notify: restart nginx

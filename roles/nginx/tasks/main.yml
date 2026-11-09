@@ -1,0 +1,8 @@
+---
+- name: install nginx
+  become: yes
+  ansible.builtin.apt:
+    name:
+      - nginx
+      - nginx-common
+    state: present
